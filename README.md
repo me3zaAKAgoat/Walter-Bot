@@ -11,8 +11,8 @@ The bot offers multiple services such as:
 - Play music.
 - Show a meme for every distinct member.
 - Timeout the user _"Permaban"_ whenever they type in _#General_.
-- Welcome and farewell messages
-- Reaction Roles
+- Welcome and farewell messages.
+- Reaction Roles.
 - Anime notifications from twitter accounts such as: [animetv_jp](https://twitter.com/animetv_jp), [shonenleaks](https://twitter.com/shonenleaks), [mashleaks](https://twitter.com/mashleaks).
 
 # Lingo Dictionary Contains
