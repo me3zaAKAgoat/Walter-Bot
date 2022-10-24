@@ -1,8 +1,8 @@
-<h1 align="center"><strong>Akatsuki's Members Own Bot</h1>
+<h1 align="center"><strong>Akatsuki's Members Own Bot</strong></h1>
 
 This bot was created by me3za and is meant to serve some of the casual needs of the akatsuki server members. it is also worth noting that this bot is an expiremental/for-fun bot.
 
-# Services Provided
+## **Services Provided**
 
 The bot offers multiple services such as:
 
@@ -12,9 +12,10 @@ The bot offers multiple services such as:
 - Show a meme for every distinct member.
 - Timeout the user _"Permaban"_ whenever they type in _#General_.
 - Welcome and farewell messages
-- Reaction Roles
+- Member management and server administartion services (Reaction Roles, Add emote command)
 - Anime notifications from twitter accounts such as: [animetv_jp](https://twitter.com/animetv_jp), [shonenleaks](https://twitter.com/shonenleaks), [mashleaks](https://twitter.com/mashleaks).
+- Get the results of pro games of the day with **LCS LEC WORLDS**.
 
-# Lingo Dictionary Contains
+## **Lingo Dictionary Contains**
 
-lbech9oli, lme7ni, 3wdan, syntax, zoro, me3za, noturbaby, lbeydox-lbeyda, stain.
+lbech9oli, lme7ni, 3wdan, syntax, zoro, me3za, lbeydox/lbeyda, stain.
