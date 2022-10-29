@@ -22,4 +22,4 @@ The bot offers multiple services such as:
 
 ## **Lingo Dictionary Contains**
 
-lbech9oli, lme7ni, 3wdan, syntax, zoro, me3za, lbeydox/lbeyda, stain.
+lbech9oli, tebgoli, lme7ni, 3wdan, syntax, ne3ja, me3za, lbeydox/lbeyda, hatim, stain.
