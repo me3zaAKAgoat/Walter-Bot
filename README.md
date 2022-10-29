@@ -20,7 +20,7 @@ The bot offers multiple services such as:
 - Anime notifications from twitter accounts such as: [animetv_jp](https://twitter.com/animetv_jp), [shonenleaks](https://twitter.com/shonenleaks), [mashleaks](https://twitter.com/mashleaks).
 - Get the results of pro games of the day with **LCS LEC WORLDS**.
 
-## **Lingo Dictionary Contains**
+## **Lingo Dictionary**
 
 |Word|Description|
 |---|---|
