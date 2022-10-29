@@ -22,7 +22,6 @@ The bot offers multiple services such as:
 
 ## **Lingo Dictionary Contains**
 
-lbech9oli, tebgoli, lme7ni, 3wdan, ne3ja, me3za, lbeydox/lbeyda, hatim, stain.
 |Word|Description|
 |---|---|
 |me3za|my creator 🥺|
