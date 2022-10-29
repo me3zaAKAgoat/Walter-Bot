@@ -14,7 +14,8 @@ The bot offers multiple services such as:
 - Welcome and farewell messages
 - Member management and server administartion services.
   - Give all members an explicit member role.
-  - Reaction Roles
+  - Reaction Roles.
+  - Ask new members for an introduction.
   - Add emote command.
 - Anime notifications from twitter accounts such as: [animetv_jp](https://twitter.com/animetv_jp), [shonenleaks](https://twitter.com/shonenleaks), [mashleaks](https://twitter.com/mashleaks).
 - Get the results of pro games of the day with **LCS LEC WORLDS**.
