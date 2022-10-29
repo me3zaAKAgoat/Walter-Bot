@@ -22,4 +22,12 @@ The bot offers multiple services such as:
 
 ## **Lingo Dictionary Contains**
 
-lbech9oli, tebgoli, lme7ni, 3wdan, syntax, ne3ja, me3za, lbeydox/lbeyda, hatim, stain.
+lbech9oli, tebgoli, lme7ni, 3wdan, ne3ja, me3za, lbeydox/lbeyda, hatim, stain.
+|Word|Description|
+|---|---|
+|me3za|my creator 🥺|
+|ne3ja|an alias of the server member zoro|
+|3wdan|softer version of donkey|
+|hatim|?|
+|stain|long forgotten dicatator of a server that hosted this same friend group|
+|\*oli/lme7ni|dakchi li kidar f lil|
