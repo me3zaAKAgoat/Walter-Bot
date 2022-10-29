@@ -12,7 +12,10 @@ The bot offers multiple services such as:
 - Show a meme for every distinct member.
 - Timeout the user _"Permaban"_ whenever they type in _#General_.
 - Welcome and farewell messages
-- Member management and server administartion services (Reaction Roles, Add emote command)
+- Member management and server administartion services.
+  - Give all members an explicit member role.
+  - Reaction Roles
+  - Add emote command.
 - Anime notifications from twitter accounts such as: [animetv_jp](https://twitter.com/animetv_jp), [shonenleaks](https://twitter.com/shonenleaks), [mashleaks](https://twitter.com/mashleaks).
 - Get the results of pro games of the day with **LCS LEC WORLDS**.
 
