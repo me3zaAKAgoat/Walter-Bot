@@ -8,6 +8,7 @@ The bot offers multiple services such as:
 
 - Checking the League of legends elo of the specified users.
 - Provide a dictionary for our community's specific lingo.
+- make a polling system.
 - Play music.
 - Show a meme for every distinct member.
 - Timeout the user _"Permaban"_ whenever they type in _#General_.
