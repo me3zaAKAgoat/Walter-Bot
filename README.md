@@ -6,23 +6,26 @@ This bot was created by me3za and is meant to serve some of the casual needs of 
 
 The bot offers multiple services such as:
 
-- Checking the League of legends elo of the specified users.
+- Checking the League of legends/Valorant elo of the specified users.
 - Provide a dictionary for our community's specific lingo.
-- make a polling system.
-- have a system to set each persons color.
+- Make a polling system.
+- Have a system to set each persons individual color.
 - Play music.
 - Show a meme for every distinct member.
-- Timeout the user _"Permaban"_ whenever they type in _#General_.
-- Welcome and farewell messages
+- Welcome and farewell messages and walk new members through getting their roles.
+  - Ask new members for an introduction.
 - Member management and server administartion services.
   - Give all members an explicit member role.
   - Reaction Roles.
-  - Ask new members for an introduction.
   - Add emote command.
-- Anime notifications from twitter accounts such as: [animetv_jp](https://twitter.com/animetv_jp), [shonenleaks](https://twitter.com/shonenleaks), [mashleaks](https://twitter.com/mashleaks).
-- Get the results of pro games of the day with **LCS LEC WORLDS**.
+- Make a news feed channel that has:
+ - Anime notifications from twitter accounts such as: [animetv_jp](https://twitter.com/animetv_jp), [shonenleaks](https://twitter.com/shonenleaks), [mashleaks](https://twitter.com/mashleaks).
+ - VCT/LEC/WORLDS/MSI playoffs announcements.
+- Get the results of pro games **LCS LEC WORLDS** of the day with slash command.
 
 ## **Lingo Dictionary**
+
+Needs to be manually filled later.
 
 |Word|Description|
 |---|---|
