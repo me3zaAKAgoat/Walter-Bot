@@ -22,6 +22,7 @@ The bot offers multiple services such as:
  - Anime notifications from twitter accounts such as: [animetv_jp](https://twitter.com/animetv_jp), [shonenleaks](https://twitter.com/shonenleaks), [mashleaks](https://twitter.com/mashleaks).
  - VCT/LEC/WORLDS/MSI playoffs announcements.
 - Get the results of pro games **LCS LEC WORLDS** of the day with slash command.
+- Have a database of watched movies and their reviews based on server member reaction.
 
 ## **Lingo Dictionary**
 
