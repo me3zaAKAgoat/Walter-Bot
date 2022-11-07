@@ -21,6 +21,8 @@ The bot offers multiple services such as:
 - Make a polling system.
 - Checking the League of legends/Valorant elo of the specified users.
 - Play music.
+- Have a database of watched movies and their reviews based on server member reaction.
+- Do member statistics.
 
 ## **Lingo Dictionary**
 
