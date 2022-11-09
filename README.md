@@ -21,7 +21,7 @@ The bot offers multiple services such as:
 - Have a database of watched movies and their reviews based on server member reaction.
 - Do member statistics.
 - `need twitter api key`
-- - Make a news feed channel that has:
+  - Make a news feed channel that has:
   - Anime notifications from twitter accounts such as: [crunchyroll](https://twitter.com/Crunchyroll).
   - VCT/LEC/WORLDS/MSI playoffs announcements.
   - Get the results of pro games **LCS LEC WORLDS** of the day with slash command.
