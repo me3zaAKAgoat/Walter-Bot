@@ -19,6 +19,6 @@
   "dependencies": {
     "discord.js": "^14.6.0",
     "dotenv": "^16.0.3",
-    "pyke": "^3.1.1"
+    "teemojs": "^1.8.0"
   }
 }
