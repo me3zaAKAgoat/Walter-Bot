@@ -14,7 +14,7 @@ The bot offers multiple services such as:
   - Give all members an explicit member role.
   - Reaction Roles.
 - Make a news feed channel that has:
- - Anime notifications from twitter accounts such as: [animetv_jp](https://twitter.com/animetv_jp), [shonenleaks](https://twitter.com/shonenleaks), [mashleaks](https://twitter.com/mashleaks).
+  - Anime notifications from twitter accounts such as: [animetv_jp](https://twitter.com/animetv_jp), [shonenleaks](https://twitter.com/shonenleaks), [mashleaks](https://twitter.com/mashleaks).
 - Get the results of pro games **LCS LEC WORLDS** of the day with slash command.
 - Have a system to set each persons individual color.
  - VCT/LEC/WORLDS/MSI playoffs announcements.
