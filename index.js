@@ -2,8 +2,15 @@
 require('dotenv').config();
 const fs = require('node:fs');
 const { Client, Collection, GatewayIntentBits } = require('discord.js');
+const mongoose = require('mongoose');
 const token = process.env.DISCORD_TOKEN;
 
+console.log('connecting to MongoDB');
+
+mongoose
+  .connect(process.env.MONGODB_URI)
+  .then(console.log('connected to db'))
+  .catch((error) => console.log('coudlnt connect to db', error));
 // Create a new client instance
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers] });
 
