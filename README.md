@@ -23,3 +23,6 @@ The bot offers multiple services such as:
 		- Anime notifications from twitter accounts such as: [crunchyroll](https://twitter.com/Crunchyroll).
 	- VCT/LEC/WORLDS/MSI playoffs announcements.
 	- Get the results of pro games **LCS LEC WORLDS** of the day with slash command.
+
+
+reaction roles intro : https://stackoverflow.com/questions/68184076/reaction-roles-in-discord-js
