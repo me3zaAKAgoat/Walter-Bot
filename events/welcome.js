@@ -11,7 +11,7 @@ module.exports = {
 	
 		member.roles.add(memberRole);
 
-		welcomeChannel.send(`Hello <@${member.id}>\nWelcome to **${member.guild.name}**\nFeel free to tell us about yourself\nEnjoy your stay 😄`)
+		welcomeChannel.send(`Hello <@${member.id}>,\nWelcome to **${member.guild.name}**,\nFeel free to tell us a bit about yourself,\nAnd enjoy your stay 😄`)
 		} 
 		catch(err) {
 			console.log(err)
