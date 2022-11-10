@@ -13,7 +13,7 @@ module.exports = {
 			)
 	,
 	execute : async (interaction) => {
-		await interaction.deferReply();
+
 		let movieTitle = interaction.options.getString('title').trim().toLowerCase();
         const userRating = interaction.options.getNumber('rating');
 
@@ -25,7 +25,7 @@ module.exports = {
 		movieTitle = movieTitle.join(" ");
 
 		if (movieTitle.length === 0)
-			return interaction.reply({ content : "🚫 Movie title can't be empty", ephemeral : true });
+			return await interaction.reply({ content : "🚫 Movie title can't be empty", ephemeral : true });
 		try {
             const movie = await Movie.findOne({title : movieTitle})
 			
