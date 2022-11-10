@@ -30,8 +30,8 @@ module.exports = {
             const movie = await Movie.findOne({title : movieTitle})
 			
 			console.log(movie);
-			if (!movie)
-				return interaction.reply({ content : "🚫 Movie dosen't exist", ephemeral : true })
+			if (movie === null)
+				return await interaction.reply({ content : "🚫 Movie dosen't exist", ephemeral : true })
 			else 
 			{
                 if (movie.review === null)
