@@ -19,24 +19,29 @@ module.exports = {
 	,
 	execute : async (interaction) => {
 		await interaction.deferReply();
-		const movieTitle = interaction.options.getString('title').trim();
+		let movieTitle = interaction.options.getString('title').trim().toLowerCase();
         const userRating = interaction.options.getNumber('rating');
 
+        // unifying movie name by capitlazing
+		movieTitle = movieTitle.split(" ");
+		for (var i = 0; i < movieTitle.length; i++) {
+			movieTitle[i] = movieTitle[i].charAt(0).toUpperCase() + movieTitle[i].slice(1);
+		}
+		movieTitle = movieTitle.join(" ");
+
 		if (movieTitle.length === 0)
-			return interaction.editReply("Movie title can't be empty");
+			return interaction.editReply("🚫 Movie title can't be empty");
         else if (userRating > 10 || userRating < 0)
-            return interaction.editReply("Rating must be positive and lower than 10");
+            return interaction.editReply("🚫 Rating must be positive and lower than 10");
 		try {
-			const movieExists = await Movie.findOne({title : movieTitle});
+            const movie = await Movie.findOne({title : movieTitle})
 			
-			if (!movieExists)
-				return interaction.editReply("Movie dosen't exist")
+			if (!movie)
+				return interaction.editReply("🚫 Movie dosen't exist")
 			else 
 			{
-                const movie = await Movie.findOne({title : movieTitle})
-
                 if (movie.raters.includes(interaction.user.id, 0))
-                    return await interaction.editReply(`**? can't review same movie twice you disgusting mongrel.**`);
+                    return await interaction.editReply(`🚫 You already rated this movie you ape.`);
 
                 if (movie.review === null)
                     movie.review = userRating;
@@ -45,7 +50,7 @@ module.exports = {
                 movie.raters.push(interaction.user.id);
 
 				await Movie.findOneAndUpdate({_id : movie._id.toString()}, movie);
-				return await interaction.editReply(`Registered ${interaction.user.username}'s Review for **${movieTitle}**`);
+				return await interaction.editReply(`${interaction.user.username} rated **${movieTitle}** : **${userRating}/10**`);
 			}
 		} catch(err)
 		{

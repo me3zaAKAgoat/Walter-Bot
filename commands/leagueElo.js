@@ -46,7 +46,7 @@ module.exports = {
 			.addFields(
 				{ name: 'Flex', value: `${leagueState[1].tier} ${leagueState[1].rank} ${leagueState[1].leaguePoints} LP`, inline: true  },
 			)
-			await interaction.editReply({ embeds: [leagueRankViewEmbed] });
+			await interaction.editReply({ content : `<@${interaction.user.id}>`, embeds: [leagueRankViewEmbed] });
 		} catch(err) {
 			console.log(err);
 			await interaction.editReply('failed');
