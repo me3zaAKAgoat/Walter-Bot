@@ -14,7 +14,6 @@ module.exports = {
 			)
 	,
 	execute : async (interaction) => {
-		await interaction.deferReply()
 		let movieTitle = interaction.options.getString('title').trim().toLowerCase();
 
 		// unifying movie name by capitlazing
@@ -25,12 +24,12 @@ module.exports = {
 		movieTitle = movieTitle.join(" ");
 
 		if (movieTitle.length === 0)
-			return interaction.editReply({ content : "🚫 Movie title can't be empty.", ephemeral : true });
+			return interaction.reply({ content : "🚫 Movie title can't be empty.", ephemeral : true });
 		try {
 			const movieExists = await Movie.findOne({title : movieTitle});
 			
 			if (movieExists)
-				return interaction.editReply({ content : '🚫 Movie already exists.', ephemeral : true })
+				return interaction.reply({ content : '🚫 Movie already exists.', ephemeral : true })
 			else 
 			{
 				const newMovie = new Movie({
@@ -40,12 +39,12 @@ module.exports = {
 				})
 				await newMovie.save();
 
-				return await interaction.editReply(`**${movieTitle}** is now stored.`);
+				return await interaction.reply(`**${movieTitle}** is now stored.`);
 			}
 		} catch(err)
 		{
 			console.log(err)
-			return await interaction.editReply('command failed');
+			return await interaction.reply('command failed');
 		}
 	} 
 }

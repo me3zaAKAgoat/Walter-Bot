@@ -25,23 +25,23 @@ module.exports = {
 		movieTitle = movieTitle.join(" ");
 
 		if (movieTitle.length === 0)
-			return interaction.editReply({ content : "🚫 Movie title can't be empty", ephemeral : true });
+			return interaction.reply({ content : "🚫 Movie title can't be empty", ephemeral : true });
 		try {
             const movie = await Movie.findOne({title : movieTitle})
 			
 			if (!movie)
-				return interaction.editReply({ content : "🚫 Movie dosen't exist", ephemeral : true })
+				return interaction.reply({ content : "🚫 Movie dosen't exist", ephemeral : true })
 			else 
 			{
                 if (movie.review === null)
-                    return await interaction.editReply(`${movieTitle} is still not reviewed.`);
+                    return await interaction.reply(`${movieTitle} is still not reviewed.`);
                 else
-                    return await interaction.editReply(`**${movieTitle}** was rated for **${movie.review.toFixed(1)}/10**.`);
+                    return await interaction.reply(`**${movieTitle}** was rated for **${movie.review.toFixed(1)}/10**.`);
 			}
 		} catch(err)
 		{
 			console.log(err)
-			return await interaction.editReply('command failed');
+			return await interaction.reply('command failed');
 		}
 	} 
 }

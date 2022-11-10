@@ -18,7 +18,6 @@ module.exports = {
 			)
 	,
 	execute : async (interaction) => {
-		await interaction.deferReply();
 		let movieTitle = interaction.options.getString('title').trim().toLowerCase();
         const userRating = interaction.options.getNumber('rating');
 
@@ -30,18 +29,18 @@ module.exports = {
 		movieTitle = movieTitle.join(" ");
 
 		if (movieTitle.length === 0)
-			return interaction.editReply({ content : "🚫 Movie title can't be empty", ephemeral : true });
+			return interaction.reply({ content : "🚫 Movie title can't be empty", ephemeral : true });
         else if (userRating > 10 || userRating < 0)
-            return interaction.editReply({ content : "🚫 Rating must be positive and lower than 10", ephemeral : true });
+            return interaction.reply({ content : "🚫 Rating must be positive and lower than 10", ephemeral : true });
 		try {
             const movie = await Movie.findOne({title : movieTitle})
 			
 			if (!movie)
-				return interaction.editReply({ content : "🚫 Movie dosen't exist", ephemeral : true })
+				return interaction.reply({ content : "🚫 Movie dosen't exist", ephemeral : true })
 			else 
 			{
                 if (movie.raters.includes(interaction.user.id, 0))
-                    return await interaction.editReply({ content : `🚫 You already rated this movie you ape.`, ephemeral : true });
+                    return await interaction.reply({ content : `🚫 You already rated this movie you ape.`, ephemeral : true });
 
                 if (movie.review === null)
                     movie.review = userRating;
@@ -50,12 +49,12 @@ module.exports = {
                 movie.raters.push(interaction.user.id);
 
 				await Movie.findOneAndUpdate({_id : movie._id.toString()}, movie);
-				return await interaction.editReply(`${interaction.user.username} rated **${movieTitle}** : **${userRating}/10**`);
+				return await interaction.reply(`${interaction.user.username} rated **${movieTitle}** : **${userRating}/10**`);
 			}
 		} catch(err)
 		{
 			console.log(err)
-			return await interaction.editReply('command failed');
+			return await interaction.reply('command failed');
 		}
 	} 
 }
