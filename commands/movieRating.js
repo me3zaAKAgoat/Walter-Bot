@@ -29,6 +29,7 @@ module.exports = {
 		try {
             const movie = await Movie.findOne({title : movieTitle})
 			
+			console.log(movie);
 			if (!movie)
 				return interaction.reply({ content : "🚫 Movie dosen't exist", ephemeral : true })
 			else 
