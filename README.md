@@ -51,3 +51,4 @@ module.exports = {
 - gate how many unreviewed movies a user can input
 
 
+reaction roles intro : https://stackoverflow.com/questions/68184076/reaction-roles-in-discord-js
