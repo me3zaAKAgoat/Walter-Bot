@@ -25,12 +25,12 @@ module.exports = {
 		movieTitle = movieTitle.join(" ");
 
 		if (movieTitle.length === 0)
-			return interaction.editReply("🚫 Movie title can't be empty");
+			return interaction.editReply({ content : "🚫 Movie title can't be empty", ephemeral : true });
 		try {
             const movie = await Movie.findOne({title : movieTitle})
 			
 			if (!movie)
-				return interaction.editReply("🚫 Movie dosen't exist")
+				return interaction.editReply({ content : "🚫 Movie dosen't exist", ephemeral : true })
 			else 
 			{
                 if (movie.review === null)

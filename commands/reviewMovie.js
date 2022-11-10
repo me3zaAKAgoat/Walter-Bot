@@ -30,18 +30,18 @@ module.exports = {
 		movieTitle = movieTitle.join(" ");
 
 		if (movieTitle.length === 0)
-			return interaction.editReply("🚫 Movie title can't be empty");
+			return interaction.editReply({ content : "🚫 Movie title can't be empty", ephemeral : true });
         else if (userRating > 10 || userRating < 0)
-            return interaction.editReply("🚫 Rating must be positive and lower than 10");
+            return interaction.editReply({ content : "🚫 Rating must be positive and lower than 10", ephemeral : true });
 		try {
             const movie = await Movie.findOne({title : movieTitle})
 			
 			if (!movie)
-				return interaction.editReply("🚫 Movie dosen't exist")
+				return interaction.editReply({ content : "🚫 Movie dosen't exist", ephemeral : true })
 			else 
 			{
                 if (movie.raters.includes(interaction.user.id, 0))
-                    return await interaction.editReply(`🚫 You already rated this movie you ape.`);
+                    return await interaction.editReply({ content : `🚫 You already rated this movie you ape.`, ephemeral : true });
 
                 if (movie.review === null)
                     movie.review = userRating;

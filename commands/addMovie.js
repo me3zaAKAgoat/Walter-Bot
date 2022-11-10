@@ -25,12 +25,12 @@ module.exports = {
 		movieTitle = movieTitle.join(" ");
 
 		if (movieTitle.length === 0)
-			return interaction.editReply("🚫 Movie title can't be empty.");
+			return interaction.editReply({ content : "🚫 Movie title can't be empty.", ephemeral : true });
 		try {
 			const movieExists = await Movie.findOne({title : movieTitle});
 			
 			if (movieExists)
-				return interaction.editReply('🚫 Movie already exists.')
+				return interaction.editReply({ content : '🚫 Movie already exists.', ephemeral : true })
 			else 
 			{
 				const newMovie = new Movie({

@@ -33,6 +33,7 @@ module.exports = {
 			const summoner = await api.get(regionId, 'summoner.getBySummonerName', summonerName);
 			const leagueState = await api.get(regionId, 'league.getLeagueEntriesForSummoner', summoner.id);
 			
+			console.log(leagueState);
 			const leagueRankViewEmbed = new EmbedBuilder()
 			.setColor(0x0099FF)
 			.setTitle('League Of legends Rank')
