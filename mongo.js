@@ -1,7 +1,7 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
 const Movie = require('./models/movie');
-const LastestScrape = require('./models/lastestScrape')
+const LatestScrape = require('./models/latestScrape')
 
 mongoose
   .connect(process.env.MONGODB_URI)
@@ -14,7 +14,7 @@ mongoose
 
 // add first and only latest scrape document
 // const storeFirstLatestScrape = async () => {
-//   const latestScrape = await new LastestScrape({
+//   const latestScrape = new LatestScrape({
 //     latestScrape : new Date()
 //   })
   
@@ -23,4 +23,6 @@ mongoose
 
 // storeFirstLatestScrape();
 
-// LastestScrape.find({}).then(query => console.log(query)).catch(error => console.log(error))
+LatestScrape.find({}).then(query => console.log(query)).catch(error => console.log(error))
+
+// LatestScrape.deleteMany({}).then((result) => console.log('delete latest document', result));

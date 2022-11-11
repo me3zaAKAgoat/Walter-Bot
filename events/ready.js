@@ -1,8 +1,8 @@
 require('dotenv').config();
 const { TwitterApi } = require('twitter-api-v2');
-const lastestScrape = require('../models/lastestScrape');
-const LastestScrape = require('../models/lastestScrape');
+const LatestScrape = require('../models/latestScrape');
 const cron = require('cron');
+const { findById } = require('../models/movie');
 
 const appOnlyClient = new TwitterApi(process.env.TWT_BEARER_TOKEN);
 
@@ -17,7 +17,7 @@ module.exports = {
 			const newsChannel = client.channels.cache.get(newsChannelId)
 	
 			const keywords = ['BREAKING', 'NEWS', 'ANNOUNCEMENT'];
-			const latestScrapeQuery = await LastestScrape.find({});
+			const latestScrapeQuery = await LatestScrape.find({});
 			const latestScrape = latestScrapeQuery[0].latestScrape;
 	
 			if (!latestScrape || !(latestScrape instanceof Date))
@@ -44,7 +44,6 @@ module.exports = {
 	
 			for (const tweet of tweetsArr)
 			{		
-				console.log(tweet)
 				let found = false;
 				for (const keyword of keywords)
 				{
@@ -60,14 +59,13 @@ module.exports = {
 				}
 			}
 			
-			const updatedLatestScrape = new LatestScrape({
+			await LatestScrape.findByIdAndUpdate(latestScrapeQuery[0]._id.toString(), {
 				latestScrape : new Date()
 			})
-			await updatedLatestScrape.save();
 
 		}
 
-		let scheduledScrape = new cron.CronJob('14 23 * * *', scrapeTwitterNews)
+		let scheduledScrape = new cron.CronJob('33 23 * * *', scrapeTwitterNews)
 
 		scheduledScrape.start();
 	}
