@@ -18,6 +18,7 @@
   "author": "echoukri",
   "license": "ISC",
   "dependencies": {
+    "cron": "^2.1.0",
     "discord.js": "^14.6.0",
     "dotenv": "^16.0.3",
     "mongoose": "^6.7.2",

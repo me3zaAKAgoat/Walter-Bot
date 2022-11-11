@@ -276,6 +276,6 @@ module.exports = {
 			})
 		}
 		else
-			return await interaction.reply({ content : `🚫 this command does 0.`, ephemeral : true });
+			return await interaction.reply({ content : `🚫 this command doesn't exist.`, ephemeral : true });
 	} 
 }
