@@ -67,7 +67,7 @@ module.exports = {
 
 		}
 
-		let scheduledScrape = new cron.CronJob('00 06 * * *', scrapeTwitterNews)
+		let scheduledScrape = new cron.CronJob('14 23 * * *', scrapeTwitterNews)
 
 		scheduledScrape.start();
 	}
