@@ -12,7 +12,7 @@ mongoose
   .then(console.log('connected to db'))
   .catch((error) => console.log('coudlnt connect to db', error));
 // Create a new client instance
-const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers] });
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildMessages] });
 
 const eventsPath = './events';
 const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith('.js'));

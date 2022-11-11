@@ -71,7 +71,6 @@ module.exports = {
 			.addFields(
 				{ name: 'Region', value: regionName, inline: false },
 				{ name: 'Solo/Duo', value: SDtier === 'UNRANKED' ? `UNRANKED` : `${SDtier} ${SDrank} ${SDlp} LP`, inline: true  },
-
 			)
 			.addFields(
 				{ name: 'Flex', value: FLEXtier === 'UNRANKED' ? `UNRANKED` : `${FLEXtier} ${FLEXrank} ${FLEXlp} LP`, inline: true  },

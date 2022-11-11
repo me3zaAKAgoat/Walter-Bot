@@ -3,8 +3,13 @@ const mongoose = require('mongoose');
 const movieSchema = mongoose.Schema({
   title: String,
   review: Number,
-  raters : [{
+  raters : [{ 
+    user: {
     type : String
+    },
+    rating: {
+      type : Number
+    }
   }],
 });
 

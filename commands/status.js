@@ -2,9 +2,9 @@ const { SlashCommandBuilder } = require("discord.js");
 
 module.exports = {
     data : new SlashCommandBuilder()
-    .setName('creator')
-    .setDescription('Names the creator of the bot'),
+    .setName('status')
+    .setDescription('status of the bot'),
     execute : async (interaction) => {
-        return await interaction.reply('The sexy madlad that me3za is 🥺.')
+        return await interaction.reply('☑️ Up and running!')
     }
 }
