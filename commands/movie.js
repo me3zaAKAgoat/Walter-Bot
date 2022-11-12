@@ -249,7 +249,7 @@ module.exports = {
 	
 			const filter = i => i.user.id === interaction.user.id;
 	
-			await interaction.reply({
+			interaction.reply({
 				ephemeral : false,
 				embeds : [embed],
 				components : [getRow(id)]
@@ -269,7 +269,7 @@ module.exports = {
 				if (btnInt.customId === 'next-embed' && pages[id] < embeds.length - 1)
 					++pages[id];
 				
-				await interaction.editReply({
+				interaction.editReply({
 					embeds : [embeds[pages[id]]],
 					components : [getRow(id)]
 				})
