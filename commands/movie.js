@@ -250,7 +250,7 @@ module.exports = {
 			const filter = i => i.user.id === interaction.user.id;
 	
 			await interaction.reply({
-				ephemeral : true,
+				ephemeral : false,
 				embeds : [embed],
 				components : [getRow(id)]
 			})
