@@ -1,5 +1,5 @@
 {
-  "name": "akatsuki-bot",
+  "name": "walter-bot",
   "version": "1.0.0",
   "description": "a bot for me and my friends to use on our little friends discord server :D",
   "main": "index.js",
@@ -15,7 +15,7 @@
     "js",
     "akatsuki"
   ],
-  "author": "echoukri",
+  "author": "me3za",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.1.3",
