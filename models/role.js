@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
 
-const latestScrape = mongoose.Schema({
-	latestScrape: Date,
+const roleSchema = mongoose.Schema({
+	type: String,
+	tag: String,
 });
 
-latestScrape.set('toJSON', {
+roleSchema.set('toJSON', {
 	transform: (document, returnedObject) => {
 		returnedObject.id = returnedObject._id.toString();
 		delete returnedObject._id;
@@ -12,4 +13,4 @@ latestScrape.set('toJSON', {
 	},
 });
 
-module.exports = mongoose.model('LatestScrape', latestScrape);
+module.exports = mongoose.model('Role', roleSchema);

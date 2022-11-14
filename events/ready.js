@@ -2,9 +2,8 @@ require('dotenv').config();
 const { TwitterApi } = require('twitter-api-v2');
 const LatestScrape = require('../models/latestScrape');
 const cron = require('cron');
-const { findById } = require('../models/movie');
-
 const Twitterclient = new TwitterApi(process.env.TWT_BEARER_TOKEN);
+const Role = require('../models/role');
 
 module.exports = {
 	name: 'ready',
