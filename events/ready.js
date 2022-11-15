@@ -11,7 +11,14 @@ module.exports = {
 	execute: async (client) => {
 		console.log(`Ready! Logged in as ${client.user.tag}`);
 
-		const scrapeTwitterNews = async () => {
+		const convertTimezone = (date, timezone) => {
+			return new Date(
+				(date instanceof String ? new Date(date) : date).toLocaleString(
+					timezone
+				)
+			);
+		};
+		const scrapeAnimeNews = async () => {
 			try {
 				const newsChannelId = '1040725565235273808';
 				const newsChannel = client.channels.cache.get(newsChannelId);
@@ -41,11 +48,11 @@ module.exports = {
 					console.log('no tweets were fetched');
 					return;
 				}
-				tweetsArr = tweetsArr.filter(
-					(tweet) => new Date(tweet.created_at) > latestScrape
-				);
 				while (
-					new Date(tweetsArr[tweetsArr.length - 1].created_at) > latestScrape &&
+					convertTimezone(
+						tweetsArr[tweetsArr.length - 1].created_at,
+						'Africa/Casablanca'
+					) > latestScrape &&
 					currentFetches < maximumFetches
 				) {
 					// while the oldest fetched tweet is younger than my latest scrape
@@ -53,6 +60,12 @@ module.exports = {
 					tweetsArr = tweetsPage.data.data;
 					currentFetches++;
 				}
+
+				tweetsArr = tweetsArr.filter(
+					(tweet) =>
+						convertTimezone(tweet.created_at, 'Africa/Casablanca') >
+						latestScrape
+				);
 
 				tweetsArr.reverse();
 				for (const tweet of tweetsArr) {
@@ -85,8 +98,8 @@ module.exports = {
 		};
 
 		let scheduledScrape = new cron.CronJob(
-			'00 06,18,12,00 * * *',
-			scrapeTwitterNews
+			'36 12 * * *', //00 06,18,12,00 * * *
+			scrapeAnimeNews
 		);
 
 		scheduledScrape.start();
