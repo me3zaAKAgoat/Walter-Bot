@@ -6,8 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "deploy": "node deploy-commands.js",
-    "testcommand": "npm run deploy && npm run start"
+    "deploycommands": "node deploy-commands.js",
+    "deployserverapp": "npm install && npm run deploycommands && npm run start"
+
   },
   "keywords": [
     "discord",
