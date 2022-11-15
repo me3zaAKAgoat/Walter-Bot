@@ -98,7 +98,7 @@ module.exports = {
 		};
 
 		let scheduledScrape = new cron.CronJob(
-			'36 12 * * *', //00 06,18,12,00 * * *
+			'00 06,18,12,00 * * *',
 			scrapeAnimeNews
 		);
 
