@@ -99,7 +99,7 @@ module.exports = {
 			} catch (err) {
 				console.log(err);
 				return await interaction.reply(
-					'Command failed :( contact me3za#4854 please.'
+					'Command failed :( please report the the command and your input me3za#4854 please.'
 				);
 			}
 		} else if (interaction.options.getSubcommand() === 'randomize') {
@@ -126,7 +126,7 @@ module.exports = {
 			} catch (err) {
 				console.log(err);
 				return await interaction.reply(
-					'Command failed :( contact me3za#4854 please.'
+					'Command failed :( please report the the command and your input me3za#4854 please.'
 				);
 			}
 		} else if (interaction.options.getSubcommand() === 'rating') {
@@ -166,7 +166,7 @@ module.exports = {
 			} catch (err) {
 				console.log(err);
 				return await interaction.reply(
-					'Command failed :( contact me3za#4854 please.'
+					'Command failed :( please report the the command and your input me3za#4854 please.'
 				);
 			}
 		} else if (interaction.options.getSubcommand() === 'rate') {
@@ -240,7 +240,7 @@ module.exports = {
 			} catch (err) {
 				console.log(err);
 				return await interaction.reply(
-					'Command failed :( contact me3za#4854 please.'
+					'Command failed :( please report the the command and your input me3za#4854 please.'
 				);
 			}
 		} else if (interaction.options.getSubcommand() === 'list') {
@@ -334,7 +334,7 @@ module.exports = {
 			} catch (err) {
 				console.log(err);
 				return await interaction.reply(
-					'Command failed :( contact me3za#4854 please.'
+					'Command failed :( please report the the command and your input me3za#4854 please.'
 				);
 			}
 		} else

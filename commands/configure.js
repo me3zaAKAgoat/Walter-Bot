@@ -54,7 +54,7 @@ module.exports = {
 			} catch (err) {
 				console.log(err);
 				return await interaction.reply(
-					'Command failed :( contact me3za#4854 please.'
+					'Command failed :( please report the the command and your input me3za#4854 please.'
 				);
 			}
 		}
