@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
-const Role = require('../models/role.js');
+const Role = require('../models/role');
+const Channel = require('../models/channel');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -30,26 +31,43 @@ module.exports = {
 		const subCommand = interaction.options.getSubcommand();
 		if (subCommand === 'anime') {
 			try {
-				const animeRoleTag = interaction.options.getString('role');
-				const animeRole = await Role.findOne({ type: subCommand });
-				console.log(animeRole);
-				console.log(animeRoleTag);
-				if (animeRole !== null) {
-					await Role.findByIdAndUpdate(animeRole._id.toString(), {
-						type: subCommand,
-						tag: animeRoleTag,
+				const roleTag = interaction.options.getString('role');
+				const registeredRole = await Role.findOne({ type: subCommand });
+				const channelId = interaction.options.getString('channel');
+				const registeredChannel = await Channel.findOne({ type: subCommand });
+
+				if (inputSanitizing(roleTag, channelId) === -1)
+					return await interaction.reply({
+						content:
+							'Please make sure that your input contained tags using @ and #',
+						ephemeral: true,
 					});
-					return await interaction.reply(
-						`Successfully updated the ${subCommand} tag ${animeRoleTag}.`
-					);
+				if (registeredChannel !== null) {
+					await Channel.findByIdAndUpdate(registeredChannel._id.toString(), {
+						type: subCommand,
+						id: channelId,
+					});
+				} else {
+					const newChannel = new Channel({
+						type: subCommand,
+						id: channelId,
+					});
+					await newChannel.save();
 				}
-				const newAnimeRole = new Role({
-					type: subCommand,
-					tag: animeRoleTag,
-				});
-				await newAnimeRole.save();
+				if (registeredRole !== null) {
+					await Role.findByIdAndUpdate(registeredRole._id.toString(), {
+						type: subCommand,
+						tag: roleTag,
+					});
+				} else {
+					const newRole = new Role({
+						type: subCommand,
+						tag: roleTag,
+					});
+					await newRole.save();
+				}
 				return await interaction.reply(
-					`Successfully registered the ${subCommand} tag ${animeRoleTag}.`
+					`Successfully registered the ${subCommand} tag ${roleTag} and the channel ${channelId}.`
 				);
 			} catch (err) {
 				console.log(err);
@@ -59,4 +77,28 @@ module.exports = {
 			}
 		}
 	},
+};
+
+const inputSanitizing = (roleTag, channelId) => {
+	//check wether channel id conforms to channel ids in discord
+	//check wether role tag conforms to role tags in discord
+
+	if (
+		!(
+			roleTag.startsWith('<@&') &&
+			roleTag.endsWith('>') &&
+			'0' <= roleTag[3] &&
+			roleTag[3] <= '9'
+		)
+	)
+		return -1;
+	if (
+		!(
+			channelId.startsWith('<#') &&
+			channelId.endsWith('>') &&
+			'0' <= channelId[2] &&
+			channelId[2] <= '9'
+		)
+	)
+		return -1;
 };

@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "deploycommands": "node deploy-commands.js",
+    "testapp" : "npm run deploycommands && node index.js",
     "deployserverapp": "npm install && npm run deploycommands && npm run start"
 
   },
