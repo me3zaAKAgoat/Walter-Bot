@@ -62,6 +62,17 @@ module.exports = {
 				)
 		)
 		.addSubcommand((subcommand) =>
+			subcommand
+				.setName('delete')
+				.setDescription('delete a movie you added from the database')
+				.addStringOption((option) =>
+					option
+						.setName('title')
+						.setDescription('Name of the movie')
+						.setRequired(true)
+				)
+		)
+		.addSubcommand((subcommand) =>
 			subcommand.setName('list').setDescription('list all movies registered')
 		),
 	execute: async (interaction) => {
@@ -339,6 +350,47 @@ module.exports = {
 						embeds: [embeds[pages[id]]],
 						components: [getRow(id)],
 					});
+				});
+			} catch (err) {
+				console.log(err);
+				return await interaction.reply(
+					'Command failed :( please report the the command and your input me3za#4854 please.'
+				);
+			}
+		} else if (interaction.options.getSubcommand() === 'delete') {
+			try {
+				let movieTitle = interaction.options
+					.getString('title')
+					.trim()
+					.toLowerCase(); // unifying movie name by capitlazing
+				movieTitle = movieTitleSanitization(movieTitle);
+				if (movieTitle.length === 0)
+					return await interaction.reply({
+						content: "🚫 Movie title can't be empty.",
+						ephemeral: true,
+					});
+				const movie = await Movie.findOne({ title: movieTitle });
+
+				if (movie === null)
+					return await interaction.reply({
+						content: "🚫 Movie dosen't exist.",
+						ephemeral: true,
+					});
+				if (movie.adderId === interaction.user.id) {
+					if (movie.review !== null) {
+						return await interaction.reply({
+							ephemeral: true,
+							content: `🚫 You can't delete a movie that has been watched/reviewd.`,
+						});
+					}
+					await movie.remove();
+					return await interaction.reply({
+						content: `**${movie.title}** has been deleted.`,
+					});
+				}
+				return await interaction.reply({
+					content: '🚫 Only the person that added the movie can delete it.',
+					ephemeral: true,
 				});
 			} catch (err) {
 				console.log(err);

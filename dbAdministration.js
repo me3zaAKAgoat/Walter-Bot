@@ -11,7 +11,7 @@ mongoose
 // clear movies
 // Movie.deleteMany({}).then((result) => console.log('Movies', result));
 // Movie.findOne({title : 'chainsaw man season 1'}).then(qurey => console.log(qurey))
-
+// Movie.find({}).then((result) => console.log(result));
 // add first and only latest scrape document
 // const storeFirstLatestScrape = async () => {
 //   const latestScrape = new LatestScrape({
