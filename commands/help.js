@@ -38,7 +38,7 @@ module.exports = {
 					value: value.description,
 				});
 			}
-			await interaction.reply({ ephemeral: true, embeds: [manualEmbed] });
+			await interaction.reply({ embeds: [manualEmbed] });
 		} catch (err) {
 			console.log(err);
 		}
