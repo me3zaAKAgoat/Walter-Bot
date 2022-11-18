@@ -12,7 +12,7 @@ module.exports = {
 				.setDescription(
 					'configure the role that gets tagged on anime announcements channel'
 				)
-				.addStringOption((option) =>
+				.addRoleOption((option) =>
 					option
 						.setName('role')
 						.setDescription(
@@ -20,7 +20,7 @@ module.exports = {
 						)
 						.setRequired(true)
 				)
-				.addStringOption((option) =>
+				.addChannelOption((option) =>
 					option
 						.setName('channel')
 						.setDescription('the channel that gets news posted on')
