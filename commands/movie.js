@@ -67,6 +67,16 @@ module.exports = {
 	execute: async (interaction) => {
 		if (interaction.options.getSubcommand() === 'add') {
 			try {
+				//check wetheter user is allowed to add a movie 5 unreviewed movies per member
+				const unreviewedMoviesCap = 10;
+				if (
+					(await checkUnreviewedMoviesCap(interaction, unreviewedMoviesCap)) ===
+					-1
+				)
+					return await interaction.reply({
+						ephemeral: true,
+						content: `🚫 You have exceeded the ${unreviewedMoviesCap} **unreviewed movies** per person cap.`,
+					});
 				let movieTitle = interaction.options
 					.getString('title')
 					.trim()
@@ -82,8 +92,9 @@ module.exports = {
 				const movieExists = await Movie.findOne({ title: movieTitle });
 
 				if (movieExists)
-					return interaction.reply({
-						content: '🚫 Movie already exists.',
+					return await interaction.reply({
+						content:
+							'🚫 Movie with the same name already exists in the database.',
 						ephemeral: true,
 					});
 				else {
@@ -91,6 +102,7 @@ module.exports = {
 						title: movieTitle,
 						review: null,
 						raters: [],
+						adderId: interaction.user.id,
 					});
 					await newMovie.save();
 
@@ -197,13 +209,10 @@ module.exports = {
 						ephemeral: true,
 					});
 				const rater = movie.raters.filter(
-					(object) => object.user === interaction.user.id
+					(object) => object.userId === interaction.user.id
 				);
 
 				if (rater.length > 0) {
-					movie.raters = movie.raters.filter(
-						(object) => object.user !== interaction.user.id
-					);
 					movie.raters.push({
 						user: interaction.user.id,
 						rating: userRating,
@@ -354,4 +363,14 @@ const movieTitleSanitization = (movieTitle) => {
 	movieTitle = movieTitle.join(' ');
 
 	return movieTitle;
+};
+
+const checkUnreviewedMoviesCap = async (interaction, unreviewedMoviesCap) => {
+	const userId = interaction.user.id;
+	const unreviewedMoviesArr = await Movie.find({
+		adderId: userId,
+		review: null,
+	});
+	if (unreviewedMoviesArr.length > unreviewedMoviesCap) return -1;
+	return 0;
 };

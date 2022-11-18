@@ -27,6 +27,6 @@ mongoose
 
 // LatestScrape.deleteMany({}).then((result) => console.log('delete latest document', result));
 
-Role.deleteMany({}).then((result) =>  
-	console.log('delete latest document', result)
-);
+// Role.deleteMany({}).then((result) =>
+// 	console.log('delete latest document', result)
+// );

@@ -12,7 +12,6 @@ module.exports = {
 				console.log('configure channel id');
 				return;
 			}
-			console.log(newsChannelId);
 			newsChannelId = newsChannelId[0].id.slice(2, -1);
 			const newsChannel = client.channels.cache.get(newsChannelId);
 
@@ -24,6 +23,13 @@ module.exports = {
 			roleTag = roleTag[0].tag;
 
 			const keywords = ['BREAKING', 'NEWS', 'ANNOUNCEMENT'];
+			const wordsNegateLikeCount = [
+				'blue lock',
+				'boku no hero',
+				'bleach',
+				'spy x family',
+				'spyxfamily',
+			];
 			const latestScrapeQuery = await LatestScrape.find({});
 			const latestScrape = latestScrapeQuery[0].latestScrape;
 
@@ -68,10 +74,13 @@ module.exports = {
 			);
 
 			tweetsArr.reverse();
-			console.log(tweetsArr);
+			/* check wether tweets meet the criteria of like count or importance
+			and the existence of the specified keywords and no self advertisement
+			*/
 			for (const tweet of tweetsArr) {
 				let foundKeyword = false;
-				let selfAdvert = true;
+				let selfAdvert = false;
+				let important = false;
 				for (const keyword of keywords) {
 					foundKeyword = tweet.text
 						.toLowerCase()
@@ -79,10 +88,14 @@ module.exports = {
 					selfAdvert = tweet.text
 						.toLowerCase()
 						.includes(accountName.toLowerCase());
+					for (const importantWord of wordsNegateLikeCount) {
+						important = tweet.text.toLowerCase().includes(importantWord);
+						if (important) break;
+					}
 					if (
 						foundKeyword &&
 						!selfAdvert &&
-						tweet.public_metrics.like_count >= 750
+						(tweet.public_metrics.like_count >= 750 || important)
 					) {
 						newsChannel.send(`${roleTag}`);
 						newsChannel.send(
@@ -91,7 +104,8 @@ module.exports = {
 						break;
 					}
 					foundKeyword = false;
-					selfAdvert = true;
+					selfAdvert = false;
+					important = false;
 				}
 			}
 

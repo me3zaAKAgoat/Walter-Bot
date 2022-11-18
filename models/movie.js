@@ -3,9 +3,10 @@ const mongoose = require('mongoose');
 const movieSchema = mongoose.Schema({
 	title: String,
 	review: Number,
+	adderId: String,
 	raters: [
 		{
-			user: {
+			userId: {
 				type: String,
 			},
 			rating: {
