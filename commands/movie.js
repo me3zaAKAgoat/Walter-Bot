@@ -30,7 +30,7 @@ module.exports = {
 		.addSubcommand((subcommand) =>
 			subcommand
 				.setName('rating')
-				.setDescription('get the collective rating of a movie.')
+				.setDescription('get the collective rating of a movie')
 				.addStringOption((option) =>
 					option
 						.setName('title')
@@ -58,7 +58,7 @@ module.exports = {
 		.addSubcommand((subcommand) =>
 			subcommand
 				.setName('delete')
-				.setDescription('delete a movie you added from the database')
+				.setDescription('delete a movie you added')
 				.addStringOption((option) =>
 					option
 						.setName('title')

@@ -48,7 +48,7 @@ module.exports = {
 					ephemeral: true,
 					content: `🚫 can't handle more than 10 options.`,
 				});
-			const pollEmbed = new EmbedBuilder().setTitle(`📊 ${pollTitle}`);
+			const pollEmbed = new EmbedBuilder().setTitle(`📊	${pollTitle}`);
 			pollEmbed.addFields({
 				name: `React to this post with the following reactions to voice your opinion.`,
 				value: `\u200b`,

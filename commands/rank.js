@@ -9,7 +9,9 @@ module.exports = {
 		.addSubcommand((subcommand) =>
 			subcommand
 				.setName('league')
-				.setDescription('shows the elo of the specified summoner')
+				.setDescription(
+					'show the solo/duo and flex rank of the specified summoner'
+				)
 				.addStringOption((option) =>
 					option
 						.setName('nickname')
