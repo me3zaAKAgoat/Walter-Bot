@@ -26,12 +26,6 @@ module.exports = {
 			subcommand
 				.setName('randomize')
 				.setDescription('Choose a none reviewed movie at random')
-				.addStringOption((option) =>
-					option
-						.setName('title')
-						.setDescription('Name of the movie')
-						.setRequired(true)
-				)
 		)
 		.addSubcommand((subcommand) =>
 			subcommand
