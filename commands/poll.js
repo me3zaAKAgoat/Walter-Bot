@@ -26,7 +26,12 @@ module.exports = {
 				return await interaction.reply({
 					ephemeral: true,
 					content:
-						'🚫 please make sure your title and options were correctly formatted.',
+						'🚫 Please make sure your title and options were correctly formatted.',
+				});
+			if (!optionsString.includes(','))
+				return await interaction.reply({
+					ephemeral: true,
+					content: '🚫 You should have at least 2 options.',
 				});
 			const reactionEmojisArr = [
 				'0️⃣',

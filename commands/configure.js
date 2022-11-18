@@ -10,7 +10,7 @@ module.exports = {
 			subcommand
 				.setName('anime')
 				.setDescription(
-					'configure the role that gets tagged on anime channel announcements'
+					'configure the role that gets tagged on anime announcements channel'
 				)
 				.addStringOption((option) =>
 					option
