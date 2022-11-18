@@ -53,6 +53,9 @@ module.exports = {
 					ephemeral: true,
 					content: `🚫 can't handle more than 10 options.`,
 				});
+			optionsArr = optionsArr.map(
+				(option) => option.charAt(0).toUpperCase() + option.slice(1)
+			);
 			const pollEmbed = new EmbedBuilder().setTitle(`📊	${pollTitle}`);
 			pollEmbed.addFields({
 				name: `React to this post with the following reactions to voice your opinion.`,
