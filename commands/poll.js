@@ -45,9 +45,7 @@ module.exports = {
 				'8️⃣',
 				'9️⃣',
 			];
-			const optionsArr = optionsString
-				.split(',')
-				.map((option) => option.trim());
+			let optionsArr = optionsString.split(',').map((option) => option.trim());
 			if (optionsArr.length > 10)
 				return await interaction.reply({
 					ephemeral: true,
