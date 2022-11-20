@@ -31,17 +31,16 @@ module.exports = {
 		const subCommand = interaction.options.getSubcommand();
 		if (subCommand === 'anime') {
 			try {
-				const roleTag = interaction.options.getString('role');
+				let roleTag;
+				const role = interaction.options.getRole('role');
+				if (role !== null) {
+					roleTag = `<@&${role.id}>`;
+				}
 				const registeredRole = await Role.findOne({ type: subCommand });
-				const channelId = interaction.options.getString('channel');
+				const channelId = interaction.options.getChannel('channel');
 				const registeredChannel = await Channel.findOne({ type: subCommand });
 
-				if (inputSanitizing(roleTag, channelId) === -1)
-					return await interaction.reply({
-						content:
-							'Please make sure that your input contained tags using @ and #',
-						ephemeral: true,
-					});
+				console.log(roleTag, channelId);
 				if (registeredChannel !== null) {
 					await Channel.findByIdAndUpdate(registeredChannel._id.toString(), {
 						type: subCommand,
@@ -71,35 +70,12 @@ module.exports = {
 				);
 			} catch (err) {
 				console.log(err);
-				return await interaction.reply(
-					'Command failed :( please report the the command and your input me3za#4854 please.'
-				);
+				return await interaction.reply({
+					content:
+						'Command failed :( please report the the command and your input me3za#4854 please.',
+					ephemeral: true,
+				});
 			}
 		}
 	},
-};
-
-const inputSanitizing = (roleTag, channelId) => {
-	//check wether channel id conforms to channel ids in discord
-	//check wether role tag conforms to role tags in discord
-
-	if (
-		!(
-			roleTag.startsWith('<@&') &&
-			roleTag.endsWith('>') &&
-			'0' <= roleTag[3] &&
-			roleTag[3] <= '9'
-		)
-	)
-		return -1;
-	if (
-		!(
-			channelId.startsWith('<#') &&
-			channelId.endsWith('>') &&
-			'0' <= channelId[2] &&
-			channelId[2] <= '9'
-		)
-	)
-		return -1;
-	return 0;
 };
