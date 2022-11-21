@@ -25,7 +25,7 @@ module.exports = {
 				},
 				movie: {
 					command: '/movie',
-					description: `This command provides a database for your server to make your own collection of movies, and with your input, it can keep movies with their ratings, these ratings are calculated by averaging each member's rating. Rating movies renders them ‘seen’ so they won’t show up in the (movie randomize) spinning wheel, meaning that you should not review a film that your friend group did not watch together.`,
+					description: `This command provides a database for your server to make your own collection of movies, and with your input, it can keep movies with their ratings, these ratings are calculated by averaging each member's rating.\nP.S: Rating movies renders them ‘seen’ so they won’t show up in the (movie randomize) spinning wheel, meaning that you should not review a film that your friend group did not watch together.`,
 				},
 				configure: {
 					command: '/configure',
