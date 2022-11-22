@@ -1,7 +1,9 @@
 const { SlashCommandBuilder } = require('discord.js');
 const Role = require('../models/role');
 const Channel = require('../models/channel');
+const channel = require('../models/channel');
 
+/*this is major spaghetti code but Im too lazy to fix it :D*/
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('configure')
@@ -32,27 +34,24 @@ module.exports = {
 		if (subCommand === 'anime') {
 			try {
 				let roleTag;
-				const role = interaction.options.getRole('role');
-				if (role !== null) {
-					roleTag = `<@&${role.id}>`;
-				}
-				const registeredRole = await Role.findOne({ type: subCommand });
-				const channelId = interaction.options.getChannel('channel');
-				const registeredChannel = await Channel.findOne({ type: subCommand });
-
-				console.log(roleTag, channelId);
-				if (registeredChannel !== null) {
-					await Channel.findByIdAndUpdate(registeredChannel._id.toString(), {
-						type: subCommand,
-						id: channelId,
-					});
+				let channelId;
+				const roleFetch = interaction.options.getRole('role');
+				const channelFetch = interaction.options.getChannel('channel');
+				if (
+					![undefined, null].includes(roleFetch) &&
+					![undefined, null].includes(channelFetch)
+				) {
+					roleTag = `<@&${roleFetch.id}>`;
+					channelId = channelFetch.id;
 				} else {
-					const newChannel = new Channel({
-						type: subCommand,
-						id: channelId,
+					return await interaction.relpy({
+						ephemeral: true,
+						content:
+							'This interaction failed, pls make sure you are sending valid roles/channels, otherwise contact me3za',
 					});
-					await newChannel.save();
 				}
+				console.log('role tag', roleTag, 'channel id', channelId);
+				const registeredRole = await Role.findOne({ type: subCommand });
 				if (registeredRole !== null) {
 					await Role.findByIdAndUpdate(registeredRole._id.toString(), {
 						type: subCommand,
@@ -65,8 +64,21 @@ module.exports = {
 					});
 					await newRole.save();
 				}
+				const registeredChannel = await Channel.findOne({ type: subCommand });
+				if (registeredChannel !== null) {
+					await Channel.findByIdAndUpdate(registeredChannel._id.toString(), {
+						type: subCommand,
+						id: channelId,
+					});
+				} else {
+					const newChannel = new Channel({
+						type: subCommand,
+						id: channelId,
+					});
+					await newChannel.save();
+				}
 				return await interaction.reply(
-					`Successfully registered the ${subCommand} tag ${roleTag} and the channel ${channelId}.`
+					`Successfully registered the ${subCommand} tag ${roleTag} and the channel <#${channelId}>.`
 				);
 			} catch (err) {
 				console.log(err);
