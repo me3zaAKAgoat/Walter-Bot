@@ -1,6 +1,6 @@
 {
   "name": "walter-bot",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "a bot for me and my friends to use on our little friends discord server :D",
   "main": "index.js",
   "scripts": {
