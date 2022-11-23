@@ -73,7 +73,7 @@ module.exports = {
 		if (interaction.options.getSubcommand() === 'add') {
 			try {
 				//check wetheter user is allowed to add a movie 5 unreviewed movies per member
-				const unreviewedMoviesCap = 10;
+				const unreviewedMoviesCap = 5;
 				if (
 					(await checkUnreviewedMoviesCap(interaction, unreviewedMoviesCap)) ===
 					-1
