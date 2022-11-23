@@ -324,7 +324,7 @@ module.exports = {
 
 				let collector = interaction.channel.createMessageComponentCollector({
 					filter,
-					time: 1000 * 60 * 2,
+					time: 1000 * 60 * 10,
 				});
 
 				collector.on('collect', async (btnInt) => {
