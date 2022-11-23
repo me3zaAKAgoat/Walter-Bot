@@ -7,20 +7,20 @@ const Channel = require('../../models/channel');
 module.exports = {
 	execute: async (client) => {
 		try {
-			let newsChannelId = await Channel.find({ type: 'anime' });
+			const newsChannelFetch = await Channel.findOne({ type: 'anime' });
 			if (newsChannelId === null) {
 				console.log('configure channel id');
 				return;
 			}
-			newsChannelId = newsChannelId[0].id.slice(2, -1);
+			newsChannelId = newsChannelFetch.id;
 			const newsChannel = client.channels.cache.get(newsChannelId);
 
-			let roleTag = await Role.find({ type: 'anime' });
-			if (roleTag === null) {
+			let roleFetch = await Role.findOne({ type: 'anime' });
+			if (roleFetch === null) {
 				console.log('configure role tag');
 				return;
 			}
-			roleTag = roleTag[0].tag;
+			roleTag = roleFetch.tag;
 
 			const keywords = ['BREAKING', 'NEWS', 'ANNOUNCEMENT'];
 			const wordsNegateLikeCount = [
