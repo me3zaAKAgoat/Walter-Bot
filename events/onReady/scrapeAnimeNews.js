@@ -7,20 +7,24 @@ const Channel = require('../../models/channel');
 module.exports = {
 	execute: async (client) => {
 		try {
+			let newsChannel;
+			let roleTag;
 			const newsChannelFetch = await Channel.findOne({ type: 'anime' });
-			if (newsChannelId === null) {
+			if (newsChannelFetch === null) {
 				console.log('configure channel id');
 				return;
+			} else {
+				newsChannelId = newsChannelFetch.id;
+				newsChannel = client.channels.cache.get(newsChannelId);
 			}
-			newsChannelId = newsChannelFetch.id;
-			const newsChannel = client.channels.cache.get(newsChannelId);
 
-			let roleFetch = await Role.findOne({ type: 'anime' });
+			const roleFetch = await Role.findOne({ type: 'anime' });
 			if (roleFetch === null) {
 				console.log('configure role tag');
 				return;
+			} else {
+				roleTag = roleFetch.tag;
 			}
-			roleTag = roleFetch.tag;
 
 			const keywords = ['BREAKING', 'NEWS', 'ANNOUNCEMENT'];
 			const wordsNegateLikeCount = [
@@ -117,6 +121,7 @@ module.exports = {
 					latestScrape: currentDate,
 				}
 			);
+			console.log('no exceptions found in scraping anime news');
 		} catch (err) {
 			console.log(err);
 		}
