@@ -7,6 +7,7 @@ const Channel = require('../../models/channel');
 module.exports = {
 	execute: async (client) => {
 		try {
+			let newLatestScrape = new Date();
 			let newsChannel;
 			let roleTag;
 			const newsChannelFetch = await Channel.findOne({ type: 'anime' });
@@ -81,6 +82,7 @@ module.exports = {
 			/* check wether tweets meet the criteria of like count or importance
 			and the existence of the specified keywords and no self advertisement
 			*/
+
 			for (const tweet of tweetsArr) {
 				let foundKeyword = false;
 				let selfAdvert = false;
@@ -99,7 +101,7 @@ module.exports = {
 					if (
 						foundKeyword &&
 						!selfAdvert &&
-						(tweet.public_metrics.like_count >= 750 || important)
+						(tweet.public_metrics.like_count >= 4000 || important)
 					) {
 						newsChannel.send(`${roleTag}`);
 						newsChannel.send(
@@ -113,12 +115,10 @@ module.exports = {
 				}
 			}
 
-			currentDate = new Date();
-
 			await LatestScrape.findByIdAndUpdate(
 				latestScrapeQuery[0]._id.toString(),
 				{
-					latestScrape: currentDate,
+					latestScrape: newLatestScrape,
 				}
 			);
 			console.log('no exceptions found in scraping anime news');
