@@ -341,6 +341,7 @@ module.exports = {
 						++pages[id];
 
 					interaction.editReply({
+						ephemeral: true,
 						embeds: [embeds[pages[id]]],
 						components: [getRow(id)],
 					});
