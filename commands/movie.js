@@ -317,7 +317,7 @@ module.exports = {
 				const filter = (i) => i.user.id === interaction.user.id;
 
 				interaction.reply({
-					ephemeral: false,
+					ephemeral: true,
 					embeds: [embed],
 					components: [getRow(id)],
 				});
@@ -341,7 +341,6 @@ module.exports = {
 						++pages[id];
 
 					interaction.editReply({
-						ephemeral: true,
 						embeds: [embeds[pages[id]]],
 						components: [getRow(id)],
 					});
