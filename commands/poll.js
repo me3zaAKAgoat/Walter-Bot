@@ -34,7 +34,6 @@ module.exports = {
 					content: '🚫 You should have at least 2 options.',
 				});
 			const reactionEmojisArr = [
-				'0️⃣',
 				'1️⃣',
 				'2️⃣',
 				'3️⃣',
@@ -44,6 +43,7 @@ module.exports = {
 				'7️⃣',
 				'8️⃣',
 				'9️⃣',
+				'0️⃣',
 			];
 			let optionsArr = optionsString.split(',').map((option) => option.trim());
 			if (optionsArr.length > 10)
