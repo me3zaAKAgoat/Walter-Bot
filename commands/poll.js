@@ -55,16 +55,15 @@ module.exports = {
 				(option) => option.charAt(0).toUpperCase() + option.slice(1)
 			);
 			const pollEmbed = new EmbedBuilder().setTitle(`📊	${pollTitle}`);
-			pollEmbed.addFields({
-				name: `React to this post with the following reactions to voice your opinion.`,
-				value: `\u200b`,
-			});
 			for (const [index, option] of optionsArr.entries()) {
 				pollEmbed.addFields({
-					name: `${reactionEmojisArr[index]}	**${option}**`,
-					value: `\u200b`,
+					name: `\u200b`,
+					value: `${reactionEmojisArr[index]}	**${option}**`,
 				});
 			}
+			pollEmbed.setFooter({
+				text: `\u200b`,
+			});
 			const reply = await interaction.reply({
 				embeds: [pollEmbed],
 				fetchReply: true,
