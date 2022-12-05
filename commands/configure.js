@@ -28,11 +28,24 @@ module.exports = {
 						.setDescription('the channel that gets news posted on')
 						.setRequired(true)
 				)
+		)
+		.addSubcommand((subcommand) =>
+			subcommand
+				.setName('birthday')
+				.setDescription(
+					'configure the channel where the birthday will be announced'
+				)
+				.addChannelOption((option) =>
+					option
+						.setName('channel')
+						.setDescription('the channel where the birthday will be announced')
+						.setRequired(true)
+				)
 		),
 	execute: async (interaction) => {
-		const subCommand = interaction.options.getSubcommand();
-		if (subCommand === 'anime') {
-			try {
+		try {
+			const subCommand = interaction.options.getSubcommand();
+			if (subCommand === 'anime') {
 				let roleTag;
 				let channelId;
 				const roleFetch = interaction.options.getRole('role');
@@ -80,14 +93,38 @@ module.exports = {
 				return await interaction.reply(
 					`Successfully registered the ${subCommand} tag ${roleTag} and the channel <#${channelId}>.`
 				);
-			} catch (err) {
-				console.log(err);
-				return await interaction.reply({
-					content:
-						'Command failed :( please report the the command and your input me3za#4854 please.',
-					ephemeral: true,
+			} else if (subcommand === 'birthday') {
+				const channel = interaction.options.getChannel('channel');
+				const updateResult = await channel.findOneAndUpdate(
+					{
+						type: subcommand,
+					},
+					{ id: channel.id }
+				);
+
+				if (updateResult !== null) {
+					return await interaction.reply({
+						content: `Updated birthday channel to <#${channel.id}>.`,
+					});
+				}
+
+				const newBirthdayChannel = new Birthday({
+					type: subcommand,
+					id: channel.id,
 				});
+
+				newBirthdayChannel.save();
+				return await interaction.reply(
+					`Successfully registered the ${subCommand} announcement channel to <#${channel.id}>.`
+				);
 			}
+		} catch (err) {
+			console.log(err);
+			return await interaction.reply({
+				content:
+					'Command failed :( please report the the command and your input me3za#4854 please.',
+				ephemeral: true,
+			});
 		}
 	},
 };

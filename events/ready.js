@@ -11,7 +11,11 @@ module.exports = {
 		let scheduledScrape = new cron.CronJob('00 08 * * *', () => {
 			scrapeAnimeNews.execute(client);
 		});
+		let scheduledBirthdayCheck = new cron.CronJob('10 00 * * *', () => {
+			birthdayCheck.execute(client);
+		});
 
 		scheduledScrape.start();
+		scheduledBirthdayCheck.start();
 	},
 };

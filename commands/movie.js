@@ -88,7 +88,7 @@ module.exports = {
 					.toLowerCase();
 
 				// unifying movie name by capitlazing
-				movieTitle = movieTitleSanitization(movieTitle);
+				movieTitle = capitalize(movieTitle);
 				if (movieTitle.length === 0)
 					return await interaction.reply({
 						content: "🚫 Movie title can't be empty",
@@ -155,7 +155,7 @@ module.exports = {
 					.toLowerCase();
 
 				// unifying movie name by capitlazing
-				movieTitle = movieTitleSanitization(movieTitle);
+				movieTitle = capitalize(movieTitle);
 				if (movieTitle.length === 0)
 					return await interaction.reply({
 						content: "🚫 Movie title can't be empty",
@@ -195,7 +195,7 @@ module.exports = {
 				const userRating = interaction.options.getNumber('rating');
 
 				// unifying movie name by capitlazing
-				movieTitle = movieTitleSanitization(movieTitle);
+				movieTitle = capitalize(movieTitle);
 				if (movieTitle.length === 0)
 					return await interaction.reply({
 						content: "🚫 Movie title can't be empty",
@@ -357,7 +357,7 @@ module.exports = {
 					.getString('title')
 					.trim()
 					.toLowerCase(); // unifying movie name by capitlazing
-				movieTitle = movieTitleSanitization(movieTitle);
+				movieTitle = capitalize(movieTitle);
 				if (movieTitle.length === 0)
 					return await interaction.reply({
 						content: "🚫 Movie title can't be empty.",
@@ -400,15 +400,14 @@ module.exports = {
 	},
 };
 
-const movieTitleSanitization = (movieTitle) => {
-	movieTitle = movieTitle.split(' ');
-	for (let i = 0; i < movieTitle.length; i++) {
-		movieTitle[i] =
-			movieTitle[i].charAt(0).toUpperCase() + movieTitle[i].slice(1);
+const capitalize = (sentence) => {
+	sentence = sentence.split(' ');
+	for (let i = 0; i < sentence.length; i++) {
+		sentence[i] = sentence[i].charAt(0).toUpperCase() + sentence[i].slice(1);
 	}
-	movieTitle = movieTitle.join(' ');
+	sentence = sentence.join(' ');
 
-	return movieTitle;
+	return sentence;
 };
 
 const checkUnreviewedMoviesCap = async (interaction, unreviewedMoviesCap) => {

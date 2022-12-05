@@ -28,28 +28,47 @@ module.exports = {
 							{ name: 'NA', value: 'na1' }
 						)
 				)
+		)
+		.addSubcommand((subcommand) =>
+			subcommand
+				.setName('tft')
+				.setDescription('show the tft rank of specified player')
+				.addStringOption((option) =>
+					option
+						.setName('nickname')
+						.setDescription('the accounts nickname')
+						.setRequired(true)
+				)
+				.addStringOption((option) =>
+					option
+						.setName('region')
+						.setDescription('select the region the account belongs to')
+						.setRequired(true)
+						.addChoices(
+							{ name: 'EUW', value: 'euw1' },
+							{ name: 'NA', value: 'na1' }
+						)
+				)
 		),
 	execute: async (interaction) => {
-		if (interaction.options.getSubcommand() === 'league') {
-			try {
-				const TeemoJS = require('teemojs');
-				let api = TeemoJS(process.env.RIOT_API);
+		try {
+			const TeemoJS = require('teemojs');
+			let api = TeemoJS(process.env.RIOT_API);
+			const regionId = interaction.options.getString('region');
+			const regionName = regionId.slice(0, -1).toUpperCase();
+			const summonerName = interaction.options.getString('nickname').trim();
 
-				console.log(api);
-				const regionId = interaction.options.getString('region');
-				const regionName = regionId.slice(0, -1).toUpperCase();
-				const summonerName = interaction.options.getString('nickname').trim();
-
-				const summoner = await api.get(
-					regionId,
-					'summoner.getBySummonerName',
-					summonerName
-				);
-				if (summoner === null)
-					return interaction.reply({
-						content: `🚫 Summoner ${summonerName} does not exist`,
-						ephemeral: true,
-					});
+			const summoner = await api.get(
+				regionId,
+				'summoner.getBySummonerName',
+				summonerName
+			);
+			if (summoner === null)
+				return interaction.reply({
+					content: `🚫 Summoner ${summonerName} does not exist`,
+					ephemeral: true,
+				});
+			if (interaction.options.getSubcommand() === 'league') {
 				const leagueState = await api.get(
 					regionId,
 					'league.getLeagueEntriesForSummoner',
@@ -88,11 +107,15 @@ module.exports = {
 
 				const leagueRankViewEmbed = new EmbedBuilder()
 					.setColor(0x0099ff)
-					.setTitle('League Of legends Rank')
-					.setDescription(`${summonerName}'s Account`)
+					.setTitle('League Of Legends')
 					.setThumbnail(
 						`http://ddragon.leagueoflegends.com/cdn/12.21.1/img/profileicon/${summoner.profileIconId}.png`
 					)
+					.addFields({
+						name: 'Summoner',
+						value: `${capitalize(summonerName)}`,
+						inline: false,
+					})
 					.addFields(
 						{ name: 'Region', value: regionName, inline: false },
 						{
@@ -116,16 +139,75 @@ module.exports = {
 					content: `<@${interaction.user.id}>`,
 					embeds: [leagueRankViewEmbed],
 				});
-			} catch (err) {
-				console.log(err);
-				return await interaction.reply(
-					'Command failed :( please report the the command and your input me3za#4854 please.'
+			} else if (interaction.options.getSubcommand() === 'tft') {
+				const tftState = await api.get(
+					regionId,
+					'league.getLeagueEntriesForSummoner',
+					summoner.id
 				);
-			}
-		} else
-			return await interaction.reply({
-				content: `🚫 this command doesn't exist.`,
-				ephemeral: true,
-			});
+				if (tftState === null || !(tftState instanceof Array))
+					return interaction.reply({
+						content: '🚫 Riot seems to not respond, contact me3za',
+						ephemeral: true,
+					});
+				console.log(tftState);
+				const TFTDUdata = tftState.filter(
+					(object) => object.queueType === 'RANKED_TFT_DOUBLE_UP'
+				);
+
+				let TFTDUtier = 'UNRANKED';
+
+				if (TFTDUdata.length !== 0) {
+					TFTDUtier = TFTDUdata[0].tier;
+					TFTDUrank = TFTDUdata[0].rank;
+					TFTDUlp = TFTDUdata[0].leaguePoints;
+				}
+
+				const TFTRankViewEmbed = new EmbedBuilder()
+					.setColor(0x0099ff)
+					.setTitle('Teamfight Tactics')
+					.setThumbnail(
+						`http://ddragon.leagueoflegends.com/cdn/12.21.1/img/profileicon/${summoner.profileIconId}.png`
+					)
+					.addFields({
+						name: 'Summoner',
+						value: `${capitalize(summonerName)}`,
+						inline: false,
+					})
+					.addFields(
+						{ name: 'Region', value: regionName, inline: false },
+						{
+							name: 'Double Up',
+							value:
+								TFTDUtier === 'UNRANKED'
+									? `UNRANKED`
+									: `${TFTDUtier} ${TFTDUrank} ${TFTDUlp} LP`,
+							inline: true,
+						}
+					);
+				return await interaction.reply({
+					content: `<@${interaction.user.id}>`,
+					embeds: [TFTRankViewEmbed],
+				});
+			} else
+				return await interaction.reply({
+					content: `🚫 this command doesn't exist.`,
+					ephemeral: true,
+				});
+		} catch (err) {
+			console.log(err);
+			return await interaction.reply(
+				'Command failed :( please report the the command and your input me3za#4854 please.'
+			);
+		}
 	},
+};
+const capitalize = (sentence) => {
+	sentence = sentence.split(' ');
+	for (let i = 0; i < sentence.length; i++) {
+		sentence[i] = sentence[i].charAt(0).toUpperCase() + sentence[i].slice(1);
+	}
+	sentence = sentence.join(' ');
+
+	return sentence;
 };

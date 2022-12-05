@@ -3,10 +3,13 @@ const mongoose = require('mongoose');
 const Movie = require('./models/movie');
 const Role = require('./models/role');
 const LatestScrape = require('./models/latestScrape');
+const Birthday = require('./models/birthday');
 
 mongoose
 	.connect(process.env.MONGODB_URI)
 	.then(console.log('connected to', process.env.MONGODB_URI));
+
+Birthday.deleteMany({}).then((result) => console.log('Birthday', result));
 
 // clear movies
 // Movie.deleteMany({}).then((result) => console.log('Movies', result));
