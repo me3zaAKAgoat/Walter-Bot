@@ -1,9 +1,7 @@
 const { SlashCommandBuilder } = require('discord.js');
 const Role = require('../models/role');
 const Channel = require('../models/channel');
-const channel = require('../models/channel');
 
-/*this is major spaghetti code but Im too lazy to fix it :D*/
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('configure')
@@ -93,11 +91,11 @@ module.exports = {
 				return await interaction.reply(
 					`Successfully registered the ${subCommand} tag ${roleTag} and the channel <#${channelId}>.`
 				);
-			} else if (subcommand === 'birthday') {
+			} else if (subCommand === 'birthday') {
 				const channel = interaction.options.getChannel('channel');
-				const updateResult = await channel.findOneAndUpdate(
+				const updateResult = await Channel.findOneAndUpdate(
 					{
-						type: subcommand,
+						type: subCommand,
 					},
 					{ id: channel.id }
 				);
@@ -108,8 +106,8 @@ module.exports = {
 					});
 				}
 
-				const newBirthdayChannel = new Birthday({
-					type: subcommand,
+				const newBirthdayChannel = new Channel({
+					type: subCommand,
 					id: channel.id,
 				});
 

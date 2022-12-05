@@ -1,6 +1,7 @@
 require('dotenv').config();
 const cron = require('cron');
 const scrapeAnimeNews = require('./onReady/scrapeAnimeNews');
+const birthdayCheck = require('./onReady/birthdayCheck');
 
 module.exports = {
 	name: 'ready',
@@ -11,7 +12,7 @@ module.exports = {
 		let scheduledScrape = new cron.CronJob('00 08 * * *', () => {
 			scrapeAnimeNews.execute(client);
 		});
-		let scheduledBirthdayCheck = new cron.CronJob('10 00 * * *', () => {
+		let scheduledBirthdayCheck = new cron.CronJob('00 00 * * *', () => {
 			birthdayCheck.execute(client);
 		});
 
