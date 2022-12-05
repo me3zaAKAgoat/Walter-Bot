@@ -17,11 +17,18 @@ module.exports = {
 				.setName('options')
 				.setDescription('seperate options with a comma (virgule)')
 				.setRequired(true)
+		)
+		.addStringOption((option) =>
+			option
+				.setName('description')
+				.setDescription('optional description on the poll')
+				.setRequired(false)
 		),
 	execute: async (interaction) => {
 		try {
 			const pollTitle = interaction.options.getString('title');
 			const optionsString = interaction.options.getString('options');
+			const description = interaction.options.getString('description');
 			if (!pollTitle.length || !optionsString.length)
 				return await interaction.reply({
 					ephemeral: true,
@@ -55,6 +62,9 @@ module.exports = {
 				(option) => option.charAt(0).toUpperCase() + option.slice(1)
 			);
 			const pollEmbed = new EmbedBuilder().setTitle(`📊	${pollTitle}`);
+			if (description) {
+				pollEmbed.setDescription(description);
+			}
 			for (const [index, option] of optionsArr.entries()) {
 				pollEmbed.addFields({
 					name: `\u200b`,
