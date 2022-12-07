@@ -150,7 +150,6 @@ module.exports = {
 						content: '🚫 Riot seems to not respond, contact me3za',
 						ephemeral: true,
 					});
-				console.log(tftState);
 				const TFTDUdata = tftState.filter(
 					(object) => object.queueType === 'RANKED_TFT_DOUBLE_UP'
 				);

@@ -9,6 +9,11 @@ module.exports = {
 	execute: async (client) => {
 		console.log(`Ready! Logged in as ${client.user.tag}`);
 
+		client.user.setPresence({
+			activities: [{ name: `in your mom's bedroom` }],
+			status: 'idle',
+		});
+
 		let scheduledScrape = new cron.CronJob('00 08 * * *', () => {
 			scrapeAnimeNews.execute(client);
 		});
