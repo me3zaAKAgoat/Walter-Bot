@@ -10,7 +10,7 @@ module.exports = {
 		console.log(`Ready! Logged in as ${client.user.tag}`);
 
 		client.user.setPresence({
-			activities: [{ name: `in your mom's bedroom` }],
+			activities: [{ name: `netflix with your mom`, type: 3 }],
 			status: 'idle',
 		});
 
