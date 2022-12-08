@@ -21,15 +21,9 @@ module.exports = {
 		)
 		.addStringOption((option) =>
 			option
-				.setName('content')
+				.setName('text')
 				.setDescription('the text that fills the meme')
 				.setRequired(true)
-		)
-		.addStringOption((option) =>
-			option
-				.setName('content_more')
-				.setDescription('the text that fills the meme')
-				.setRequired(false)
 		),
 	execute: async (interaction) => {
 		try {
