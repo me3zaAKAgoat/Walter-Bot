@@ -30,7 +30,7 @@ module.exports = {
 			const type = interaction.options.getString('type');
 			await interaction.deferReply();
 			if (type === 'squidward') {
-				const content = interaction.options.getString('content');
+				const content = interaction.options.getString('text');
 				if (content.length > 100) {
 					return await interaction.editReply({
 						content: '🚫 You have way too many characters to fit in this meme.',
@@ -43,7 +43,7 @@ module.exports = {
 					})
 					.catch((error) => console.log(error));
 			} else if (type === 'wallace') {
-				const content = interaction.options.getString('content');
+				const content = interaction.options.getString('text');
 				if (content.length > 100) {
 					return await interaction.editReply({
 						content: '🚫 You have way too many characters to fit in this meme.',
@@ -56,7 +56,7 @@ module.exports = {
 					})
 					.catch((error) => console.log(error));
 			} else if (type === 'vibrator') {
-				const content = interaction.options.getString('content');
+				const content = interaction.options.getString('text');
 				if (content.length > 100) {
 					return await interaction.editReply({
 						content: '🚫 You have way too many characters to fit in this meme.',
@@ -69,7 +69,7 @@ module.exports = {
 					})
 					.catch((error) => console.log(error));
 			} else if (type === 'sirtat') {
-				const content = interaction.options.getString('content');
+				const content = interaction.options.getString('text');
 				if (content.length > 100) {
 					return await interaction.editReply({
 						content: '🚫 You have way too many characters to fit in this meme.',
