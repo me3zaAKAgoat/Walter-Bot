@@ -30,11 +30,26 @@ module.exports = {
 		),
 	execute: async (interaction) => {
 		try {
+			await interaction.deferReply();
+
 			const user = interaction.options.getUser('user');
 			const length = interaction.options.getString('length');
-			const quota = 3 + 1; /* the + 1 is offset for the bot */
+			const member = interaction.guild.members.cache.get(user.id);
+			const quota = 1 + 1; /* the + 1 is offset for the bot */
 
-			await interaction.deferReply();
+			/* I dont know why but whenever a member does not have administrator an exception is thrown
+			 instead of giving false so i did some spaghetti */
+			let isAdmin;
+			try {
+				isAdmin = member.permissions.has('ADMINISTRATOR');
+			} catch {
+				isAdmin = false;
+			}
+
+			if (isAdmin)
+				return await interaction.editReply({
+					content: '**🚫 This user is admin thus cant be timed out.**',
+				});
 			const message = await interaction.editReply({
 				content: `Do you agree that user <@${user.id}> should be timed out for ${length} minutes`,
 				fetchReply: true,
@@ -49,17 +64,10 @@ module.exports = {
 			});
 			collector.on('collect', (reaction) => {
 				if (reaction.count >= quota) {
-					const member = interaction.guild.members.cache.get(user.id);
-					if (member.permissions.has('ADMINISTRATOR'))
-						interaction.editReply({
-							content: '**🚫 This user is admin thus cant be timed out.**',
-						});
-					else {
-						interaction.editReply({
-							content: 'https://tenor.com/view/death-note-gif-25596232',
-						});
-						member.timeout(Number(length) * 60 * 1000);
-					}
+					member.timeout(Number(length) * 60 * 1000);
+					return interaction.editReply({
+						content: 'https://tenor.com/view/death-note-gif-25596232',
+					});
 				}
 			});
 		} catch (err) {
