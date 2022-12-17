@@ -8,14 +8,23 @@ const token = process.env.DISCORD_TOKEN;
 console.log('connecting to MongoDB');
 
 mongoose
-  .connect(process.env.MONGODB_URI)
-  .then(console.log('connected to db'))
-  .catch((error) => console.log('coudlnt connect to db', error));
+	.connect(process.env.MONGODB_URI)
+	.then(console.log('connected to db'))
+	.catch((error) => console.log('coudlnt connect to db', error));
 // Create a new client instance
-const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildMessages] });
+const client = new Client({
+	intents: [
+		GatewayIntentBits.Guilds,
+		GatewayIntentBits.GuildMembers,
+		GatewayIntentBits.GuildMessages,
+		GatewayIntentBits.GuildMessageReactions,
+	],
+});
 
 const eventsPath = './events';
-const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith('.js'));
+const eventFiles = fs
+	.readdirSync(eventsPath)
+	.filter((file) => file.endsWith('.js'));
 
 for (const file of eventFiles) {
 	const filePath = `${eventsPath}/${file}`;
@@ -30,11 +39,13 @@ for (const file of eventFiles) {
 client.commands = new Collection();
 
 const commandsPath = './commands';
-const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
+const commandFiles = fs
+	.readdirSync(commandsPath)
+	.filter((file) => file.endsWith('.js'));
 for (const file of commandFiles) {
-  const filePath = `${commandsPath}/${file}`;
-  const command = require(filePath);
-  client.commands.set(command.data.name, command);
+	const filePath = `${commandsPath}/${file}`;
+	const command = require(filePath);
+	client.commands.set(command.data.name, command);
 }
 
 // Login to Discord with your client's token
