@@ -32,7 +32,7 @@ module.exports = {
 		try {
 			const user = interaction.options.getUser('user');
 			const length = interaction.options.getString('length');
-			const quota = 1 + 1; /* the + 1 is offset for the bot */
+			const quota = 3 + 1; /* the + 1 is offset for the bot */
 
 			await interaction.deferReply();
 			const message = await interaction.editReply({
