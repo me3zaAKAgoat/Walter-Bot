@@ -32,7 +32,7 @@ module.exports = {
 		try {
 			const user = interaction.options.getUser('user');
 			const length = interaction.options.getString('length');
-			const quota = 3 + 1; /* the + 1 is offset for the bot */
+			const quota = 1 + 1; /* the + 1 is offset for the bot */
 
 			await interaction.deferReply();
 			const message = await interaction.editReply({
@@ -49,16 +49,21 @@ module.exports = {
 			});
 			collector.on('collect', (reaction) => {
 				if (reaction.count >= quota) {
-					interaction.editReply({
-						content: 'https://tenor.com/view/death-note-gif-25596232',
-					});
 					const member = interaction.guild.members.cache.get(user.id);
-					member.timeout(Number(length) * 60 * 1000);
+					if (member.permissions.has('ADMINISTRATOR'))
+						interaction.editReply({
+							content: '**🚫 This user is admin thus cant be timed out.**',
+						});
+					else {
+						interaction.editReply({
+							content: 'https://tenor.com/view/death-note-gif-25596232',
+						});
+						member.timeout(Number(length) * 60 * 1000);
+					}
 				}
 			});
 		} catch (err) {
 			console.log(err);
-			await interaction.editReply({ content: 'U broke the bot u dumbfuck' });
 		}
 	},
 };
