@@ -58,6 +58,7 @@ module.exports = {
 			});
 		} catch (err) {
 			console.log(err);
+			await interaction.editReply({ content: 'U broke the bot u dumbfuck' });
 		}
 	},
 };
