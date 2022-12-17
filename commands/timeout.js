@@ -35,7 +35,7 @@ module.exports = {
 			const user = interaction.options.getUser('user');
 			const length = interaction.options.getString('length');
 			const member = interaction.guild.members.cache.get(user.id);
-			const quota = 1 + 1; /* the + 1 is offset for the bot */
+			const quota = 3 + 1; /* the + 1 is offset for the bot */
 
 			/* I dont know why but whenever a member does not have administrator an exception is thrown
 			 instead of giving false so i did some spaghetti */
