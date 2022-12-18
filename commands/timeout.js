@@ -9,23 +9,30 @@ send death note gif and then timeout
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('timeout')
-		.setDescription('timeout member for X amount of minutes')
-		.addUserOption((option) =>
-			option
-				.setName('user')
-				.setDescription('the user to timeout')
-				.setRequired(true)
-		)
-		.addStringOption((option) =>
-			option
-				.setName('length')
-				.setDescription('length of timeout')
-				.setRequired(true)
-				.addChoices(
-					{ name: '1 minute', value: '1' },
-					{ name: '5 minutes', value: '5' },
-					{ name: '10 minutes', value: '10' },
-					{ name: '1 day', value: '1440' }
+		.setDescription('timeout member Y for X amount of minutes')
+		.addSubcommand((subcommnad) =>
+			subcommnad
+				.setName('democratic')
+				.setDescription(
+					'reaction vote to timeout member for X amount of minutes'
+				)
+				.addUserOption((option) =>
+					option
+						.setName('user')
+						.setDescription('the user to timeout')
+						.setRequired(true)
+				)
+				.addStringOption((option) =>
+					option
+						.setName('length')
+						.setDescription('length of timeout')
+						.setRequired(true)
+						.addChoices(
+							{ name: '1 minute', value: '1' },
+							{ name: '5 minutes', value: '5' },
+							{ name: '10 minutes', value: '10' },
+							{ name: '1 day', value: '1440' }
+						)
 				)
 		),
 	execute: async (interaction) => {
