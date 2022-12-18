@@ -10,8 +10,8 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('timeout')
 		.setDescription('timeout member Y for X amount of minutes')
-		.addSubcommand((subcommnad) =>
-			subcommnad
+		.addSubcommand((subcommand) =>
+			subcommand
 				.setName('democratic')
 				.setDescription(
 					'reaction vote to timeout member for X amount of minutes'

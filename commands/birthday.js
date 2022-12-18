@@ -1,4 +1,11 @@
-const { SlashCommandBuilder } = require('discord.js');
+const {
+	ActionRowBuilder,
+	SlashCommandBuilder,
+	EmbedBuilder,
+	ButtonBuilder,
+	ButtonStyle,
+} = require('discord.js');
+const birthday = require('../models/birthday');
 const Birthday = require('../models/birthday');
 
 module.exports = {
@@ -40,6 +47,9 @@ module.exports = {
 						.setDescription('the user of which you want to see the birthday')
 						.setRequired(true)
 				)
+		)
+		.addSubcommand((subcommand) =>
+			subcommand.setName('list').setDescription(`lists member birhtdays`)
 		),
 	execute: async (interaction) => {
 		try {
@@ -99,6 +109,118 @@ module.exports = {
 							: `0${queryResult.month}`
 					}.`,
 				});
+			} else if (interaction.options.getSubcommand() === 'list') {
+				try {
+					await interaction.deferReply();
+					const embeds = [];
+					const pages = {};
+					let pageItemCount = 0;
+
+					let birthdays = await Birthday.find({});
+
+					birthdays = birthdays.sort(
+						(first, second) =>
+							first.month * 100 + first.day - second.month * 100 + second.day
+					);
+					if (birthdays.length === 0)
+						return await interaction.editReply({
+							content: '🚫 No birthdays have been registered yet',
+						});
+
+					while (birthdays.length > 0) {
+						const embed = new EmbedBuilder();
+						while (pageItemCount < 10 && birthdays.length > 0) {
+							const member = await interaction.guild.members.fetch(
+								birthdays[birthdays.length - 1].userId
+							);
+							embed.setTitle(`Page ${embeds.length + 1}`).addFields({
+								name: `**${
+									member === undefined
+										? 'No longer exists'
+										: member.user.username
+								}**`,
+								value: `${
+									birthdays[birthdays.length - 1].day >= 10
+										? birthdays[birthdays.length - 1].day
+										: `0${birthdays[birthdays.length - 1].day}`
+								}/${
+									birthdays[birthdays.length - 1].month >= 10
+										? birthdays[birthdays.length - 1].month
+										: `0${birthdays[birthdays.length - 1].month}`
+								}`,
+								inline: false,
+							});
+							birthdays.pop();
+							pageItemCount++;
+						}
+						pageItemCount = 0;
+						embeds.push(embed);
+					}
+
+					const getRow = (id) => {
+						const row = new ActionRowBuilder()
+							.addComponents(
+								new ButtonBuilder()
+									.setCustomId('prev-embed')
+									.setEmoji('⏪')
+									.setDisabled(pages[id] === 0)
+									.setStyle(ButtonStyle.Primary)
+							)
+
+							.addComponents(
+								new ButtonBuilder()
+									.setCustomId('next-embed')
+									.setEmoji('⏩')
+									.setDisabled(pages[id] === embeds.length - 1)
+									.setStyle(ButtonStyle.Primary)
+							);
+
+						return row;
+					};
+
+					const id = interaction.user.id;
+					pages[id] = pages[id] || 0;
+					const embed = embeds[pages[id]];
+
+					const filter = (i) => i.user.id === interaction.user.id;
+
+					interaction.editReply({
+						embeds: [embed],
+						components: [getRow(id)],
+					});
+
+					let collector = interaction.channel.createMessageComponentCollector({
+						filter,
+						time: 1000 * 60 * 10,
+					});
+
+					collector.on('collect', async (btnInt) => {
+						if (!btnInt) return;
+
+						btnInt.deferUpdate();
+						if (
+							btnInt.customId !== 'prev-embed' &&
+							btnInt.customId !== 'next-embed'
+						)
+							return;
+						if (btnInt.customId === 'prev-embed' && pages[id] > 0) --pages[id];
+						if (
+							btnInt.customId === 'next-embed' &&
+							pages[id] < embeds.length - 1
+						)
+							++pages[id];
+
+						interaction.editReply({
+							embeds: [embeds[pages[id]]],
+							components: [getRow(id)],
+						});
+					});
+				} catch (err) {
+					console.log(err);
+					return await interaction.editReply(
+						'Command failed :( please report the the command and your input me3za#4854 please.'
+					);
+				}
 			} else {
 				return await interaction.reply({
 					content: `🚫 this command doesn't exist.`,
