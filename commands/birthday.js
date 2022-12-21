@@ -130,15 +130,17 @@ module.exports = {
 					while (birthdays.length > 0) {
 						const embed = new EmbedBuilder();
 						while (pageItemCount < 10 && birthdays.length > 0) {
-							const member = await interaction.guild.members.fetch(
-								birthdays[birthdays.length - 1].userId
-							);
+							let username = 'No longer exists'; // users dont exist unless proven otherwise
+							try {
+								const member = await interaction.guild.members.fetch(
+									birthdays[birthdays.length - 1].userId
+								);
+								username = member.user.username;
+							} catch (err) {
+								console.log(err);
+							}
 							embed.setTitle(`Page ${embeds.length + 1}`).addFields({
-								name: `**${
-									member === undefined
-										? 'No longer exists'
-										: member.user.username
-								}**`,
+								name: `**${username}**`,
 								value: `${
 									birthdays[birthdays.length - 1].day >= 10
 										? birthdays[birthdays.length - 1].day
