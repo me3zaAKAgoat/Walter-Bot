@@ -6,7 +6,7 @@ module.exports = {
 			const welcomeChannleId = member.guild.systemChannelId;
 
 			let memberRole = member.guild.roles.cache.find(
-				(role) => role.name.toLowerCase() === 'member'
+				(role) => role.name.toLowerCase() === 'frens'
 			);
 
 			const welcomeChannel = member.guild.channels.cache.get(welcomeChannleId);
