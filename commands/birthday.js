@@ -111,7 +111,9 @@ module.exports = {
 				});
 			} else if (interaction.options.getSubcommand() === 'list') {
 				try {
-					await interaction.deferReply();
+					await interaction.deferReply({
+						ephemeral: true,
+					});
 					const embeds = [];
 					const pages = {};
 					let pageItemCount = 0;
@@ -130,28 +132,33 @@ module.exports = {
 					while (birthdays.length > 0) {
 						const embed = new EmbedBuilder();
 						while (pageItemCount < 10 && birthdays.length > 0) {
-							let username = 'No longer exists'; // users dont exist unless proven otherwise
+							let member;
 							try {
-								const member = await interaction.guild.members.fetch(
+								member = await interaction.guild.members.fetch(
 									birthdays[birthdays.length - 1].userId
 								);
-								username = member.user.username;
-							} catch (err) {
-								console.log(err);
+							} catch {
+								birthday.findByIdAndRemove(birthdays[birthdays.length - 1]._id);
 							}
-							embed.setTitle(`Page ${embeds.length + 1}`).addFields({
-								name: `**${username}**`,
-								value: `${
-									birthdays[birthdays.length - 1].day >= 10
-										? birthdays[birthdays.length - 1].day
-										: `0${birthdays[birthdays.length - 1].day}`
-								}/${
-									birthdays[birthdays.length - 1].month >= 10
-										? birthdays[birthdays.length - 1].month
-										: `0${birthdays[birthdays.length - 1].month}`
-								}`,
-								inline: false,
-							});
+							try {
+								username = member.user.username;
+								embed.setTitle(`Page ${embeds.length + 1}`).addFields({
+									name: `**${username}**`,
+									value: `${
+										birthdays[birthdays.length - 1].day >= 10
+											? birthdays[birthdays.length - 1].day
+											: `0${birthdays[birthdays.length - 1].day}`
+									}/${
+										birthdays[birthdays.length - 1].month >= 10
+											? birthdays[birthdays.length - 1].month
+											: `0${birthdays[birthdays.length - 1].month}`
+									}`,
+									inline: false,
+								});
+							} catch (err) {
+								console.log('birthday list', err);
+							}
+
 							birthdays.pop();
 							pageItemCount++;
 						}
