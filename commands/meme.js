@@ -94,7 +94,9 @@ module.exports = {
 };
 
 const writeMeme = async (type, content, x, y) => {
-	let image = await Jimp.read(`${process.cwd()}/commands/memes/${type}.jpg`);
+	let image = await Jimp.read(
+		`${process.cwd()}/commands/content/memes/${type}.jpg`
+	);
 
 	let maxWidth = 400;
 	let maxHeight = 100;
@@ -117,8 +119,8 @@ const writeMeme = async (type, content, x, y) => {
 			return image;
 		})
 		.then((image) => {
-			let file = `${process.cwd()}/commands/memes/tmp/output.${image.getExtension()}`;
+			let file = `${process.cwd()}/commands/content/memes/tmp/output.${image.getExtension()}`;
 			return image.write(file); // save
 		});
-	return `${process.cwd()}/commands/memes/tmp/output.${image.getExtension()}`;
+	return `${process.cwd()}/commands/content/memes/tmp/output.${image.getExtension()}`;
 };

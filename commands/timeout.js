@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandBuilder, AttachmentBuilder } = require('discord.js');
 /*
 make an embed denouncing ;
 "vote if X should to be timed out for Y minutes"
@@ -8,11 +8,11 @@ send death note gif and then timeout
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('timeout')
+		.setName('death')
 		.setDescription('timeout member Y for X amount of minutes')
 		.addSubcommand((subcommand) =>
 			subcommand
-				.setName('democratic')
+				.setName('note')
 				.setDescription(
 					'reaction vote to timeout member for X amount of minutes'
 				)
@@ -39,10 +39,11 @@ module.exports = {
 		try {
 			await interaction.deferReply();
 
+			const image = new AttachmentBuilder('./commands/content/death-note.gif');
 			const user = interaction.options.getUser('user');
 			const length = interaction.options.getString('length');
 			const member = interaction.guild.members.cache.get(user.id);
-			const quota = 3 + 1; /* the + 1 is offset for the bot */
+			const quota = 3 + 1; /* + 1 is offset for the bot own reaction */
 
 			/* I dont know why but whenever a member does not have administrator an exception is thrown
 			 instead of giving false so i did some spaghetti */
@@ -58,7 +59,7 @@ module.exports = {
 					content: '**🚫 This user is admin thus cant be timed out.**',
 				});
 			const message = await interaction.editReply({
-				content: `Do you agree that user <@${user.id}> should be timed out for ${length} minutes`,
+				content: `Do you agree that user <@${user.id}> should be timed out for ${length} minutes, 4 votes total needed.`,
 				fetchReply: true,
 			});
 
@@ -73,8 +74,12 @@ module.exports = {
 				if (reaction.count >= quota) {
 					member.timeout(Number(length) * 60 * 1000);
 					return interaction.editReply({
-						content: 'https://tenor.com/view/death-note-gif-25596232',
+						content: 'https://media.tenor.com/9C-wnbKI-IQAAAAd/death-note.gif',
 					});
+					// return interaction.editReply({
+					// 	content: null,
+					// 	files: [image],
+					// });
 				}
 			});
 		} catch (err) {
