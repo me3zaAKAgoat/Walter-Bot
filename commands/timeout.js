@@ -6,6 +6,8 @@ collect 3 more votes and then apply timeout
 send death note gif and then timeout
 */
 
+const VOTES_NEEDED = 3;
+
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('death')
@@ -43,7 +45,8 @@ module.exports = {
 			const user = interaction.options.getUser('user');
 			const length = interaction.options.getString('length');
 			const member = interaction.guild.members.cache.get(user.id);
-			const quota = 3 + 1; /* + 1 is offset for the bot own reaction */
+			const quota =
+				VOTES_NEEDED + 1; /* + 1 is offset for the bot own reaction */
 
 			/* I dont know why but whenever a member does not have administrator an exception is thrown
 			 instead of giving false so i did some spaghetti */
