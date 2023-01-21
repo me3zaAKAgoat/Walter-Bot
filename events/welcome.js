@@ -4,10 +4,23 @@ module.exports = {
 	execute: (member) => {
 		try {
 			const welcomeChannleId = member.guild.systemChannelId;
+			let memberRole;
 
-			let memberRole = member.guild.roles.cache.find(
-				(role) => role.name.toLowerCase() === 'frens'
-			);
+			try {
+				memberRole = member.guild.roles.cache.find(
+					(role) => role.name.toLowerCase() === 'member'
+				);
+			} catch {
+				console.log('didnt find member role');
+				member.guild.roles
+					.create({
+						name: 'member',
+						color: [255, 0, 255],
+						reason: 'needed base member role',
+					})
+					.then((role) => (memberRole = role))
+					.catch((err) => console.log(err));
+			}
 
 			const welcomeChannel = member.guild.channels.cache.get(welcomeChannleId);
 
