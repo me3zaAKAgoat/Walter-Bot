@@ -72,8 +72,8 @@ module.exports = {
 	execute: async (interaction) => {
 		if (interaction.options.getSubcommand() === 'add') {
 			try {
-				//check wetheter user is allowed to add a movie 5 unreviewed movies per member
-				const unreviewedMoviesCap = 5;
+				//check wether user is allowed to add a movie 5 unreviewed movies per member
+				const unreviewedMoviesCap = 10;
 				if (
 					(await checkUnreviewedMoviesCap(interaction, unreviewedMoviesCap)) ===
 					-1
