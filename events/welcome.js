@@ -14,8 +14,8 @@ module.exports = {
 					console.log('didnt find bot role');
 					member.guild.roles
 						.create({
-							name: 'bot',
-							color: [100, 0, 1001],
+							name: 'bots',
+							color: [128, 128, 128],
 							reason: 'needed base bot role',
 						})
 						.then((role) => member.roles.add(role))
