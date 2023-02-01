@@ -41,7 +41,7 @@ module.exports = {
 			const welcomeChannel = member.guild.channels.cache.get(welcomeChannleId);
 
 			welcomeChannel.send(
-				`Hello <@${member.id}> <a:peepoHi:1069612731189166140>\nWelcome to **${member.guild.name}**,\nFeel free to tell us a bit about yourself below this message,\nAnd enjoy your stay <a:miyanoHype:802396924874850325>`
+				`Hello <@${member.id}> <a:peepoHi:1069612731189166140>\nWelcome to **${member.guild.name}**,\nFeel free to tell us a bit about yourself below this message,\nAnd enjoy your stay <a:miyanoHype:1069612575416922112>`
 			);
 		} catch (err) {
 			console.log(err);
