@@ -4,212 +4,228 @@ const {
 	EmbedBuilder,
 	ButtonBuilder,
 	ButtonStyle,
-} = require('discord.js');
-const Movie = require('../models/movie.js');
+} = require("discord.js");
+const stringUtils = require("../utils/stringUtils");
+const Movie = require("../models/movie.js");
+
+const checkUnreviewedMoviesCap = async (interaction, unreviewedMoviesCap) => {
+	const userId = interaction.user.id;
+	const unreviewedMoviesArr = await Movie.find({
+		adderId: userId,
+		review: null,
+	});
+	if (unreviewedMoviesArr.length > unreviewedMoviesCap) return -1;
+	return 0;
+};
+
+const addMovie = async (interaction) => {
+	// Constants
+	const unreviewedMoviesCap = 10;
+	const emptyTitleMessage = "🚫 Movie title can't be empty";
+	const existingTitleMessage =
+		"🚫 Movie with the same name already exists in the database.";
+	const exceededCapMessage = `🚫 You have exceeded the ${unreviewedMoviesCap} unreviewed movies per person cap.`;
+	const successMessage = (title) => `**${title}** is now stored.`;
+	const errorMessage =
+		"Command failed :( please report the the command and your input me3za#4854 please.";
+	try {
+		// Check unreviewed movies cap
+		const checkResult = await checkUnreviewedMoviesCap(
+			interaction,
+			unreviewedMoviesCap
+		);
+		if (checkResult === -1)
+			return interaction.reply({
+				content: exceededCapMessage,
+				ephemeral: true,
+			});
+
+		// Normalize movie title
+		let movieTitle = interaction.options
+			.getString("title")
+			.trim()
+			.toLowerCase();
+		movieTitle = stringUtils.capitalize(movieTitle);
+		if (!movieTitle)
+			return interaction.reply({ content: emptyTitleMessage, ephemeral: true });
+
+		// Check if movie title exists
+		const movieExists = await Movie.findOne({ title: movieTitle });
+		if (movieExists)
+			return interaction.reply({
+				content: existingTitleMessage,
+				ephemeral: true,
+			});
+
+		// Create and save new movie
+		const newMovie = new Movie({
+			title: movieTitle,
+			review: null,
+			raters: [],
+			adderId: interaction.user.id,
+		});
+		await newMovie.save();
+
+		return interaction.reply(successMessage(movieTitle));
+	} catch (err) {
+		console.error(err);
+		return interaction.reply(errorMessage);
+	}
+};
+
+const randomizeMovie = async (interaction) => {
+	try {
+		const unreviewedMovies = await Movie.find({ review: { $exists: false } });
+
+		if (!unreviewedMovies.length) {
+			return interaction.reply(
+				`All movies registered are already reviewed or no movies are registered yet.`
+			);
+		}
+		const chosenMovie =
+			unreviewMovies[Math.floor(Math.random() * unreviewMovies.length)];
+
+		return interaction.reply(
+			`Randomly Chosen Movie is **${chosenMovie.title}**.`
+		);
+	} catch (err) {
+		console.error(err);
+		return interaction.reply(
+			"Command failed :( please report the the command and your input me3za#4854 please."
+		);
+	}
+};
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('movie')
-		.setDescription('Commands for handling custom movie database')
+		.setName("movie")
+		.setDescription("Commands for handling custom movie database")
 		.addSubcommand((subcommand) =>
 			subcommand
-				.setName('add')
-				.setDescription('Add a movie to the collection of this servers movies')
+				.setName("add")
+				.setDescription("Add a movie to the collection of this servers movies")
 				.addStringOption((option) =>
 					option
-						.setName('title')
-						.setDescription('Name of the movie')
+						.setName("title")
+						.setDescription("Name of the movie")
 						.setRequired(true)
 				)
 		)
 		.addSubcommand((subcommand) =>
 			subcommand
-				.setName('randomize')
-				.setDescription('Choose a none reviewed movie at random')
+				.setName("randomize")
+				.setDescription("Choose a none reviewed movie at random")
 		)
 		.addSubcommand((subcommand) =>
 			subcommand
-				.setName('rating')
-				.setDescription('get the collective rating of a movie')
+				.setName("rating")
+				.setDescription("get the collective rating of a movie")
 				.addStringOption((option) =>
 					option
-						.setName('title')
-						.setDescription('Name of the movie')
+						.setName("title")
+						.setDescription("Name of the movie")
 						.setRequired(true)
 				)
 		)
 		.addSubcommand((subcommand) =>
 			subcommand
-				.setName('rate')
-				.setDescription('Review one of the movies in the collection')
+				.setName("rate")
+				.setDescription("Review one of the movies in the collection")
 				.addStringOption((option) =>
 					option
-						.setName('title')
-						.setDescription('Name of the movie')
+						.setName("title")
+						.setDescription("Name of the movie")
 						.setRequired(true)
 				)
 				.addNumberOption((option) =>
 					option
-						.setName('rating')
-						.setDescription('Rating out of 10 of the movie')
+						.setName("rating")
+						.setDescription("Rating out of 10 of the movie")
 						.setRequired(true)
 				)
 		)
 		.addSubcommand((subcommand) =>
 			subcommand
-				.setName('delete')
-				.setDescription('delete a movie you added')
+				.setName("delete")
+				.setDescription("delete a movie you added")
 				.addStringOption((option) =>
 					option
-						.setName('title')
-						.setDescription('Name of the movie')
+						.setName("title")
+						.setDescription("Name of the movie")
 						.setRequired(true)
 				)
 		)
 		.addSubcommand((subcommand) =>
-			subcommand.setName('list').setDescription('list all movies registered')
+			subcommand.setName("list").setDescription("list all movies registered")
 		),
 	execute: async (interaction) => {
-		if (interaction.options.getSubcommand() === 'add') {
+		if (interaction.options.getSubcommand() === "add") {
+			await addMovie(interaction);
+		} else if (interaction.options.getSubcommand() === "randomize") {
+			await randomizeMovie(interaction);
+		} else if (interaction.options.getSubcommand() === "rating") {
 			try {
-				//check wether user is allowed to add a movie 5 unreviewed movies per member
-				const unreviewedMoviesCap = 10;
-				if (
-					(await checkUnreviewedMoviesCap(interaction, unreviewedMoviesCap)) ===
-					-1
-				)
-					return await interaction.reply({
-						ephemeral: true,
-						content: `🚫 You have exceeded the ${unreviewedMoviesCap} **unreviewed movies** per person cap.`,
-					});
 				let movieTitle = interaction.options
-					.getString('title')
+					.getString("title")
 					.trim()
 					.toLowerCase();
 
 				// unifying movie name by capitlazing
-				movieTitle = capitalize(movieTitle);
+				movieTitle = stringUtils.capitalize(movieTitle);
 				if (movieTitle.length === 0)
-					return await interaction.reply({
-						content: "🚫 Movie title can't be empty",
-						ephemeral: true,
-					});
-				const movieExists = await Movie.findOne({ title: movieTitle });
-
-				if (movieExists)
-					return await interaction.reply({
-						content:
-							'🚫 Movie with the same name already exists in the database.',
-						ephemeral: true,
-					});
-				else {
-					const newMovie = new Movie({
-						title: movieTitle,
-						review: null,
-						raters: [],
-						adderId: interaction.user.id,
-					});
-					await newMovie.save();
-
-					return await interaction.reply(`**${movieTitle}** is now stored.`);
-				}
-			} catch (err) {
-				console.log(err);
-				return await interaction.reply(
-					'Command failed :( please report the the command and your input me3za#4854 please.'
-				);
-			}
-		} else if (interaction.options.getSubcommand() === 'randomize') {
-			try {
-				const arrOfMovies = await Movie.find({});
-				console.log(arrOfMovies);
-
-				const unreviewMovies = arrOfMovies.filter(
-					(movie) => movie.review === null
-				);
-				console.log(unreviewMovies);
-
-				if (unreviewMovies.length !== 0) {
-					const chosenMovie =
-						unreviewMovies[Math.floor(Math.random() * unreviewMovies.length)];
-
-					return await interaction.reply(
-						`Randomly Chosen Movie is **${chosenMovie.title}**.`
-					);
-				} else
-					return await interaction.reply(
-						`All movies registered are already reviewed or no movies are registered yet.`
-					);
-			} catch (err) {
-				console.log(err);
-				return await interaction.reply(
-					'Command failed :( please report the the command and your input me3za#4854 please.'
-				);
-			}
-		} else if (interaction.options.getSubcommand() === 'rating') {
-			try {
-				console.log(interaction);
-				let movieTitle = interaction.options
-					.getString('title')
-					.trim()
-					.toLowerCase();
-
-				// unifying movie name by capitlazing
-				movieTitle = capitalize(movieTitle);
-				if (movieTitle.length === 0)
-					return await interaction.reply({
+					return interaction.reply({
 						content: "🚫 Movie title can't be empty",
 						ephemeral: true,
 					});
 				const movie = await Movie.findOne({ title: movieTitle });
 
 				if (movie === null)
-					return await interaction.reply({
+					return interaction.reply({
 						content: "🚫 Movie dosen't exist",
 						ephemeral: true,
 					});
 				else {
 					if (movie.review === null)
-						return await interaction.reply(
+						return interaction.reply(
 							`**${movieTitle}** is still not reviewed.`
 						);
 					else
-						return await interaction.reply(
+						return interaction.reply(
 							`**${movieTitle}** was rated for **${movie.review.toFixed(
 								1
 							)}/10**.`
 						);
 				}
 			} catch (err) {
-				console.log(err);
-				return await interaction.reply(
-					'Command failed :( please report the the command and your input me3za#4854 please.'
+				console.error(err);
+				return interaction.reply(
+					"Command failed :( please report the the command and your input me3za#4854 please."
 				);
 			}
-		} else if (interaction.options.getSubcommand() === 'rate') {
+		} else if (interaction.options.getSubcommand() === "rate") {
 			try {
 				let movieTitle = interaction.options
-					.getString('title')
+					.getString("title")
 					.trim()
 					.toLowerCase();
-				const userRating = interaction.options.getNumber('rating');
+				const userRating = interaction.options.getNumber("rating");
 
 				// unifying movie name by capitlazing
-				movieTitle = capitalize(movieTitle);
+				movieTitle = stringUtils.capitalize(movieTitle);
 				if (movieTitle.length === 0)
-					return await interaction.reply({
+					return interaction.reply({
 						content: "🚫 Movie title can't be empty",
 						ephemeral: true,
 					});
 				if (userRating > 10 || userRating < 0)
-					return await interaction.reply({
-						content: '🚫 Rating must be positive and lower than 10',
+					return interaction.reply({
+						content: "🚫 Rating must be positive and lower than 10",
 						ephemeral: true,
 					});
 				const movie = await Movie.findOne({ title: movieTitle });
 
 				if (!movie)
-					return await interaction.reply({
+					return interaction.reply({
 						content: "🚫 Movie isn't registerd",
 						ephemeral: true,
 					});
@@ -229,7 +245,7 @@ module.exports = {
 							0
 						) / ratings.length;
 					await Movie.findOneAndUpdate({ _id: movie._id.toString() }, movie);
-					return await interaction.reply({
+					return interaction.reply({
 						content: `${
 							interaction.user.username
 						} re-reviewed **${movieTitle}** from **${rater[0].rating.toFixed(
@@ -246,18 +262,18 @@ module.exports = {
 				});
 
 				await Movie.findOneAndUpdate({ _id: movie._id.toString() }, movie);
-				return await interaction.reply(
+				return interaction.reply(
 					`${
 						interaction.user.username
 					} rated **${movieTitle}** : **${userRating.toFixed(1)}/10**`
 				);
 			} catch (err) {
-				console.log(err);
-				return await interaction.reply(
-					'Command failed :( please report the the command and your input me3za#4854 please.'
+				console.error(err);
+				return interaction.reply(
+					"Command failed :( please report the the command and your input me3za#4854 please."
 				);
 			}
-		} else if (interaction.options.getSubcommand() === 'list') {
+		} else if (interaction.options.getSubcommand() === "list") {
 			try {
 				const embeds = [];
 				const pages = {};
@@ -266,8 +282,8 @@ module.exports = {
 				let movies = await Movie.find({});
 
 				if (movies.length === 0)
-					return await interaction.reply({
-						content: '🚫 No movies have been registered yet',
+					return interaction.reply({
+						content: "🚫 No movies have been registered yet",
 						ephemeral: true,
 					});
 				while (movies.length > 0) {
@@ -277,7 +293,7 @@ module.exports = {
 							name: `${movies[movies.length - 1].title}`,
 							value: `${
 								movies[movies.length - 1].review === null
-									? 'Unseen'
+									? "Unseen"
 									: `${movies[movies.length - 1].review.toFixed(1)}/10`
 							}`,
 							inline: false,
@@ -293,16 +309,16 @@ module.exports = {
 					const row = new ActionRowBuilder()
 						.addComponents(
 							new ButtonBuilder()
-								.setCustomId('prev-embed')
-								.setEmoji('⏪')
+								.setCustomId("prev-embed")
+								.setEmoji("⏪")
 								.setDisabled(pages[id] === 0)
 								.setStyle(ButtonStyle.Primary)
 						)
 
 						.addComponents(
 							new ButtonBuilder()
-								.setCustomId('next-embed')
-								.setEmoji('⏩')
+								.setCustomId("next-embed")
+								.setEmoji("⏩")
 								.setDisabled(pages[id] === embeds.length - 1)
 								.setStyle(ButtonStyle.Primary)
 						);
@@ -327,17 +343,17 @@ module.exports = {
 					time: 1000 * 60 * 10,
 				});
 
-				collector.on('collect', async (btnInt) => {
+				collector.on("collect", async (btnInt) => {
 					if (!btnInt) return;
 
 					btnInt.deferUpdate();
 					if (
-						btnInt.customId !== 'prev-embed' &&
-						btnInt.customId !== 'next-embed'
+						btnInt.customId !== "prev-embed" &&
+						btnInt.customId !== "next-embed"
 					)
 						return;
-					if (btnInt.customId === 'prev-embed' && pages[id] > 0) --pages[id];
-					if (btnInt.customId === 'next-embed' && pages[id] < embeds.length - 1)
+					if (btnInt.customId === "prev-embed" && pages[id] > 0) --pages[id];
+					if (btnInt.customId === "next-embed" && pages[id] < embeds.length - 1)
 						++pages[id];
 
 					interaction.editReply({
@@ -346,76 +362,56 @@ module.exports = {
 					});
 				});
 			} catch (err) {
-				console.log(err);
-				return await interaction.reply(
-					'Command failed :( please report the the command and your input me3za#4854 please.'
+				console.error(err);
+				return interaction.reply(
+					"Command failed :( please report the the command and your input me3za#4854 please."
 				);
 			}
-		} else if (interaction.options.getSubcommand() === 'delete') {
+		} else if (interaction.options.getSubcommand() === "delete") {
 			try {
 				let movieTitle = interaction.options
-					.getString('title')
+					.getString("title")
 					.trim()
 					.toLowerCase(); // unifying movie name by capitlazing
-				movieTitle = capitalize(movieTitle);
+				movieTitle = stringUtils.capitalize(movieTitle);
 				if (movieTitle.length === 0)
-					return await interaction.reply({
+					return interaction.reply({
 						content: "🚫 Movie title can't be empty.",
 						ephemeral: true,
 					});
 				const movie = await Movie.findOne({ title: movieTitle });
 
 				if (movie === null)
-					return await interaction.reply({
+					return interaction.reply({
 						content: "🚫 Movie dosen't exist.",
 						ephemeral: true,
 					});
 				if (movie.adderId === interaction.user.id) {
 					if (movie.review !== null) {
-						return await interaction.reply({
+						return interaction.reply({
 							ephemeral: true,
 							content: `🚫 You can't delete a movie that has been watched/reviewd.`,
 						});
 					}
 					await movie.remove();
-					return await interaction.reply({
+					return interaction.reply({
 						content: `**${movie.title}** has been deleted.`,
 					});
 				}
-				return await interaction.reply({
-					content: '🚫 Only the person that added the movie can delete it.',
+				return interaction.reply({
+					content: "🚫 Only the person that added the movie can delete it.",
 					ephemeral: true,
 				});
 			} catch (err) {
-				console.log(err);
-				return await interaction.reply(
-					'Command failed :( please report the the command and your input me3za#4854 please.'
+				console.error(err);
+				return interaction.reply(
+					"Command failed :( please report the the command and your input me3za#4854 please."
 				);
 			}
 		} else
-			return await interaction.reply({
+			return interaction.reply({
 				content: `🚫 this command doesn't exist.`,
 				ephemeral: true,
 			});
 	},
-};
-
-const capitalize = (sentence) => {
-	sentence = sentence.split(' ');
-	for (let i = 0; i < sentence.length; i++) {
-		sentence[i] = sentence[i].charAt(0).toUpperCase() + sentence[i].slice(1);
-	}
-	sentence = sentence.join(' ');
-
-	return sentence;
-};
-
-const checkUnreviewedMoviesCap = async (interaction, unreviewedMoviesCap) => {
-	const userId = interaction.user.id;
-	const unreviewedMoviesArr = await Movie.find({
-		adderId: userId,
-		review: null,
-	});
-	if (unreviewedMoviesArr.length > unreviewedMoviesCap) return -1;
-	return 0;
 };

@@ -1,128 +1,114 @@
-const { SlashCommandBuilder } = require('discord.js');
-const Role = require('../models/role');
-const Channel = require('../models/channel');
+const { SlashCommandBuilder } = require("discord.js");
+const Role = require("../models/role");
+const Channel = require("../models/channel");
+const discordUtils = require("../utils/discordUtils");
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('configure')
-		.setDescription('configurations of the bot')
+		.setName("configure")
+		.setDescription("configurations of the bot")
 		.addSubcommand((subcommand) =>
 			subcommand
-				.setName('anime')
+				.setName("anime")
 				.setDescription(
-					'configure the role that gets tagged on anime announcements channel'
+					"configure the role that gets tagged on anime announcements channel"
 				)
 				.addRoleOption((option) =>
 					option
-						.setName('role')
+						.setName("role")
 						.setDescription(
-							'the role that gets tagged on anime channel announcements'
+							"the role that gets tagged on anime channel announcements"
 						)
 						.setRequired(true)
 				)
 				.addChannelOption((option) =>
 					option
-						.setName('channel')
-						.setDescription('the channel that gets news posted on')
+						.setName("channel")
+						.setDescription("the channel that gets news posted on")
 						.setRequired(true)
 				)
 		)
 		.addSubcommand((subcommand) =>
 			subcommand
-				.setName('birthday')
+				.setName("birthday")
 				.setDescription(
-					'configure the channel where the birthday will be announced'
+					"configure the channel where the birthday will be announced"
 				)
 				.addChannelOption((option) =>
 					option
-						.setName('channel')
-						.setDescription('the channel where the birthday will be announced')
+						.setName("channel")
+						.setDescription("the channel where the birthday will be announced")
 						.setRequired(true)
 				)
 		),
 	execute: async (interaction) => {
-		try {
-			const subCommand = interaction.options.getSubcommand();
-			if (subCommand === 'anime') {
-				let roleTag;
-				let channelId;
-				const roleFetch = interaction.options.getRole('role');
-				const channelFetch = interaction.options.getChannel('channel');
-				if (
-					![undefined, null].includes(roleFetch) &&
-					![undefined, null].includes(channelFetch)
-				) {
-					roleTag = `<@&${roleFetch.id}>`;
-					channelId = channelFetch.id;
-				} else {
-					return await interaction.relpy({
-						ephemeral: true,
-						content:
-							'This interaction failed, pls make sure you are sending valid roles/channels, otherwise contact me3za',
-					});
-				}
-				console.log('role tag', roleTag, 'channel id', channelId);
-				const registeredRole = await Role.findOne({ type: subCommand });
-				if (registeredRole !== null) {
-					await Role.findByIdAndUpdate(registeredRole._id.toString(), {
-						type: subCommand,
-						tag: roleTag,
-					});
-				} else {
-					const newRole = new Role({
-						type: subCommand,
-						tag: roleTag,
-					});
-					await newRole.save();
-				}
-				const registeredChannel = await Channel.findOne({ type: subCommand });
-				if (registeredChannel !== null) {
-					await Channel.findByIdAndUpdate(registeredChannel._id.toString(), {
-						type: subCommand,
-						id: channelId,
-					});
-				} else {
-					const newChannel = new Channel({
-						type: subCommand,
-						id: channelId,
-					});
-					await newChannel.save();
-				}
-				return await interaction.reply(
-					`Successfully registered the ${subCommand} tag ${roleTag} and the channel <#${channelId}>.`
-				);
-			} else if (subCommand === 'birthday') {
-				const channel = interaction.options.getChannel('channel');
-				const updateResult = await Channel.findOneAndUpdate(
-					{
-						type: subCommand,
-					},
-					{ id: channel.id }
-				);
-
-				if (updateResult !== null) {
-					return await interaction.reply({
-						content: `Updated birthday channel to <#${channel.id}>.`,
-					});
-				}
-
-				const newBirthdayChannel = new Channel({
-					type: subCommand,
-					id: channel.id,
-				});
-
-				newBirthdayChannel.save();
-				return await interaction.reply(
-					`Successfully registered the ${subCommand} announcement channel to <#${channel.id}>.`
-				);
-			}
-		} catch (err) {
-			console.log(err);
-			return await interaction.reply({
-				content:
-					'Command failed :( please report the the command and your input me3za#4854 please.',
+		if (!discordUtils.isAdmin(interaction.member))
+			return interaction.reply({
+				content: "🚫 this command is admin only.",
 				ephemeral: true,
 			});
+		const subCommand = interaction.options.getSubcommand();
+		if (subCommand === "anime") {
+			const role = interaction.options.getRole("role");
+			const channel = interaction.options.getChannel("channel");
+			if (
+				[undefined, null].includes(role) ||
+				[undefined, null].includes(channel)
+			) {
+				return interaction.relpy({
+					ephemeral: true,
+					content:
+						"This interaction failed, pls make sure you are sending valid roles/channels, otherwise contact me3za",
+				});
+			}
+
+			try {
+				// upsert role id
+				await Role.findOneAndUpdate(
+					{ guildId: interaction.guildId, role: subCommand },
+					{ roleId: role.id },
+					{ upsert: true, new: true }
+				);
+				// upsert channel id
+				await Channel.findOneAndUpdate(
+					{ guildId: interaction.guildId, channel: subCommand },
+					{ channelId: channel.id },
+					{ upsert: true, new: true }
+				);
+			} catch (err) {
+				console.error(subCommand, err);
+				return interaction.reply(
+					"there was an issue completing this command contact me3za"
+				);
+			}
+
+			return interaction.reply(
+				`Successfully registered the ${subCommand} tag <@&${role.id}> and the channel <#${channel.id}>.`
+			);
+		} else if (subCommand === "birthday") {
+			const channel = interaction.options.getChannel("channel");
+
+			try {
+				// upsert channel id
+				await Channel.findOneAndUpdate(
+					{ guildId: interaction.guildId, channel: subCommand },
+					{ channelId: channel.id },
+					{ upsert: true, new: true }
+				);
+			} catch (err) {
+				console.error(subCommand, err);
+				return interaction.reply(
+					"there was an issue completing this command contact me3za"
+				);
+			}
+
+			return interaction.reply(
+				`Successfully registered the ${subCommand} announcement channel to <#${channel.id}>.`
+			);
 		}
+		return interaction.reply({
+			content: "🚫 this command doesn't exist.",
+			ephemeral: true,
+		});
 	},
 };

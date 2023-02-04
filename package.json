@@ -8,7 +8,9 @@
     "start": "node index.js",
     "deploycommands": "node deploy-commands.js",
     "testapp": "npm run deploycommands && node index.js",
-    "deployserverapp": "npm install && npm run deploycommands && npm run start"
+    "deployserverapp": "npm install && npm run deploycommands && npm run start",
+    "lint": "eslint",
+    "lint:fix": "eslint . --fix"
   },
   "keywords": [
     "discord",
@@ -27,5 +29,11 @@
     "mongoose": "^6.7.2",
     "teemojs": "^1.8.0",
     "twitter-api-v2": "^1.12.9"
+  },
+  "devDependencies": {
+    "eslint": "^8.33.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1"
   }
 }

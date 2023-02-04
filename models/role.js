@@ -1,11 +1,12 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const roleSchema = mongoose.Schema({
-	type: String,
-	tag: String,
+	role: String,
+	roleId: String,
+	guildId: String,
 });
 
-roleSchema.set('toJSON', {
+roleSchema.set("toJSON", {
 	transform: (document, returnedObject) => {
 		returnedObject.id = returnedObject._id.toString();
 		delete returnedObject._id;
@@ -13,4 +14,4 @@ roleSchema.set('toJSON', {
 	},
 });
 
-module.exports = mongoose.model('Role', roleSchema);
+module.exports = mongoose.model("Role", roleSchema);

@@ -1,11 +1,11 @@
-const axios = require('axios');
+const axios = require("axios");
 
 axios
 	.get(
-		'https://esports-api.lolesports.com/persisted/gw/getSchedule?hl=en-GB&leagueId=98767991302996019',
+		"https://esports-api.lolesports.com/persisted/gw/getSchedule?hl=en-GB&leagueId=98767991302996019",
 		{
 			headers: {
-				'x-api-key': '0TvQnueqKa5mxJntVWt0w4LpLfEkrV1Ta8rQBb9Z',
+				"x-api-key": "0TvQnueqKa5mxJntVWt0w4LpLfEkrV1Ta8rQBb9Z",
 			},
 		}
 	)
@@ -14,4 +14,4 @@ axios
 			console.log(element.match);
 		})
 	)
-	.catch((err) => console.log(err));
+	.catch((err) => console.error(err));

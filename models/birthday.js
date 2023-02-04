@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const birthdaySchema = mongoose.Schema({
 	userId: String,
@@ -6,7 +6,7 @@ const birthdaySchema = mongoose.Schema({
 	month: Number,
 });
 
-birthdaySchema.set('toJSON', {
+birthdaySchema.set("toJSON", {
 	transform: (document, returnedObject) => {
 		returnedObject.id = returnedObject._id.toString();
 		delete returnedObject._id;
@@ -14,4 +14,4 @@ birthdaySchema.set('toJSON', {
 	},
 });
 
-module.exports = mongoose.model('Birthday', birthdaySchema);
+module.exports = mongoose.model("Birthday", birthdaySchema);

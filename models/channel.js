@@ -1,11 +1,12 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const channelSchema = mongoose.Schema({
-	type: String,
-	id: String,
+	channel: String,
+	channelId: String,
+	guildId: String,
 });
 
-channelSchema.set('toJSON', {
+channelSchema.set("toJSON", {
 	transform: (document, returnedObject) => {
 		returnedObject.id = returnedObject._id.toString();
 		delete returnedObject._id;
@@ -13,4 +14,4 @@ channelSchema.set('toJSON', {
 	},
 });
 
-module.exports = mongoose.model('Channel', channelSchema);
+module.exports = mongoose.model("Channel", channelSchema);

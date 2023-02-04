@@ -1,5 +1,5 @@
 module.exports = {
-	name: 'guildMemberRemove',
+	name: "guildMemberRemove",
 	once: false,
 	execute: (member) => {
 		try {
@@ -9,7 +9,8 @@ module.exports = {
 
 			welcomeChannel.send(`<@${member.id}> just left!`);
 		} catch (err) {
-			console.log(err);
+			console.error(err);
+			return;
 		}
 	},
 };
