@@ -1,13 +1,12 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
-const Movie = require("./models/movie");
-const Role = require("./models/role");
-const Birthday = require("./models/birthday");
+const Activity = require("../models/activity");
 
 mongoose
 	.connect(process.env.MONGODB_URI)
 	.then(console.log("connected to", process.env.MONGODB_URI));
 
+Activity.find({}).then((result) => console.log(result));
 // Birthday.deleteMany({}).then((result) => console.log('Birthday', result));
 
 // clear movies

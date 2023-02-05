@@ -1,7 +1,7 @@
 const Activity = require("../models/activity");
 
 module.exports = {
-	name: "message",
+	name: "messageCreate",
 	once: false,
 	execute: async (message) => {
 		if (message.author.bot) return;
@@ -10,6 +10,7 @@ module.exports = {
 			if (!activity) {
 				activity = new Activity({
 					messageCount: 1,
+					timeVc: 0,
 					memberId: message.author.id,
 				});
 			} else {

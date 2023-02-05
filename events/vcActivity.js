@@ -6,20 +6,17 @@ module.exports = {
 	name: "voiceStateUpdate",
 	once: false,
 	execute: async (oldState, newState) => {
-		const oldVoiceState = oldState.voice;
-		const newVoiceState = newState.voice;
-
-		if (!oldVoiceState.channelID && newVoiceState.channelID) {
+		if (!oldState.channelId && newState.channelId) {
 			// User has joined a voice channel
 			voiceChannelUsers.set(newState.id, Date.now());
-		} else if (oldVoiceState.channelID && !newVoiceState.channelID) {
+		} else if (oldState.channelId && !newState.channelId) {
 			// User has left a voice channel
 			const timeInVoice = Date.now() - voiceChannelUsers.get(oldState.id);
-			voiceChannelUsers.delete(oldState.id);
 			try {
 				let activity = await Activity.findOne({ memberId: oldState.id });
 				if (!activity) {
 					activity = new Activity({
+						messageCount: 0,
 						timeVc: timeInVoice,
 						memberId: oldState.id,
 					});
@@ -27,6 +24,7 @@ module.exports = {
 					activity.timeVc += timeInVoice;
 				}
 				await activity.save();
+				voiceChannelUsers.delete(oldState.id);
 			} catch (err) {
 				console.error(err);
 			}
