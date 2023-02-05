@@ -17,7 +17,9 @@ const cleanupBirthdayRole = (currentGuild, birthdayRole) => {
 			});
 			for (const birthday of birthdays) {
 				const member = currentGuild.members.cache.get(birthday.userId);
+
 				if (!member) continue;
+
 				if (member.roles.cache.has(birthdayRole.id)) {
 					await member.roles.remove(birthdayRole);
 				}
@@ -34,38 +36,49 @@ const birthdayMessage = (userId) =>
 /* need to change this so that all guilds the bot is in get the announcement */
 module.exports = {
 	execute: async (client) => {
-		let birthdays;
-		let member;
 		const currentDay = new Date().getDate();
 		const currentMonth = new Date().getMonth() + 1;
 
 		try {
-			birthdays = await Birthday.find({
+			const birthdays = await Birthday.find({
 				day: currentDay,
 				month: currentMonth,
 			});
+			if (!birthdays.length) {
+				console.error("0 birthdays found for today" + Date());
+				return;
+			}
 
 			for (const guild of client.guilds.cache) {
 				const announcementChannelId = (
 					await Channel.findOne({ channel: "birthday", guildId: guild.id })
 				).channelId;
+
+				if (!announcementChannelId) continue;
+
 				const announcementChannel = client.channels.cache.get(
 					announcementChannelId
 				);
+				if (!announcementChannel) continue;
+
 				const birthdayRole = guild.roles.cache.find(
 					(role) => role.name.toLowerCase() === "birthday"
 				);
 
 				for (const birthday of birthdays) {
-					member = guild.members.cache.get(birthday.userId);
+					const member = guild.members.cache.get(birthday.userId);
+
 					if (!member) continue;
+
 					announcementChannel.send(birthdayMessage(member.id));
+
 					const roleToBeHoisted = roleUtils.assignRole(
 						member,
 						birthdayRole,
 						"birthday",
 						[255, 226, 59]
 					);
+
 					if (!roleToBeHoisted.hoist) await roleToBeHoisted.setHoist(true);
 				}
 
@@ -75,7 +88,6 @@ module.exports = {
 			}
 		} catch (err) {
 			console.error(err);
-			return;
 		}
 	},
 };

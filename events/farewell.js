@@ -10,7 +10,6 @@ module.exports = {
 			welcomeChannel.send(`<@${member.id}> just left!`);
 		} catch (err) {
 			console.error(err);
-			return;
 		}
 	},
 };

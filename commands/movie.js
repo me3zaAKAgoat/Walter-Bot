@@ -6,7 +6,7 @@ const {
 	ButtonStyle,
 } = require("discord.js");
 const stringUtils = require("../utils/stringUtils");
-const Movie = require("../models/movie.js");
+const Movie = require("../models/movie");
 
 const checkUnreviewedMoviesCap = async (interaction, unreviewedMoviesCap) => {
 	const userId = interaction.user.id;

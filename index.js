@@ -30,6 +30,7 @@ const eventFiles = fs
 for (const file of eventFiles) {
 	const filePath = `${eventsPath}/${file}`;
 	const event = require(filePath);
+
 	if (event.once) {
 		client.once(event.name, (...args) => event.execute(...args));
 	} else {
@@ -46,6 +47,7 @@ const commandFiles = fs
 for (const file of commandFiles) {
 	const filePath = `${commandsPath}/${file}`;
 	const command = require(filePath);
+
 	client.commands.set(command.data.name, command);
 }
 

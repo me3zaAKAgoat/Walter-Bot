@@ -1,6 +1,6 @@
-<h1 align="center"><strong>Akatsuki In-house Bot</strong></h1>
+<h1 align="center"><strong>me3za's In-house Bot</strong></h1>
 
-This bot was created by me3za and is meant to serve some of the casual needs of the akatsuki server members. it is also worth noting that this bot is an expiremental/for-fun bot.
+This bot was created by me3za and is meant to serve some of the casual needs of friend group server members.
 
 ## **Services Provided**
 

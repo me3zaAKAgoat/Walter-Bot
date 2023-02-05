@@ -1,11 +1,12 @@
 module.exports = {
 	capitalize: (sentence) => {
-		sentence = sentence.split(" ");
-		for (let i = 0; i < sentence.length; i++) {
-			sentence[i] = sentence[i].charAt(0).toUpperCase() + sentence[i].slice(1);
+		const splitSentence = sentence.split(" ");
+		for (let i = 0; i < splitSentence.length; i++) {
+			splitSentence[i] =
+				splitSentence[i].charAt(0).toUpperCase() + splitSentence[i].slice(1);
 		}
-		sentence = sentence.join(" ");
+		const jointSentence = splitSentence.join(" ");
 
-		return sentence;
+		return jointSentence;
 	},
 };

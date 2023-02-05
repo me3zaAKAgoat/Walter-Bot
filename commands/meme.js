@@ -78,7 +78,9 @@ module.exports = {
 				content: "This meme template does not exist",
 			});
 		}
+
 		/* the following line checks if the content would be too long to fit in a the meme template */
+
 		const content = interaction.options.getString("text");
 		if (content.length > 100) {
 			return interaction.editReply({
@@ -86,7 +88,10 @@ module.exports = {
 				ephemeral: true,
 			});
 		}
-		/* the following try catch block writes to the template and then sends the file back to the interaction */
+
+		/* the following try catch block writes to the template and then sends the file
+		back to the interaction */
+
 		try {
 			const image = await writeMeme(
 				type,

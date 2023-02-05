@@ -1,6 +1,5 @@
-const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
+const { SlashCommandBuilder, EmbedBuilder, quote } = require("discord.js");
 const discordUtils = require("../utils/discordUtils");
-const process = require("process");
 
 /*
 make an embed denouncing ;
@@ -57,28 +56,26 @@ module.exports = {
 					content: "**🚫 This user is admin thus cant be timed out.**",
 				});
 			const message = await interaction.editReply({
-				content: `Do you agree that user <@${
-					user.id
-				}> should be timed out for ${length} minutes, ${
-					USER_VOTES_NEEDED + 1
-				} votes total needed.`,
+				content: `Do you agree that user <@${user.id}> should be timed out for ${length} minutes, ${quota} votes total needed.`,
 				fetchReply: true,
 			});
 
 			message.react("🤝");
-			const filter = (reaction, user) => {
-				reaction.emoji.name === "🤝";
-			};
+			const filter = (reaction, user) => reaction.emoji.name === "🤝";
+
 			const collector = message.createReactionCollector(filter, {
 				time: 60 * 1000,
 			});
+
 			collector.on("collect", (reaction) => {
 				if (reaction.count >= quota) {
 					member.timeout(Number(length) * 60 * 1000);
 
 					const gifEmbed = new EmbedBuilder()
 						.setColor("0xde2316")
-						.setTitle(`${user.username} was timed out for ${length} minutes`)
+						.setTitle(
+							`${quota} people voted so ${user.username} is now timed out for ${length} minutes`
+						)
 						.setImage(
 							"https://media.tenor.com/1ybUFYQpNDgAAAAd/death-note-light-yagami.gif"
 						);

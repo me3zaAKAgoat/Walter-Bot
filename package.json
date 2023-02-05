@@ -7,16 +7,16 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "deploycommands": "node deploy-commands.js",
-    "testapp": "npm run deploycommands && node index.js",
-    "deployserverapp": "npm install && npm run deploycommands && npm run start",
+    "depcommsandrun": "npm run deploycommands && node index.js",
+    "newinstall": "npm install && npm run deploycommands && npm run start",
+    "devtesting": "nodemon --exec 'npm run start'",
     "lint": "eslint",
     "lint:fix": "eslint . --fix"
   },
   "keywords": [
     "discord",
     "bot",
-    "js",
-    "akatsuki"
+    "js"
   ],
   "author": "me3za",
   "license": "ISC",
@@ -34,6 +34,7 @@
     "eslint": "^8.33.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-jsx-a11y": "^6.7.1"
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "nodemon": "^2.0.20"
   }
 }

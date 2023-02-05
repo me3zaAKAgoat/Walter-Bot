@@ -29,7 +29,6 @@ module.exports = {
 				);
 			} catch (err) {
 				console.error("couldn't send welcome message", err);
-				return;
 			}
 		}
 	},

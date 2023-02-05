@@ -1,13 +1,15 @@
-require('dotenv').config();
-const fs = require('node:fs');
-const { REST, Routes } = require('discord.js');
+require("dotenv").config();
+const fs = require("node:fs");
+const { REST, Routes } = require("discord.js");
+
 const [clientId, token] = [process.env.CLIENT_ID, process.env.DISCORD_TOKEN];
 
-const commands = [
-];
+const commands = [];
 
-const commandsPath = './commands';
-const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
+const commandsPath = "./commands";
+const commandFiles = fs
+	.readdirSync(commandsPath)
+	.filter((file) => file.endsWith(".js"));
 
 for (const file of commandFiles) {
 	const filePath = `${commandsPath}/${file}`;
@@ -15,13 +17,13 @@ for (const file of commandFiles) {
 	commands.push(command.data.toJSON());
 }
 
-const rest = new REST({ version: '10' }).setToken(token);
+const rest = new REST({ version: "10" }).setToken(token);
 
 rest
-  .put(Routes.applicationCommands(clientId), { body: commands })
-  .then((data) =>
-    console.log(`Successfully registered ${data.length} application commands.`)
-  )
-  .catch(console.error);
+	.put(Routes.applicationCommands(clientId), { body: commands })
+	.then((data) =>
+		console.log(`Successfully registered ${data.length} application commands.`)
+	)
+	.catch(console.error);
 
 // need to deploy this
