@@ -49,9 +49,6 @@ module.exports = {
 		.setName("nsfw")
 		.setDescription("spits a random nsfw image scraped from reddit")
 		.addSubcommand((subcommand) =>
-			subcommand.setName("showmeboys").setDescription("sexy pictures of boys")
-		)
-		.addSubcommand((subcommand) =>
 			subcommand.setName("showmegirls").setDescription("sexy pictures of girls")
 		),
 	execute: async (interaction) => {
