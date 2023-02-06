@@ -408,10 +408,10 @@ module.exports = {
 					"Command failed :( please report the the command and your input me3za#4854 please."
 				);
 			}
-		} else
-			return interaction.reply({
-				content: `🚫 this command doesn't exist.`,
-				ephemeral: true,
-			});
+		}
+		return interaction.reply({
+			content: `🚫 this command doesn't exist.`,
+			ephemeral: true,
+		});
 	},
 };
