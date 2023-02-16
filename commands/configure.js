@@ -2,6 +2,7 @@ const { SlashCommandBuilder } = require("discord.js");
 const Role = require("../models/role");
 const Channel = require("../models/channel");
 const discordUtils = require("../utils/discordUtils");
+const logger = require("../utils/logger");
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -76,7 +77,7 @@ module.exports = {
 					{ upsert: true, new: true }
 				);
 			} catch (err) {
-				console.error(subCommand, err);
+				logger.error(subCommand, err);
 				return interaction.reply(
 					"there was an issue completing this command contact me3za"
 				);
@@ -96,7 +97,7 @@ module.exports = {
 					{ upsert: true, new: true }
 				);
 			} catch (err) {
-				console.error(subCommand, err);
+				logger.error(subCommand, err);
 				return interaction.reply(
 					"there was an issue completing this command contact me3za"
 				);

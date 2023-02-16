@@ -1,6 +1,7 @@
 const { SlashCommandBuilder } = require("discord.js");
 const Jimp = require("jimp");
 const process = require("process");
+const logger = require("../utils/logger");
 
 const memeInfo = {
 	squidward: {
@@ -79,9 +80,10 @@ module.exports = {
 			});
 		}
 
+		const content = interaction.options.getString("text");
+
 		/* the following line checks if the content would be too long to fit in a the meme template */
 
-		const content = interaction.options.getString("text");
 		if (content.length > 100) {
 			return interaction.editReply({
 				content: "🚫 You have way too many characters to fit in this meme.",
@@ -104,7 +106,7 @@ module.exports = {
 				return interaction.editReply({ files: [filePath] });
 			});
 		} catch (err) {
-			console.error(err);
+			logger.error(err);
 			return interaction.editReply({
 				content: "an error occured in creating the meme",
 			});

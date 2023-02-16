@@ -15,7 +15,7 @@ const axios = require("axios");
 // 			if (element.state === "unstarted") console.log(element);
 // 		})
 // 	)
-// 	.catch((err) => console.error(err));
+// 	.catch((err) => logger.error(err));
 
 //valorant
 axios
@@ -28,4 +28,4 @@ axios
 			if (element.state === "unstarted") console.log(element);
 		})
 	)
-	.catch((err) => console.error(err));
+	.catch((err) => logger.error(err));

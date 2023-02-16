@@ -6,6 +6,7 @@ const {
 	ButtonStyle,
 } = require("discord.js");
 const Birthday = require("../models/birthday");
+const logger = require("../utils/logger");
 
 const formatDate = (day, month) => `${padZero(day)}/${padZero(month)}`;
 
@@ -79,7 +80,7 @@ module.exports = {
 					} ${formatDate(day, month)}.`,
 				});
 			} catch (err) {
-				console.error(subCommand, err);
+				logger.error(subCommand, err);
 				return interaction.reply(
 					"there was an issue completing this command contact me3za"
 				);
@@ -99,7 +100,7 @@ module.exports = {
 					)}/${formatDate(memberBirthday.month)}.`,
 				});
 			} catch (err) {
-				console.error(subCommand, err);
+				logger.error(subCommand, err);
 				return interaction.reply(
 					"there was an issue completing this command contact me3za"
 				);
@@ -143,7 +144,7 @@ module.exports = {
 								inline: false,
 							});
 						} catch (err) {
-							console.error("birthday list", err);
+							logger.error("birthday list", err);
 						}
 
 						birthdays.pop();
@@ -209,7 +210,7 @@ module.exports = {
 					});
 				});
 			} catch (err) {
-				console.error(err);
+				logger.error(err);
 				return interaction.editReply(
 					"Command failed :( please report the the command and your input me3za#4854 please."
 				);

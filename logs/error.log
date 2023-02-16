@@ -1,0 +1,32 @@
+[ERROR] Thu, 16 Feb 2023 20:18:44 GMT /home/me3za/Walter-Bot/commands/birthday.js - birthday list DiscordAPIError[10007]: Unknown Member
+    at SequentialHandler.runRequest (/home/me3za/Walter-Bot/node_modules/@discordjs/rest/dist/index.js:659:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async SequentialHandler.queueRequest (/home/me3za/Walter-Bot/node_modules/@discordjs/rest/dist/index.js:458:14)
+    at async REST.request (/home/me3za/Walter-Bot/node_modules/@discordjs/rest/dist/index.js:902:22)
+    at async GuildMemberManager._fetchSingle (/home/me3za/Walter-Bot/node_modules/discord.js/src/managers/GuildMemberManager.js:489:18)
+    at async Object.execute (/home/me3za/Walter-Bot/commands/birthday.js:134:17)
+    at async Object.execute (/home/me3za/Walter-Bot/events/interactionCreate.js:16:4) {
+  requestBody: { files: undefined, json: undefined },
+  rawError: { message: 'Unknown Member', code: 10007 },
+  code: 10007,
+  status: 404,
+  method: 'GET',
+  url: 'https://discord.com/api/v10/guilds/1056657413488513145/members/689841105306648644'
+}
+[ERROR] Thu, 16 Feb 2023 20:27:40 GMT
+/home/me3za/Walter-Bot/commands/birthday.js
+birthday list DiscordAPIError[10007]: Unknown Member
+    at SequentialHandler.runRequest (/home/me3za/Walter-Bot/node_modules/@discordjs/rest/dist/index.js:659:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async SequentialHandler.queueRequest (/home/me3za/Walter-Bot/node_modules/@discordjs/rest/dist/index.js:458:14)
+    at async REST.request (/home/me3za/Walter-Bot/node_modules/@discordjs/rest/dist/index.js:902:22)
+    at async GuildMemberManager._fetchSingle (/home/me3za/Walter-Bot/node_modules/discord.js/src/managers/GuildMemberManager.js:489:18)
+    at async Object.execute (/home/me3za/Walter-Bot/commands/birthday.js:134:17)
+    at async Object.execute (/home/me3za/Walter-Bot/events/interactionCreate.js:16:4) {
+  requestBody: { files: undefined, json: undefined },
+  rawError: { message: 'Unknown Member', code: 10007 },
+  code: 10007,
+  status: 404,
+  method: 'GET',
+  url: 'https://discord.com/api/v10/guilds/1056657413488513145/members/689841105306648644'
+}

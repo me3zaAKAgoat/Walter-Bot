@@ -10,7 +10,7 @@ console.log("connecting to MongoDB");
 mongoose
 	.connect(process.env.MONGODB_URI)
 	.then(console.log("connected to db"))
-	.catch((error) => console.error("coudlnt connect to db", error));
+	.catch((error) => logger.error("coudlnt connect to db", error));
 // Create a new client instance
 const client = new Client({
 	intents: [

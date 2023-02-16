@@ -4,6 +4,7 @@ const { EmbedBuilder } = require("discord.js");
 const TeemoJS = require("teemojs");
 const stringUtils = require("../utils/stringUtils");
 let api = TeemoJS(process.env.RIOT_API);
+const logger = require("../utils/logger");
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -195,7 +196,7 @@ module.exports = {
 					ephemeral: true,
 				});
 		} catch (err) {
-			console.error(err);
+			logger.error(err);
 			return interaction.reply(
 				"Command failed :( please report the the command and your input me3za#4854 please."
 			);

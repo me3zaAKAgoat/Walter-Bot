@@ -1,5 +1,6 @@
 require("dotenv").config();
 const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
+const logger = require("../utils/logger");
 const axios = require("axios");
 
 const upvotesCount = 100;
@@ -82,7 +83,7 @@ module.exports = {
 					.setImage(nsfwUrl);
 				return interaction.editReply({ embeds: [nsfwEmbed] });
 			} catch (err) {
-				console.error(err);
+				logger.error(err);
 			}
 		}
 		return interaction.reply({

@@ -7,6 +7,7 @@ const {
 } = require("discord.js");
 const stringUtils = require("../utils/stringUtils");
 const Movie = require("../models/movie");
+const logger = require("../utils/logger");
 
 const checkUnreviewedMoviesCap = async (interaction, unreviewedMoviesCap) => {
 	const userId = interaction.user.id;
@@ -68,7 +69,7 @@ const addMovie = async (interaction) => {
 
 		return interaction.reply(successMessage(movieTitle));
 	} catch (err) {
-		console.error(err);
+		logger.error(err);
 		return interaction.reply(errorMessage);
 	}
 };
@@ -89,7 +90,7 @@ const randomizeMovie = async (interaction) => {
 			`Randomly Chosen Movie is **${chosenMovie.title}**.`
 		);
 	} catch (err) {
-		console.error(err);
+		logger.error(err);
 		return interaction.reply(
 			"Command failed :( please report the the command and your input me3za#4854 please."
 		);
@@ -197,7 +198,7 @@ module.exports = {
 						);
 				}
 			} catch (err) {
-				console.error(err);
+				logger.error(err);
 				return interaction.reply(
 					"Command failed :( please report the the command and your input me3za#4854 please."
 				);
@@ -268,7 +269,7 @@ module.exports = {
 					} rated **${movieTitle}** : **${userRating.toFixed(1)}/10**`
 				);
 			} catch (err) {
-				console.error(err);
+				logger.error(err);
 				return interaction.reply(
 					"Command failed :( please report the the command and your input me3za#4854 please."
 				);
@@ -362,7 +363,7 @@ module.exports = {
 					});
 				});
 			} catch (err) {
-				console.error(err);
+				logger.error(err);
 				return interaction.reply(
 					"Command failed :( please report the the command and your input me3za#4854 please."
 				);
@@ -403,7 +404,7 @@ module.exports = {
 					ephemeral: true,
 				});
 			} catch (err) {
-				console.error(err);
+				logger.error(err);
 				return interaction.reply(
 					"Command failed :( please report the the command and your input me3za#4854 please."
 				);

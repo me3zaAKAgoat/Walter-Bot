@@ -1,4 +1,5 @@
 const Activity = require("../models/activity");
+const logger = require("../utils/logger");
 
 module.exports = {
 	name: "messageCreate",
@@ -18,7 +19,7 @@ module.exports = {
 			}
 			await activity.save();
 		} catch (err) {
-			console.error(err);
+			logger.error(err);
 		}
 	},
 };

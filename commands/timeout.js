@@ -1,5 +1,6 @@
 const { SlashCommandBuilder, EmbedBuilder, quote } = require("discord.js");
 const discordUtils = require("../utils/discordUtils");
+const logger = require("../utils/logger");
 
 /*
 make an embed denouncing ;
@@ -86,7 +87,7 @@ module.exports = {
 				}
 			});
 		} catch (err) {
-			console.error(err);
+			logger.error(err);
 		}
 	},
 };

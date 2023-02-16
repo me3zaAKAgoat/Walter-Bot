@@ -1,4 +1,5 @@
 const Activity = require("../models/activity");
+const logger = require("../utils/logger");
 
 const voiceChannelUsers = new Map();
 
@@ -26,7 +27,7 @@ module.exports = {
 				await activity.save();
 				voiceChannelUsers.delete(oldState.id);
 			} catch (err) {
-				console.error(err);
+				logger.error(err);
 			}
 		}
 	},

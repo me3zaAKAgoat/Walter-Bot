@@ -24,6 +24,6 @@ rest
 	.then((data) =>
 		console.log(`Successfully registered ${data.length} application commands.`)
 	)
-	.catch(console.error);
+	.catch(logger.error);
 
 // need to deploy this

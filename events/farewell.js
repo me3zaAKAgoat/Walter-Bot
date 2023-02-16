@@ -1,3 +1,5 @@
+const logger = require("../utils/logger");
+
 module.exports = {
 	name: "guildMemberRemove",
 	once: false,
@@ -9,7 +11,7 @@ module.exports = {
 
 			welcomeChannel.send(`<@${member.id}> just left!`);
 		} catch (err) {
-			console.error(err);
+			logger.error(err);
 		}
 	},
 };

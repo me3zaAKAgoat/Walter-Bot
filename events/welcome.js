@@ -1,4 +1,5 @@
 const roleUtils = require("../utils/roleUtils");
+const logger = require("../utils/logger");
 
 module.exports = {
 	name: "guildMemberAdd",
@@ -28,7 +29,7 @@ module.exports = {
 					`Hello <@${member.id}> <a:peepoHi:1069612731189166140>\nWelcome to **${member.guild.name}**,\nFeel free to tell us a bit about yourself below this message,\nAnd enjoy your stay <a:miyanoHype:1069612575416922112>`
 				);
 			} catch (err) {
-				console.error("couldn't send welcome message", err);
+				logger.error("couldn't send welcome message", err);
 			}
 		}
 	},

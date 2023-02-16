@@ -25,7 +25,7 @@ const cleanupBirthdayRole = (currentGuild, birthdayRole) => {
 				}
 			}
 		} catch (err) {
-			console.error("couldn't remvoe members from happy birthday role", err);
+			logger.error("couldn't remvoe members from happy birthday role", err);
 		}
 	}, timeToCleanup);
 };
@@ -34,6 +34,7 @@ const birthdayMessage = (userId) =>
 	`@everyone Today is <@${userId}>'s birthday 🥳, don't forget to wish them a happy birthday <a:miyanoHype:1069612575416922112>, and as always our age is merely the number of years the world has been enjoying us! :D`;
 
 /* need to change this so that all guilds the bot is in get the announcement */
+
 module.exports = {
 	execute: async (client) => {
 		const currentDay = new Date().getDate();
@@ -45,7 +46,7 @@ module.exports = {
 				month: currentMonth,
 			});
 			if (!birthdays.length) {
-				console.error("0 birthdays found for today" + Date());
+				logger.error("0 birthdays found for today" + Date());
 				return;
 			}
 
@@ -87,7 +88,7 @@ module.exports = {
 				cleanupBirthdayRole(guild, birthdayRole);
 			}
 		} catch (err) {
-			console.error(err);
+			logger.error(err);
 		}
 	},
 };
