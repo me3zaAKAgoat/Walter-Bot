@@ -1,6 +1,7 @@
 const Birthday = require("../../models/birthday");
 const Channel = require("../../models/channel");
 const roleUtils = require("../../utils/roleUtils");
+const logger = require("../../utils/logger");
 
 const cleanupBirthdayRole = (currentGuild, birthdayRole) => {
 	const today = new Date();
