@@ -1,7 +1,7 @@
 require("dotenv").config();
 const fs = require("node:fs");
 const { REST, Routes } = require("discord.js");
-
+const logger = require("./utils/logger");
 const [clientId, token] = [process.env.CLIENT_ID, process.env.DISCORD_TOKEN];
 
 const commands = [];
@@ -24,6 +24,6 @@ rest
 	.then((data) =>
 		console.log(`Successfully registered ${data.length} application commands.`)
 	)
-	.catch(logger.error);
+	.catch((err) => logger.error(err));
 
 // need to deploy this
