@@ -3,38 +3,8 @@ const Channel = require("../../models/channel");
 const roleUtils = require("../../utils/roleUtils");
 const logger = require("../../utils/logger");
 
-const cleanupBirthdayRole = (currentGuild, birthdayRole) => {
-	const today = new Date();
-	const tomorrow = new Date();
-	tomorrow.setDate(tomorrow.getDate() + 1);
-	tomorrow.setHours(0, 0, 0, 0);
-	const timeToCleanup = tomorrow.getTime() - today.getTime();
-
-	setTimeout(async () => {
-		try {
-			const birthdays = await Birthday.find({
-				day: today.getDate(),
-				month: today.getMonth() + 1,
-			});
-			for (const birthday of birthdays) {
-				const member = currentGuild.members.cache.get(birthday.userId);
-
-				if (!member) continue;
-
-				if (member.roles.cache.has(birthdayRole.id)) {
-					await member.roles.remove(birthdayRole);
-				}
-			}
-		} catch (err) {
-			logger.error("couldn't remvoe members from happy birthday role", err);
-		}
-	}, timeToCleanup);
-};
-
 const birthdayMessage = (userId) =>
 	`@everyone Today is <@${userId}>'s birthday 🥳, don't forget to wish them a happy birthday <a:miyanoHype:1069612575416922112>, and as always our age is merely the number of years the world has been enjoying us! :D`;
-
-/* need to change this so that all guilds the bot is in get the announcement */
 
 module.exports = {
 	execute: async (client) => {
@@ -46,12 +16,9 @@ module.exports = {
 				day: currentDay,
 				month: currentMonth,
 			});
-			if (!birthdays.length) {
-				logger.error("0 birthdays found for today" + Date());
-				return;
-			}
+			if (!birthdays.length) return;
 
-			for (const guild of client.guilds.cache) {
+			for (const guild of client.guilds.cache.values()) {
 				const announcementChannelId = (
 					await Channel.findOne({ channel: "birthday", guildId: guild.id })
 				).channelId;
@@ -63,7 +30,7 @@ module.exports = {
 				);
 				if (!announcementChannel) continue;
 
-				const birthdayRole = guild.roles.cache.find(
+				let birthdayRole = guild.roles.cache.find(
 					(role) => role.name.toLowerCase() === "birthday"
 				);
 
@@ -74,19 +41,26 @@ module.exports = {
 
 					announcementChannel.send(birthdayMessage(member.id));
 
-					const roleToBeHoisted = roleUtils.assignRole(
+					birthdayRole = await roleUtils.assignRole(
 						member,
 						birthdayRole,
 						"birthday",
-						[255, 226, 59]
+						[255, 31, 79]
 					);
 
-					if (!roleToBeHoisted.hoist) await roleToBeHoisted.setHoist(true);
+					// get the bot's highest role
+					await guild.members.fetch();
+					const botMember = guild.members.cache.get(client.user.id);
+					const botRole = botMember.roles.highest;
+
+					// raise the order of the birthday role
+					const maxPosition = botRole.position - 1;
+					if (birthdayRole.position < maxPosition) {
+						await birthdayRole.setPosition(maxPosition);
+					}
+					// make the birhtday role visible
+					if (!birthdayRole.hoist) await birthdayRole.setHoist(true);
 				}
-
-				/* cleanup to remove members once the day has ended */
-
-				cleanupBirthdayRole(guild, birthdayRole);
 			}
 		} catch (err) {
 			logger.error(err);

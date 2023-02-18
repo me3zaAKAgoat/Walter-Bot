@@ -1,3 +1,62 @@
+// const axios = require("axios");
+// require("dotenv").config();
+// const imageURI = "https://image.tmdb.org/t/p/original";
+
+// const translateSpaces = (spacedSentenced) =>
+// 	spacedSentenced.replaceAll(" ", "%20");
+
+// const searchTv = async (key, query) => {
+// 	const translatedQuery = translateSpaces(query);
+// 	const TvURI = `https://api.themoviedb.org/3/search/tv?api_key=${key}&language=en-US&page=1&query=${translatedQuery}&include_adult=true`;
+// 	const response = await axios.get(TvURI);
+// 	return response;
+// };
+// const searchMovie = async (key, query) => {
+// 	const translatedQuery = translateSpaces(query);
+// 	const movieURI = `https://api.themoviedb.org/3/search/movie?api_key=${key}&language=en-US&page=1&query=${translatedQuery}&include_adult=true`;
+// 	const response = await axios.get(movieURI);
+// 	return response;
+// };
+
+// const getMovieThumbnail = async (key, query) => {
+// 	const response = await searchMovie(key, query);
+// 	const results = response.data.results;
+// 	let tvShow;
+// 	const exactTitle = results.filter(
+// 		(object) => object.original_title.toLowerCase() === query.toLowerCase()
+// 	);
+// 	console.log(exactTitle.length);
+// 	if (exactTitle.length !== 0) tvShow = exactTitle[0];
+// 	else {
+// 		results.sort((a, b) => b.popularity - a.popularity);
+// 		tvShow = results[0];
+// 	}
+// 	return `${imageURI}${tvShow.poster_path}`;
+// };
+// const getTvThumbnail = async (key, query) => {
+// 	const response = await searchTv(key, query);
+// 	const results = response.data.results;
+// 	let movie;
+// 	const exactTitle = results.filter(
+// 		(object) => object.original_title.toLowerCase() === query.toLowerCase()
+// 	);
+// 	console.log(exactTitle.length);
+// 	if (exactTitle.length !== 0) movie = exactTitle[0];
+// 	else {
+// 		results.sort((a, b) => b.popularity - a.popularity);
+// 		movie = results[0];
+// 	}
+// 	return `${imageURI}${movie.poster_path}`;
+// };
+// getMovieThumbnail(process.env.TMDB_KEY, "The Avengers").then((result) =>
+// 	console.log(result)
+// );
+// // axios
+// // 	.get(
+// // 		`https://api.themoviedb.org/3/search/tv?api_key=${process.env.TMDB_KEY}&language=en-US&page=1&query=the%20last%20of%20us&include_adult=false`
+// // 	)
+// // 	.then((result) => console.log(result.data));
+
 const {
 	ActionRowBuilder,
 	SlashCommandBuilder,
