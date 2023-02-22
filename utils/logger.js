@@ -15,6 +15,7 @@ const createLogger = (level) => {
 
 	return (...args) => {
 		const message = util.format(...args);
+		console.log(message);
 		const formattedMessage = `[${level.toUpperCase()}] at ${new Date().toUTCString()}\n${
 			new Error().stack
 				.split("\n")[2]

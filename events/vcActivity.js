@@ -14,17 +14,14 @@ module.exports = {
 			// User has left a voice channel
 			const timeInVoice = Date.now() - voiceChannelUsers.get(oldState.id);
 			try {
-				let activity = await Activity.findOne({ memberId: oldState.id });
-				if (!activity) {
-					activity = new Activity({
-						messageCount: 0,
-						timeVc: timeInVoice,
-						memberId: oldState.id,
-					});
-				} else {
-					activity.timeVc += timeInVoice;
-				}
-				await activity.save();
+				await Activity.findOneAndUpdate(
+					{ memberId: oldState.id },
+					{
+						$inc: { timeVc: timeInVoice },
+						$setOnInsert: { messageCount: 0, memberId: oldState.id },
+					},
+					{ upsert: true }
+				);
 				voiceChannelUsers.delete(oldState.id);
 			} catch (err) {
 				logger.error(err);

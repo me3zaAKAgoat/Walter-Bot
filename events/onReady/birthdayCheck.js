@@ -62,6 +62,7 @@ module.exports = {
 					if (!birthdayRole.hoist) await birthdayRole.setHoist(true);
 				}
 			}
+			return logger.info("checked for birthdays");
 		} catch (err) {
 			logger.error(err);
 		}

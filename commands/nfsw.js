@@ -62,10 +62,9 @@ module.exports = {
 			try {
 				await interaction.deferReply();
 
-				let subreddit;
 				let nsfwUrl;
 				while (true) {
-					subreddit =
+					const subreddit =
 						straightMaleSubreddits[
 							Math.floor(Math.random() * straightMaleSubreddits.length)
 						];

@@ -24,6 +24,7 @@ module.exports = {
 					}
 				}
 			}
+			return logger.info("cleaned up birthdays");
 		} catch (err) {
 			logger.error(err);
 		}

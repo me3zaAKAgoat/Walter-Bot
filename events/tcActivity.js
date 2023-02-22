@@ -7,17 +7,14 @@ module.exports = {
 	execute: async (message) => {
 		if (message.author.bot) return;
 		try {
-			let activity = await Activity.findOne({ memberId: message.author.id });
-			if (!activity) {
-				activity = new Activity({
-					messageCount: 1,
-					timeVc: 0,
-					memberId: message.author.id,
-				});
-			} else {
-				activity.messageCount += 1;
-			}
-			await activity.save();
+			await Activity.findOneAndUpdate(
+				{ memberId: message.author.id },
+				{
+					$inc: { messageCount: 1 },
+					$setOnInsert: { timeVc: 0, memberId: message.author.id },
+				},
+				{ upsert: true }
+			);
 		} catch (err) {
 			logger.error(err);
 		}

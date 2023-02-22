@@ -129,9 +129,8 @@ module.exports = {
 					const embed = new EmbedBuilder();
 
 					while (pageItemCount < 10 && birthdays.length > 0) {
-						let member;
 						try {
-							member = await interaction.guild.members.fetch(
+							const member = await interaction.guild.members.fetch(
 								birthdays[birthdays.length - 1].userId
 							);
 							username = member.user.username;
@@ -144,7 +143,8 @@ module.exports = {
 								inline: false,
 							});
 						} catch (err) {
-							logger.error("birthday list", err);
+							/* it's okay to not log or do anything about this exception beacuse it only notifies us of the user
+							not being a member of the calling guild*/
 						}
 
 						birthdays.pop();

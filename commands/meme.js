@@ -3,6 +3,7 @@ const Jimp = require("jimp");
 const process = require("process");
 const logger = require("../utils/logger");
 
+/* a map that marks the coordinates at which the text should be written for reach meme type */
 const memeInfo = {
 	squidward: {
 		x: 1,
@@ -22,6 +23,7 @@ const memeInfo = {
 	},
 };
 
+/* this function reads an image given by the type argument, and writes the content to it, then returns the image binary */
 const writeMeme = async (type, content, x, y) => {
 	const image = await Jimp.read(
 		`${process.cwd()}/commands/content/memes/${type}.jpg`
@@ -102,6 +104,7 @@ module.exports = {
 				memeInfo[type].y
 			);
 			const filePath = `${process.cwd()}/commands/content/memes/tmp/output.${image.getExtension()}`;
+			/* after successfully writing to the output file, the function sends the image back to the interaction */
 			image.write(filePath, async () => {
 				return interaction.editReply({ files: [filePath] });
 			});
