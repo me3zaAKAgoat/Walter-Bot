@@ -16,12 +16,10 @@ const createLogger = (level) => {
 	return (...args) => {
 		const message = util.format(...args);
 		console.log(message);
-		const formattedMessage = `[${level.toUpperCase()}] at ${new Date().toUTCString()}\n${
-			new Error().stack
-				.split("\n")[2]
-				.trim()
-				.match(/\((.*):\d+:\d+\)/)[1]
-		}\n${message}\n`;
+		const formattedMessage = `[${level.toUpperCase()}] at ${new Date().toUTCString()}\n${new Error().stack
+			.split("\n")[2]
+			.trim()
+			.match(/\((.*):\d+:\d+\)/)}\n${message}\n`;
 		logStream.write(formattedMessage);
 		logStream.end();
 	};
