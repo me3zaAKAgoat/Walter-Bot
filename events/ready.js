@@ -11,8 +11,13 @@ const setupCronJobs = (client) => {
 		birthdayCleanup.execute(client);
 	});
 
+	const scheduledDowntimeCorrection = new cron.CronJob("00 00 */2 * *", () => {
+		birthdayCleanup.execute(client);
+	});
+
 	scheduledBirthdayCheck.start();
 	scheduledBirthdayCleanup.start();
+	scheduledDowntimeCorrection.start();
 };
 
 module.exports = {

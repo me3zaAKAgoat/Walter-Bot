@@ -15,3 +15,20 @@ birthday list DiscordAPIError[10007]: Unknown Member
   method: 'GET',
   url: 'https://discord.com/api/v10/guilds/1030158195429228614/members/467005211320385546'
 }
+[ERROR] at Wed, 22 Feb 2023 20:32:52 GMT
+/home/me3za/Walter-Bot/events/guildJoin.js
+DiscordAPIError[50013]: Missing Permissions
+    at SequentialHandler.runRequest (/home/me3za/Walter-Bot/node_modules/@discordjs/rest/dist/index.js:659:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async SequentialHandler.queueRequest (/home/me3za/Walter-Bot/node_modules/@discordjs/rest/dist/index.js:458:14)
+    at async REST.request (/home/me3za/Walter-Bot/node_modules/@discordjs/rest/dist/index.js:902:22)
+    at async GuildMemberRoleManager.add (/home/me3za/Walter-Bot/node_modules/discord.js/src/managers/GuildMemberRoleManager.js:131:7)
+    at async Object.assignRole (/home/me3za/Walter-Bot/utils/roleUtils.js:21:2)
+    at async Object.execute (/home/me3za/Walter-Bot/events/guildJoin.js:25:6) {
+  requestBody: { files: undefined, json: undefined },
+  rawError: { message: 'Missing Permissions', code: 50013 },
+  code: 50013,
+  status: 403,
+  method: 'PUT',
+  url: 'https://discord.com/api/v10/guilds/1030158195429228614/members/257203044305993728/roles/1069617533285576765'
+}
