@@ -7,31 +7,35 @@ module.exports = {
 			for (const guild of client.guilds.cache.values()) {
 				await guild.members.fetch();
 
-				for (const member of guild.members.cache.values()) {
+				const memberRole = guild.roles.cache.find(
+					(role) => role.name.toLowerCase() === "member"
+				);
+
+				const botRole = guild.roles.cache.find(
+					(role) => role.name.toLowerCase() === "bots"
+				);
+
+				for (const member of [...guild.members.cache.values()]) {
 					if (member.user.bot) {
 						// only assign a bot role
 
-						const botRole = member.guild.roles.cache.find(
-							(role) => role.name.toLowerCase() === "bots"
-						);
-						await roleUtils.assignRole(
-							member,
-							botRole,
-							"bots",
-							[128, 128, 128]
-						);
+						if (!member.roles.cache.has(botRole?.id))
+							await roleUtils.assignRole(
+								member,
+								botRole,
+								"bots",
+								[128, 128, 128]
+							);
 					} else {
 						// assgin a base member role
 
-						const memberRole = member.guild.roles.cache.find(
-							(role) => role.name.toLowerCase() === "member"
-						);
-						await roleUtils.assignRole(
-							member,
-							memberRole,
-							"member",
-							[255, 0, 255]
-						);
+						if (!member.roles.cache.has(memberRole?.id))
+							await roleUtils.assignRole(
+								member,
+								memberRole,
+								"member",
+								[255, 0, 255]
+							);
 					}
 				}
 			}
