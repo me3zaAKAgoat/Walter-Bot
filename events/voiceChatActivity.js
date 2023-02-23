@@ -12,7 +12,9 @@ module.exports = {
 			voiceChannelUsers.set(newState.id, Date.now());
 		} else if (oldState.channelId && !newState.channelId) {
 			// User has left a voice channel
-			const timeInVoice = Date.now() - voiceChannelUsers.get(oldState.id);
+			const timeInVoice = Math.round(
+				Date.now() - voiceChannelUsers.get(oldState.id) / (60 * 1000) // translate milliseconds to minutes
+			);
 			try {
 				await Activity.findOneAndUpdate(
 					{ memberId: oldState.id },

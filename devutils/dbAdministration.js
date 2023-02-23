@@ -7,27 +7,27 @@ mongoose
 	.then(console.log("connected to", process.env.MONGODB_URI));
 
 Activity.find({}).then((result) => console.log(result));
-// Birthday.deleteMany({}).then((result) => console.log('Birthday', result));
 
-// clear movies
-// Movie.deleteMany({}).then((result) => console.log('Movies', result));
-// Movie.findOne({title : 'chainsaw man season 1'}).then(qurey => console.log(qurey))
-// Movie.find({}).then((result) => console.log(result));
-// add first and only latest scrape document
-// const storeFirstLatestScrape = async () => {
-//   const latestScrape = new LatestScrape({
-//     latestScrape : new Date()
-//   })
+// Activity.find({}, async (err, documents) => {
+// 	if (err) {
+// 		console.error(err);
+// 		return;
+// 	}
 
-//   await latestScrape.save();
-// }
+// 	for (const doc of documents) {
+// 		const oldValue = doc.timeVc;
+// 		const newValue = Math.round(oldValue);
 
-// storeFirstLatestScrape();
+// 		try {
+// 			await Activity.updateOne(
+// 				{ _id: doc._id },
+// 				{ $set: { timeVc: newValue } }
+// 			);
+// 			console.log(`Document ${doc._id} updated successfully.`);
+// 		} catch (err) {
+// 			console.error(`Error updating document ${doc._id}: ${err}`);
+// 		}
+// 	}
 
-// LatestScrape.find({}).then(query => console.log(query)).catch(error => console.log(error))
-
-// LatestScrape.deleteMany({}).then((result) => console.log('delete latest document', result));
-
-// Role.deleteMany({}).then((result) =>
-// 	console.log('delete latest document', result)
-// );
+// 	console.log("All documents updated successfully.");
+// });
