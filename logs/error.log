@@ -32,3 +32,42 @@ DiscordAPIError[50013]: Missing Permissions
   method: 'PUT',
   url: 'https://discord.com/api/v10/guilds/1030158195429228614/members/257203044305993728/roles/1069617533285576765'
 }
+[ERROR] at Thu, 23 Feb 2023 10:31:00 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/events/ready.js:5
+const downtime
+      ^^^^^^^^
+
+SyntaxError: Missing initializer in const declaration
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:35:18
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Thu, 23 Feb 2023 10:31:07 GMT
+null
+coudlnt connect to db Error: Cannot find module './'
+Require stack:
+- /home/me3za/Walter-Bot/events/ready.js
+- /home/me3za/Walter-Bot/index.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1053:15)
+    at Module._load (node:internal/modules/cjs/loader:898:27)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at Object.<anonymous> (/home/me3za/Walter-Bot/events/ready.js:5:28)
+    at Module._compile (node:internal/modules/cjs/loader:1239:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/me3za/Walter-Bot/events/ready.js',
+    '/home/me3za/Walter-Bot/index.js'
+  ]
+}

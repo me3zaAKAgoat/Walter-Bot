@@ -1,8 +1,14 @@
 const mongoose = require("mongoose");
 
 const activitySchema = mongoose.Schema({
-	timeVc: Number,
-	messageCount: Number,
+	timeVc: {
+		type: Number,
+		default: 0,
+	},
+	messageCount: {
+		type: Number,
+		default: 0,
+	},
 	memberId: String,
 });
 
