@@ -11,7 +11,11 @@ module.exports = {
 				{ memberId: message.author.id },
 				{
 					$inc: { messageCount: 1 },
-					$setOnInsert: { timeVc: 0, memberId: message.author.id },
+					$setOnInsert: {
+						timeVc: 0,
+						memberId: message.author.id,
+						messageCount: 1,
+					},
 				},
 				{ upsert: true }
 			);

@@ -18,7 +18,11 @@ module.exports = {
 					{ memberId: oldState.id },
 					{
 						$inc: { timeVc: timeInVoice },
-						$setOnInsert: { messageCount: 0, memberId: oldState.id },
+						$setOnInsert: {
+							messageCount: 0,
+							memberId: oldState.id,
+							timeVc: timeInVoice,
+						},
 					},
 					{ upsert: true }
 				);
