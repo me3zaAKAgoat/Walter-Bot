@@ -14,7 +14,6 @@ module.exports = {
 					$setOnInsert: {
 						timeVc: 0,
 						memberId: message.author.id,
-						messageCount: 1,
 					},
 				},
 				{ upsert: true }

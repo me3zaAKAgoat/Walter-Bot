@@ -23,7 +23,6 @@ module.exports = {
 						$setOnInsert: {
 							messageCount: 0,
 							memberId: oldState.id,
-							timeVc: timeInVoice,
 						},
 					},
 					{ upsert: true }
