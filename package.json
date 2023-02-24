@@ -4,11 +4,7 @@
   "description": "a bot for me and my friends to use on our little friends discord server :D",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "deploycommands": "node deploy-commands.js",
-    "production": "npm run deploycommands && pm2 start index.js",
-    "devtesting": "nodemon --exec 'npm run start'",
+    "dev": "nodemon --exec 'node index.js'",
     "lint": "eslint",
     "lint:fix": "eslint . --fix"
   },
