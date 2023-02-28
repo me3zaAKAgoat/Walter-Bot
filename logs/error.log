@@ -499,3 +499,8 @@ Error: Activity validation failed: vcTime: Cast to Number failed for value "NaN"
   },
   _message: 'Activity validation failed'
 }
+[ERROR] at Tue, 28 Feb 2023 17:21:21 GMT
+(/home/me3za/Walter-Bot/events/onReady/birthdayCheck.js:67:11),/home/me3za/Walter-Bot/events/onReady/birthdayCheck.js
+TypeError: Cannot read properties of null (reading 'channelId')
+    at Object.execute (/home/me3za/Walter-Bot/events/onReady/birthdayCheck.js:24:7)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)

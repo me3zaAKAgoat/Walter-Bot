@@ -70,7 +70,15 @@ module.exports = {
 
 			collector.on("collect", (reaction) => {
 				if (reaction.count >= quota) {
-					member.timeout(Number(length) * 60 * 1000);
+					try {
+						member.timeout(Number(length) * 60 * 1000);
+					} catch (err) {
+						logger.error(err);
+						return interaction.editReply({
+							content:
+								"an issue happened, probably raise walters highest role, contact me3za",
+						});
+					}
 
 					const gifEmbed = new EmbedBuilder()
 						.setColor("0xde2316")
