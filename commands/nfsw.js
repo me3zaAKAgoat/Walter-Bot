@@ -72,15 +72,13 @@ module.exports = {
 					const nsfwPost = await getRandomNsfwPost(subreddit);
 					if (nsfwPost !== undefined) {
 						nsfwUrl = nsfwPost.data.url;
-						break;
+						const nsfwEmbed = new EmbedBuilder()
+							.setTitle(`__r/${subreddit}__`)
+							.setColor("0xdb4bca")
+							.setImage(nsfwUrl);
+						return interaction.editReply({ embeds: [nsfwEmbed] });
 					}
 				}
-
-				const nsfwEmbed = new EmbedBuilder()
-					.setTitle(`__r/${subreddit}__`)
-					.setColor("0xdb4bca")
-					.setImage(nsfwUrl);
-				return interaction.editReply({ embeds: [nsfwEmbed] });
 			} catch (err) {
 				logger.error(err);
 			}
