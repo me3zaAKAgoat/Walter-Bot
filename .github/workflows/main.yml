@@ -20,4 +20,4 @@ jobs:
           ssh-keyscan ${REMOTE_HOST} > ~/.ssh/known_hosts
           echo "${SSH_PRIVATE_KEY}" > ssh_key
           chmod 400 ssh_key
-          ssh -i ssh_key ${REMOTE_USER}@${REMOTE_HOST} 'cd Walter-Bot/ && git stash && eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_github && git pull origin main && npm install && node deploy-commands.js && npx pm2 restart index.js'
+          ssh -i ssh_key ${REMOTE_USER}@${REMOTE_HOST} 'cd Walter-Bot/ && git stash && eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_github && git pull origin main && npm install && node deploy-commands.js && npx pm2 start index.js --force'
