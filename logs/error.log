@@ -71,3 +71,431 @@ Require stack:
     '/home/me3za/Walter-Bot/index.js'
   ]
 }
+[ERROR] at Tue, 28 Feb 2023 14:21:55 GMT
+(/home/me3za/Walter-Bot/events/voiceChatActivity.js:32:12),/home/me3za/Walter-Bot/events/voiceChatActivity.js
+CastError: Cast to Number failed for value "NaN" (type number) at path "vcTime"
+    at model.Query.exec (/home/me3za/Walter-Bot/node_modules/mongoose/lib/query.js:4891:21)
+    at Query.then (/home/me3za/Walter-Bot/node_modules/mongoose/lib/query.js:4990:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  messageFormat: undefined,
+  stringValue: '"NaN"',
+  kind: 'Number',
+  value: NaN,
+  path: 'vcTime',
+  reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(!isNaN(val))
+  
+      at castNumber (/home/me3za/Walter-Bot/node_modules/mongoose/lib/cast/number.js:27:10)
+      at SchemaNumber.cast (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schema/number.js:376:12)
+      at SchemaType.applySetters (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schematype.js:1201:12)
+      at SchemaType._castForQuery (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schematype.js:1648:15)
+      at SchemaNumber.castForQuery (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schema/number.js:430:14)
+      at SchemaType.castForQueryWrapper (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schematype.js:1612:20)
+      at castUpdateVal (/home/me3za/Walter-Bot/node_modules/mongoose/lib/helpers/query/castUpdate.js:523:21)
+      at walkUpdatePath (/home/me3za/Walter-Bot/node_modules/mongoose/lib/helpers/query/castUpdate.js:361:24)
+      at castUpdate (/home/me3za/Walter-Bot/node_modules/mongoose/lib/helpers/query/castUpdate.js:92:7)
+      at model.Query._castUpdate (/home/me3za/Walter-Bot/node_modules/mongoose/lib/query.js:5104:10) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  },
+  valueType: 'number'
+}
+[ERROR] at Tue, 28 Feb 2023 14:43:49 GMT
+(/home/me3za/Walter-Bot/events/voiceChatActivity.js:32:12),/home/me3za/Walter-Bot/events/voiceChatActivity.js
+CastError: Cast to Number failed for value "NaN" (type number) at path "vcTime"
+    at model.Query.exec (/home/me3za/Walter-Bot/node_modules/mongoose/lib/query.js:4891:21)
+    at Query.then (/home/me3za/Walter-Bot/node_modules/mongoose/lib/query.js:4990:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  messageFormat: undefined,
+  stringValue: '"NaN"',
+  kind: 'Number',
+  value: NaN,
+  path: 'vcTime',
+  reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(!isNaN(val))
+  
+      at castNumber (/home/me3za/Walter-Bot/node_modules/mongoose/lib/cast/number.js:27:10)
+      at SchemaNumber.cast (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schema/number.js:376:12)
+      at SchemaType.applySetters (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schematype.js:1201:12)
+      at SchemaType._castForQuery (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schematype.js:1648:15)
+      at SchemaNumber.castForQuery (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schema/number.js:430:14)
+      at SchemaType.castForQueryWrapper (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schematype.js:1612:20)
+      at castUpdateVal (/home/me3za/Walter-Bot/node_modules/mongoose/lib/helpers/query/castUpdate.js:523:21)
+      at walkUpdatePath (/home/me3za/Walter-Bot/node_modules/mongoose/lib/helpers/query/castUpdate.js:361:24)
+      at castUpdate (/home/me3za/Walter-Bot/node_modules/mongoose/lib/helpers/query/castUpdate.js:92:7)
+      at model.Query._castUpdate (/home/me3za/Walter-Bot/node_modules/mongoose/lib/query.js:5104:10) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  },
+  valueType: 'number'
+}
+[ERROR] at Tue, 28 Feb 2023 14:44:37 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/events/voiceChatActivity.js:15
+			console.log(33voiceChannelUsers);
+			            ^^
+
+SyntaxError: Invalid or unexpected token
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:35:18
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Tue, 28 Feb 2023 14:49:06 GMT
+(/home/me3za/Walter-Bot/events/voiceChatActivity.js:34:12),/home/me3za/Walter-Bot/events/voiceChatActivity.js
+CastError: Cast to Number failed for value "NaN" (type number) at path "vcTime"
+    at model.Query.exec (/home/me3za/Walter-Bot/node_modules/mongoose/lib/query.js:4891:21)
+    at Query.then (/home/me3za/Walter-Bot/node_modules/mongoose/lib/query.js:4990:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  messageFormat: undefined,
+  stringValue: '"NaN"',
+  kind: 'Number',
+  value: NaN,
+  path: 'vcTime',
+  reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(!isNaN(val))
+  
+      at castNumber (/home/me3za/Walter-Bot/node_modules/mongoose/lib/cast/number.js:27:10)
+      at SchemaNumber.cast (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schema/number.js:376:12)
+      at SchemaType.applySetters (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schematype.js:1201:12)
+      at SchemaType._castForQuery (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schematype.js:1648:15)
+      at SchemaNumber.castForQuery (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schema/number.js:430:14)
+      at SchemaType.castForQueryWrapper (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schematype.js:1612:20)
+      at castUpdateVal (/home/me3za/Walter-Bot/node_modules/mongoose/lib/helpers/query/castUpdate.js:523:21)
+      at walkUpdatePath (/home/me3za/Walter-Bot/node_modules/mongoose/lib/helpers/query/castUpdate.js:361:24)
+      at castUpdate (/home/me3za/Walter-Bot/node_modules/mongoose/lib/helpers/query/castUpdate.js:92:7)
+      at model.Query._castUpdate (/home/me3za/Walter-Bot/node_modules/mongoose/lib/query.js:5104:10) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  },
+  valueType: 'number'
+}
+[ERROR] at Tue, 28 Feb 2023 14:50:29 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/events/voiceChatActivity.js:18
+			const timeInVoice = Math.floor(
+			^^^^^
+
+SyntaxError: Unexpected token 'const'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:35:18
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Tue, 28 Feb 2023 14:50:35 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/events/voiceChatActivity.js:17
+			if voiceChannelUsers.get
+			   ^^^^^^^^^^^^^^^^^
+
+SyntaxError: Unexpected identifier 'voiceChannelUsers'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:35:18
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Tue, 28 Feb 2023 14:50:43 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/events/voiceChatActivity.js:17
+			if oldState.id
+			   ^^^^^^^^
+
+SyntaxError: Unexpected identifier 'oldState'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:35:18
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Tue, 28 Feb 2023 14:50:51 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/events/voiceChatActivity.js:18
+			const timeInVoice = Math.floor(
+			^^^^^
+
+SyntaxError: Unexpected token 'const'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:35:18
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Tue, 28 Feb 2023 14:53:55 GMT
+(/home/me3za/Walter-Bot/events/voiceChatActivity.js:35:12),/home/me3za/Walter-Bot/events/voiceChatActivity.js
+CastError: Cast to Number failed for value "NaN" (type number) at path "vcTime"
+    at model.Query.exec (/home/me3za/Walter-Bot/node_modules/mongoose/lib/query.js:4891:21)
+    at Query.then (/home/me3za/Walter-Bot/node_modules/mongoose/lib/query.js:4990:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  messageFormat: undefined,
+  stringValue: '"NaN"',
+  kind: 'Number',
+  value: NaN,
+  path: 'vcTime',
+  reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(!isNaN(val))
+  
+      at castNumber (/home/me3za/Walter-Bot/node_modules/mongoose/lib/cast/number.js:27:10)
+      at SchemaNumber.cast (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schema/number.js:376:12)
+      at SchemaType.applySetters (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schematype.js:1201:12)
+      at SchemaType._castForQuery (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schematype.js:1648:15)
+      at SchemaNumber.castForQuery (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schema/number.js:430:14)
+      at SchemaType.castForQueryWrapper (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schematype.js:1612:20)
+      at castUpdateVal (/home/me3za/Walter-Bot/node_modules/mongoose/lib/helpers/query/castUpdate.js:523:21)
+      at walkUpdatePath (/home/me3za/Walter-Bot/node_modules/mongoose/lib/helpers/query/castUpdate.js:361:24)
+      at castUpdate (/home/me3za/Walter-Bot/node_modules/mongoose/lib/helpers/query/castUpdate.js:92:7)
+      at model.Query._castUpdate (/home/me3za/Walter-Bot/node_modules/mongoose/lib/query.js:5104:10) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  },
+  valueType: 'number'
+}
+[ERROR] at Tue, 28 Feb 2023 14:54:47 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/events/voiceChatActivity.js:20
+			console.log((Date.now() - voiceChannelUsers.get(oldState.id)),,  timeInVoice)
+			                                                              ^
+
+SyntaxError: Unexpected token ','
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:35:18
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Tue, 28 Feb 2023 15:07:43 GMT
+(/home/me3za/Walter-Bot/events/voiceChatActivity.js:34:12),/home/me3za/Walter-Bot/events/voiceChatActivity.js
+CastError: Cast to Number failed for value "NaN" (type number) at path "vcTime"
+    at model.Query.exec (/home/me3za/Walter-Bot/node_modules/mongoose/lib/query.js:4891:21)
+    at Query.then (/home/me3za/Walter-Bot/node_modules/mongoose/lib/query.js:4990:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  messageFormat: undefined,
+  stringValue: '"NaN"',
+  kind: 'Number',
+  value: NaN,
+  path: 'vcTime',
+  reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(!isNaN(val))
+  
+      at castNumber (/home/me3za/Walter-Bot/node_modules/mongoose/lib/cast/number.js:27:10)
+      at SchemaNumber.cast (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schema/number.js:376:12)
+      at SchemaType.applySetters (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schematype.js:1201:12)
+      at SchemaType._castForQuery (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schematype.js:1648:15)
+      at SchemaNumber.castForQuery (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schema/number.js:430:14)
+      at SchemaType.castForQueryWrapper (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schematype.js:1612:20)
+      at castUpdateVal (/home/me3za/Walter-Bot/node_modules/mongoose/lib/helpers/query/castUpdate.js:523:21)
+      at walkUpdatePath (/home/me3za/Walter-Bot/node_modules/mongoose/lib/helpers/query/castUpdate.js:361:24)
+      at castUpdate (/home/me3za/Walter-Bot/node_modules/mongoose/lib/helpers/query/castUpdate.js:92:7)
+      at model.Query._castUpdate (/home/me3za/Walter-Bot/node_modules/mongoose/lib/query.js:5104:10) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  },
+  valueType: 'number'
+}
+[ERROR] at Tue, 28 Feb 2023 15:08:42 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/events/voiceChatActivity.js:23
+				await Activity.findOneAndUpdate(
+				^^^^^
+
+SyntaxError: Unexpected reserved word
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:35:18
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Tue, 28 Feb 2023 15:09:32 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/events/voiceChatActivity.js:28
+					})
+					^
+
+SyntaxError: Unexpected token '}'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:35:18
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Tue, 28 Feb 2023 15:09:48 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/events/voiceChatActivity.js:28
+						memberId : oldState.id
+						         ^
+
+SyntaxError: Unexpected token ':'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:35:18
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Tue, 28 Feb 2023 15:11:05 GMT
+(/home/me3za/Walter-Bot/events/voiceChatActivity.js:35:12),/home/me3za/Walter-Bot/events/voiceChatActivity.js
+ObjectParameterError: Parameter "filter" to findOne() must be an object, got [object Object]
+    at Query.findOne (/home/me3za/Walter-Bot/node_modules/mongoose/lib/query.js:2592:16)
+    at Function.findOne (/home/me3za/Walter-Bot/node_modules/mongoose/lib/model.js:2354:13)
+    at Object.execute (/home/me3za/Walter-Bot/events/voiceChatActivity.js:23:41)
+    at Client.<anonymous> (/home/me3za/Walter-Bot/index.js:40:46)
+    at Client.emit (node:events:513:28)
+    at VoiceStateUpdate.handle (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/actions/VoiceStateUpdate.js:38:14)
+    at module.exports [as VOICE_STATE_UPDATE] (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/websocket/handlers/VOICE_STATE_UPDATE.js:4:35)
+    at WebSocketManager.handlePacket (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/websocket/WebSocketManager.js:352:31)
+    at WebSocketShard.onPacket (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/websocket/WebSocketShard.js:480:22)
+    at WebSocketShard.onMessage (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/websocket/WebSocketShard.js:320:10)
+[ERROR] at Tue, 28 Feb 2023 15:11:18 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/events/voiceChatActivity.js:24
+					{ memberId: oldState.id },
+					^
+
+SyntaxError: Unexpected token '{'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:35:18
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Tue, 28 Feb 2023 15:11:20 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/events/voiceChatActivity.js:24
+					{ memberId: oldState.id },
+					^
+
+SyntaxError: Unexpected token '{'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:35:18
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Tue, 28 Feb 2023 15:11:29 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/events/voiceChatActivity.js:24
+					{ memberId: oldState.id ,
+					^
+
+SyntaxError: Unexpected token '{'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:35:18
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Tue, 28 Feb 2023 15:42:08 GMT
+(/home/me3za/Walter-Bot/events/voiceChatActivity.js:35:12),/home/me3za/Walter-Bot/events/voiceChatActivity.js
+Error: Activity validation failed: vcTime: Cast to Number failed for value "NaN" (type number) at path "vcTime"
+    at ValidationError.inspect (/home/me3za/Walter-Bot/node_modules/mongoose/lib/error/validation.js:50:26)
+    at formatValue (node:internal/util/inspect:806:19)
+    at inspect (node:internal/util/inspect:365:10)
+    at formatWithOptionsInternal (node:internal/util/inspect:2292:40)
+    at Object.format (node:internal/util/inspect:2149:10)
+    at Object.error (/home/me3za/Walter-Bot/utils/logger.js:17:24)
+    at Object.execute (/home/me3za/Walter-Bot/events/voiceChatActivity.js:35:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  errors: {
+    vcTime: CastError: Cast to Number failed for value "NaN" (type number) at path "vcTime"
+        at SchemaNumber.cast (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schema/number.js:378:11)
+        at SchemaType.applySetters (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schematype.js:1201:12)
+        at model.$set (/home/me3za/Walter-Bot/node_modules/mongoose/lib/document.js:1410:22)
+        at model.set [as vcTime] (/home/me3za/Walter-Bot/node_modules/mongoose/lib/helpers/document/compile.js:194:19)
+        at Object.execute (/home/me3za/Walter-Bot/events/voiceChatActivity.js:31:32)
+        at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+      stringValue: '"NaN"',
+      messageFormat: undefined,
+      kind: 'Number',
+      value: NaN,
+      path: 'vcTime',
+      reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+      
+        assert.ok(!isNaN(val))
+      
+          at castNumber (/home/me3za/Walter-Bot/node_modules/mongoose/lib/cast/number.js:27:10)
+          at SchemaNumber.cast (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schema/number.js:376:12)
+          at SchemaType.applySetters (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schematype.js:1201:12)
+          at model.$set (/home/me3za/Walter-Bot/node_modules/mongoose/lib/document.js:1410:22)
+          at model.set [as vcTime] (/home/me3za/Walter-Bot/node_modules/mongoose/lib/helpers/document/compile.js:194:19)
+          at Object.execute (/home/me3za/Walter-Bot/events/voiceChatActivity.js:31:32)
+          at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+        generatedMessage: true,
+        code: 'ERR_ASSERTION',
+        actual: false,
+        expected: true,
+        operator: '=='
+      },
+      valueType: 'number'
+    }
+  },
+  _message: 'Activity validation failed'
+}

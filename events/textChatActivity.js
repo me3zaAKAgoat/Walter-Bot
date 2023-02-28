@@ -12,7 +12,6 @@ module.exports = {
 				{
 					$inc: { messageCount: 1 },
 					$setOnInsert: {
-						timeVc: 0,
 						memberId: message.author.id,
 					},
 				},

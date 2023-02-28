@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const activitySchema = mongoose.Schema({
-	timeVc: {
+	vcTime: {
 		type: Number, // time in vc in minutes
 		default: 0,
 	},

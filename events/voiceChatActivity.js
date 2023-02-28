@@ -1,3 +1,4 @@
+const { time } = require("cron");
 const Activity = require("../models/activity");
 const logger = require("../utils/logger");
 
@@ -12,16 +13,16 @@ module.exports = {
 			voiceChannelUsers.set(newState.id, Date.now());
 		} else if (oldState.channelId && !newState.channelId) {
 			// User has left a voice channel
-			const timeInVoice = Math.round(
-				Date.now() - voiceChannelUsers.get(oldState.id) / (60 * 1000) // translate milliseconds to minutes
+			if (oldState.id === undefined) return;
+			const timeInVoice = Math.floor(
+				(Date.now() - voiceChannelUsers.get(oldState.id)) / (60 * 1000) // translate milliseconds to minutes
 			);
 			try {
 				await Activity.findOneAndUpdate(
 					{ memberId: oldState.id },
 					{
-						$inc: { timeVc: timeInVoice },
+						$inc: { vcTime: timeInVoice },
 						$setOnInsert: {
-							messageCount: 0,
 							memberId: oldState.id,
 						},
 					},
