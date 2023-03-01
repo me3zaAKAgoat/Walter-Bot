@@ -504,3 +504,20 @@ Error: Activity validation failed: vcTime: Cast to Number failed for value "NaN"
 TypeError: Cannot read properties of null (reading 'channelId')
     at Object.execute (/home/me3za/Walter-Bot/events/onReady/birthdayCheck.js:24:7)
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Wed, 01 Mar 2023 01:56:04 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/utils/constants.js:1
+export const BIRTHDAY_ROLE_NAME = "happy birthday";
+^^^^^^
+
+SyntaxError: Unexpected token 'export'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at Hook._require.Module.require (/home/me3za/Walter-Bot/node_modules/require-in-the-middle/index.js:101:39)
+    at require (node:internal/modules/helpers:112:18)
+    at Object.<anonymous> (/home/me3za/Walter-Bot/events/onReady/birthdayCheck.js:5:32)

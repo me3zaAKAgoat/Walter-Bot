@@ -1,5 +1,6 @@
 const Birthday = require("../../models/birthday");
 const logger = require("../../utils/logger");
+const { BIRTHDAY_ROLE_NAME } = require("../../utils/constants");
 
 module.exports = {
 	execute: async (client) => {
@@ -14,7 +15,7 @@ module.exports = {
 
 			for (const guild of client.guilds.cache.values()) {
 				const birthdayRole = guild.roles.cache.find(
-					(role) => role.name.toLowerCase() === "birthday"
+					(role) => role.name.toLowerCase() === BIRTHDAY_ROLE_NAME
 				);
 				if (!birthdayRole) continue;
 				await guild.members.fetch();

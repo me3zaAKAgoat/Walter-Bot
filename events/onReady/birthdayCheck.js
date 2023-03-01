@@ -2,6 +2,7 @@ const Birthday = require("../../models/birthday");
 const Channel = require("../../models/channel");
 const roleUtils = require("../../utils/roleUtils");
 const logger = require("../../utils/logger");
+const { BIRTHDAY_ROLE_NAME } = require("../../utils/constants");
 
 const birthdayMessage = (userId) =>
 	`@everyone Today is <@${userId}>'s birthday 🥳, don't forget to wish them a happy birthday <a:miyanoHype:1069612575416922112>, and as always our age is merely the number of years the world has been enjoying us! :D`;
@@ -21,7 +22,7 @@ module.exports = {
 			for (const guild of client.guilds.cache.values()) {
 				const announcementChannelId = (
 					await Channel.findOne({ channel: "birthday", guildId: guild.id })
-				).channelId;
+				)?.channelId;
 
 				if (!announcementChannelId) continue;
 
@@ -31,7 +32,7 @@ module.exports = {
 				if (!announcementChannel) continue;
 
 				let birthdayRole = guild.roles.cache.find(
-					(role) => role.name.toLowerCase() === "birthday"
+					(role) => role.name.toLowerCase() === BIRTHDAY_ROLE_NAME
 				);
 
 				for (const birthday of birthdays) {
@@ -39,12 +40,18 @@ module.exports = {
 
 					if (!member) continue;
 
-					announcementChannel.send(birthdayMessage(member.id));
+					try {
+						await announcementChannel.send(birthdayMessage(member.id));
+					} catch (err) {
+						logger.error(
+							`Failed to send birthday message for ${member.id}: ${err}`
+						);
+					}
 
 					birthdayRole = await roleUtils.assignRole(
 						member,
 						birthdayRole,
-						"birthday",
+						BIRTHDAY_ROLE_NAME,
 						[255, 31, 79]
 					);
 
