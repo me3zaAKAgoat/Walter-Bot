@@ -9,7 +9,7 @@ collect 3 more votes and then apply timeout
 send death note gif and then timeout
 */
 
-const USER_VOTES_NEEDED = 3;
+const USER_VOTES_NEEDED = 5;
 
 module.exports = {
 	data: new SlashCommandBuilder()
