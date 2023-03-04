@@ -9,7 +9,11 @@ module.exports = {
 
 			const welcomeChannel = member.guild.channels.cache.get(welcomeChannleId);
 
-			welcomeChannel.send(`<@${member.id}> just left!`);
+			welcomeChannel.send(
+				`**${member.user.username}** ${
+					member.nickname !== null ? `aka **${member.nickname}** ` : ""
+				}just left!`
+			);
 		} catch (err) {
 			logger.error(err);
 		}
