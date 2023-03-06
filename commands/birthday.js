@@ -107,9 +107,7 @@ module.exports = {
 			}
 		} else if (interaction.options.getSubcommand() === "list") {
 			try {
-				await interaction.deferReply({
-					ephemeral: true,
-				});
+				await interaction.deferReply();
 				const embeds = [];
 				const pages = {};
 				let pageItemCount = 0;
