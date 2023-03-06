@@ -113,7 +113,9 @@ module.exports = {
 				});
 
 			const embedGenerator = (pageNum) =>
-				new EmbedBuilder().setTitle(`**Page ${pageNum + 1}**`);
+				new EmbedBuilder().setTitle(`**Page ${pageNum + 1}**`).setFooter({
+					text: "(Only the caller of this command can switch pages !!)",
+				});
 
 			const items = await Promise.all(
 				birthdays.map(async (bday) => {
@@ -127,7 +129,7 @@ module.exports = {
 									bday.month - 1,
 									bday.day
 								).getTime() / 1000
-							}:R>`,
+							}:d>`,
 						};
 					} catch (err) {
 						// handle the error here
