@@ -1,12 +1,7 @@
-const {
-	ActionRowBuilder,
-	SlashCommandBuilder,
-	EmbedBuilder,
-	ButtonBuilder,
-	ButtonStyle,
-} = require("discord.js");
+const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
 const Birthday = require("../models/birthday");
 const logger = require("../utils/logger");
+const { paginate } = require("../utils/discordUtils");
 
 const formatDate = (day, month) => `${padZero(day)}/${padZero(month)}`;
 
@@ -87,17 +82,19 @@ module.exports = {
 			}
 		} else if (interaction.options.getSubcommand() === "get") {
 			const user = interaction.options.getUser("user");
-			if (memberBirthday === null) {
-				return interaction.reply({
-					content: `🚫 No birthday is set to this member.`,
-				});
-			}
+
 			try {
 				const memberBirthday = await Birthday.findOne({ userId: user.id });
+				if (memberBirthday === null) {
+					return interaction.reply({
+						content: `🚫 No birthday is set to this member.`,
+					});
+				}
 				return interaction.reply({
 					content: `**${user.username}**'s birthday is ${formatDate(
-						memberBirthday.day
-					)}/${formatDate(memberBirthday.month)}.`,
+						memberBirthday.day,
+						memberBirthday.month
+					)}.`,
 				});
 			} catch (err) {
 				logger.error(subCommand, err);
@@ -106,113 +103,40 @@ module.exports = {
 				);
 			}
 		} else if (interaction.options.getSubcommand() === "list") {
-			try {
-				await interaction.deferReply();
-				const embeds = [];
-				const pages = {};
-				let pageItemCount = 0;
+			await interaction.deferReply();
 
-				let birthdays = await Birthday.find({});
+			const birthdays = await Birthday.find({});
+			birthdays.sort((a, b) => b.month * 100 + b.day - a.month * 100 + a.day);
+			if (birthdays.length === 0)
+				return interaction.editReply({
+					content: "🚫 No birthdays have been registered yet",
+				});
 
-				birthdays = birthdays.sort(
-					(first, second) =>
-						first.month * 100 + first.day - second.month * 100 + second.day
-				);
-				if (birthdays.length === 0)
-					return interaction.editReply({
-						content: "🚫 No birthdays have been registered yet",
-					});
+			const embedGenerator = (pageNum) =>
+				new EmbedBuilder().setTitle(`**Page ${pageNum + 1}**`);
 
-				while (birthdays.length > 0) {
-					const embed = new EmbedBuilder();
-
-					while (pageItemCount < 10 && birthdays.length > 0) {
-						try {
-							const member = await interaction.guild.members.fetch(
-								birthdays[birthdays.length - 1].userId
-							);
-							username = member.user.username;
-							embed.setTitle(`Page ${embeds.length + 1}`).addFields({
-								name: `**${username}**`,
-								value: `${formatDate(
-									birthdays[birthdays.length - 1].day,
-									birthdays[birthdays.length - 1].month
-								)}`,
-								inline: false,
-							});
-						} catch (err) {
-							/* it's okay to not log or do anything about this exception beacuse it only notifies us of the user
-							not being a member of the calling guild*/
-						}
-
-						birthdays.pop();
-						pageItemCount++;
+			const items = await Promise.all(
+				birthdays.map(async (bday) => {
+					try {
+						const member = await interaction.guild.members.fetch(bday.userId);
+						return {
+							name: member.user.username,
+							value: `<t:${
+								new Date(
+									new Date().getFullYear(),
+									bday.month - 1,
+									bday.day
+								).getTime() / 1000
+							}:R>`,
+						};
+					} catch (err) {
+						// handle the error here
 					}
-					pageItemCount = 0;
-					embeds.push(embed);
-				}
+				})
+			);
+			const filteredItems = items.filter((item) => item !== undefined);
 
-				const getRow = (id) => {
-					const row = new ActionRowBuilder()
-						.addComponents(
-							new ButtonBuilder()
-								.setCustomId("prev-embed")
-								.setEmoji("⏪")
-								.setDisabled(pages[id] === 0)
-								.setStyle(ButtonStyle.Primary)
-						)
-
-						.addComponents(
-							new ButtonBuilder()
-								.setCustomId("next-embed")
-								.setEmoji("⏩")
-								.setDisabled(pages[id] === embeds.length - 1)
-								.setStyle(ButtonStyle.Primary)
-						);
-
-					return row;
-				};
-
-				const id = interaction.user.id;
-				pages[id] = pages[id] || 0;
-				const embed = embeds[pages[id]];
-
-				const filter = (i) => i.user.id === interaction.user.id;
-
-				interaction.editReply({
-					embeds: [embed],
-					components: [getRow(id)],
-				});
-
-				let collector = interaction.channel.createMessageComponentCollector({
-					filter,
-					time: 1000 * 60 * 10,
-				});
-
-				collector.on("collect", async (btnInt) => {
-					if (!btnInt) return;
-
-					btnInt.deferUpdate();
-					if (
-						btnInt.customId !== "prev-embed" &&
-						btnInt.customId !== "next-embed"
-					)
-						return;
-					if (btnInt.customId === "prev-embed" && pages[id] > 0) --pages[id];
-					if (btnInt.customId === "next-embed" && pages[id] < embeds.length - 1)
-						++pages[id];
-
-					interaction.editReply({
-						embeds: [embeds[pages[id]]],
-						components: [getRow(id)],
-					});
-				});
-			} catch (err) {
-				logger.error(err);
-				return interaction.editReply(
-					"Command failed :( please report the the command and your input me3za#4854 please."
-				);
-			}
+			await paginate(interaction, filteredItems, 10, embedGenerator);
 		} else {
 			return interaction.reply({
 				content: `🚫 this command doesn't exist.`,

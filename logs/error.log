@@ -1,42 +1,485 @@
-[ERROR] at Sun, 19 Feb 2023 02:16:48 GMT
-/home/me3za/Walter-Bot/commands/birthday.js
-birthday list DiscordAPIError[10007]: Unknown Member
-    at SequentialHandler.runRequest (/home/me3za/Walter-Bot/node_modules/@discordjs/rest/dist/index.js:659:15)
+[ERROR] at Mon, 06 Mar 2023 15:33:33 GMT
+(/home/me3za/Walter-Bot/events/interactionCreate.js:18:11),/home/me3za/Walter-Bot/events/interactionCreate.js
+TypeError: embed.addField is not a function
+    at paginate (/home/me3za/Walter-Bot/utils/discordUtils.js:11:10)
+    at Object.execute (/home/me3za/Walter-Bot/commands/birthday.js:130:10)
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at async SequentialHandler.queueRequest (/home/me3za/Walter-Bot/node_modules/@discordjs/rest/dist/index.js:458:14)
-    at async REST.request (/home/me3za/Walter-Bot/node_modules/@discordjs/rest/dist/index.js:902:22)
-    at async GuildMemberManager._fetchSingle (/home/me3za/Walter-Bot/node_modules/discord.js/src/managers/GuildMemberManager.js:489:18)
-    at async Object.execute (/home/me3za/Walter-Bot/commands/birthday.js:133:23)
-    at async Object.execute (/home/me3za/Walter-Bot/events/interactionCreate.js:16:4) {
-  requestBody: { files: undefined, json: undefined },
-  rawError: { message: 'Unknown Member', code: 10007 },
-  code: 10007,
-  status: 404,
-  method: 'GET',
-  url: 'https://discord.com/api/v10/guilds/1030158195429228614/members/467005211320385546'
-}
-[ERROR] at Wed, 22 Feb 2023 20:32:52 GMT
-/home/me3za/Walter-Bot/events/guildJoin.js
-DiscordAPIError[50013]: Missing Permissions
-    at SequentialHandler.runRequest (/home/me3za/Walter-Bot/node_modules/@discordjs/rest/dist/index.js:659:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at async SequentialHandler.queueRequest (/home/me3za/Walter-Bot/node_modules/@discordjs/rest/dist/index.js:458:14)
-    at async REST.request (/home/me3za/Walter-Bot/node_modules/@discordjs/rest/dist/index.js:902:22)
-    at async GuildMemberRoleManager.add (/home/me3za/Walter-Bot/node_modules/discord.js/src/managers/GuildMemberRoleManager.js:131:7)
-    at async Object.assignRole (/home/me3za/Walter-Bot/utils/roleUtils.js:21:2)
-    at async Object.execute (/home/me3za/Walter-Bot/events/guildJoin.js:25:6) {
-  requestBody: { files: undefined, json: undefined },
-  rawError: { message: 'Missing Permissions', code: 50013 },
-  code: 50013,
-  status: 403,
-  method: 'PUT',
-  url: 'https://discord.com/api/v10/guilds/1030158195429228614/members/257203044305993728/roles/1069617533285576765'
-}
-[ERROR] at Thu, 23 Feb 2023 10:31:00 GMT
+    at async Object.execute (/home/me3za/Walter-Bot/events/interactionCreate.js:16:4)
+[ERROR] at Mon, 06 Mar 2023 15:34:15 GMT
 null
-coudlnt connect to db /home/me3za/Walter-Bot/events/ready.js:5
-const downtime
-      ^^^^^^^^
+coudlnt connect to db /home/me3za/Walter-Bot/utils/discordUtils.js:1
+const {	ActionRowBuilder,
+
+SyntaxError: Missing initializer in destructuring declaration
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at Object.<anonymous> (/home/me3za/Walter-Bot/commands/configure.js:4:22)
+    at Module._compile (node:internal/modules/cjs/loader:1239:14)
+[ERROR] at Mon, 06 Mar 2023 15:34:32 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/birthday.js:6
+const formatDate = (day, month) => `${padZero(day)}/${padZero(month)}`;
+^^^^^
+
+SyntaxError: Unexpected token 'const'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Mon, 06 Mar 2023 15:34:40 GMT
+null
+coudlnt connect to db TypeError [ERR_INVALID_ARG_VALUE]: The argument 'id' must be a non-empty string. Received ''
+    at new NodeError (node:internal/errors:399:5)
+    at Module.require (node:internal/modules/cjs/loader:1115:11)
+    at require (node:internal/modules/helpers:112:18)
+    at Object.<anonymous> (/home/me3za/Walter-Bot/commands/birthday.js:4:18)
+    at Module._compile (node:internal/modules/cjs/loader:1239:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18) {
+  code: 'ERR_INVALID_ARG_VALUE'
+}
+[ERROR] at Mon, 06 Mar 2023 15:34:46 GMT
+null
+coudlnt connect to db Error: Cannot find module '../utils/discord'
+Require stack:
+- /home/me3za/Walter-Bot/commands/birthday.js
+- /home/me3za/Walter-Bot/index.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1053:15)
+    at Module._load (node:internal/modules/cjs/loader:898:27)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at Object.<anonymous> (/home/me3za/Walter-Bot/commands/birthday.js:4:18)
+    at Module._compile (node:internal/modules/cjs/loader:1239:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/me3za/Walter-Bot/commands/birthday.js',
+    '/home/me3za/Walter-Bot/index.js'
+  ]
+}
+[ERROR] at Mon, 06 Mar 2023 15:34:55 GMT
+(/home/me3za/Walter-Bot/events/interactionCreate.js:18:11),/home/me3za/Walter-Bot/events/interactionCreate.js
+TypeError: paginate is not a function
+    at Object.execute (/home/me3za/Walter-Bot/commands/birthday.js:125:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (/home/me3za/Walter-Bot/events/interactionCreate.js:16:4)
+[ERROR] at Mon, 06 Mar 2023 15:35:59 GMT
+(/home/me3za/Walter-Bot/events/interactionCreate.js:18:11),/home/me3za/Walter-Bot/events/interactionCreate.js
+TypeError: paginate is not a function
+    at Object.execute (/home/me3za/Walter-Bot/commands/birthday.js:125:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (/home/me3za/Walter-Bot/events/interactionCreate.js:16:4)
+[ERROR] at Mon, 06 Mar 2023 15:36:44 GMT
+(/home/me3za/Walter-Bot/events/interactionCreate.js:18:11),/home/me3za/Walter-Bot/events/interactionCreate.js
+TypeError: paginate is not a function
+    at Object.execute (/home/me3za/Walter-Bot/commands/birthday.js:125:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (/home/me3za/Walter-Bot/events/interactionCreate.js:16:4)
+[ERROR] at Mon, 06 Mar 2023 15:39:11 GMT
+(/home/me3za/Walter-Bot/events/voiceChatActivity.js:33:12),/home/me3za/Walter-Bot/events/voiceChatActivity.js
+CastError: Cast to Number failed for value "NaN" (type number) at path "vcTime"
+    at model.Query.exec (/home/me3za/Walter-Bot/node_modules/mongoose/lib/query.js:4891:21)
+    at Query.then (/home/me3za/Walter-Bot/node_modules/mongoose/lib/query.js:4990:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  messageFormat: undefined,
+  stringValue: '"NaN"',
+  kind: 'Number',
+  value: NaN,
+  path: 'vcTime',
+  reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(!isNaN(val))
+  
+      at castNumber (/home/me3za/Walter-Bot/node_modules/mongoose/lib/cast/number.js:27:10)
+      at SchemaNumber.cast (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schema/number.js:376:12)
+      at SchemaType.applySetters (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schematype.js:1201:12)
+      at SchemaType._castForQuery (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schematype.js:1648:15)
+      at SchemaNumber.castForQuery (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schema/number.js:430:14)
+      at SchemaType.castForQueryWrapper (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schematype.js:1612:20)
+      at castUpdateVal (/home/me3za/Walter-Bot/node_modules/mongoose/lib/helpers/query/castUpdate.js:523:21)
+      at walkUpdatePath (/home/me3za/Walter-Bot/node_modules/mongoose/lib/helpers/query/castUpdate.js:361:24)
+      at castUpdate (/home/me3za/Walter-Bot/node_modules/mongoose/lib/helpers/query/castUpdate.js:92:7)
+      at model.Query._castUpdate (/home/me3za/Walter-Bot/node_modules/mongoose/lib/query.js:5104:10) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  },
+  valueType: 'number'
+}
+[ERROR] at Mon, 06 Mar 2023 15:40:00 GMT
+(/home/me3za/Walter-Bot/events/interactionCreate.js:18:11),/home/me3za/Walter-Bot/events/interactionCreate.js
+TypeError: embed.addField is not a function
+    at paginate (/home/me3za/Walter-Bot/utils/discordUtils.js:13:10)
+    at Object.execute (/home/me3za/Walter-Bot/commands/birthday.js:125:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (/home/me3za/Walter-Bot/events/interactionCreate.js:16:4)
+[ERROR] at Mon, 06 Mar 2023 15:52:25 GMT
+(/home/me3za/Walter-Bot/events/interactionCreate.js:18:11),/home/me3za/Walter-Bot/events/interactionCreate.js
+TypeError: embed.addField is not a function
+    at paginate (/home/me3za/Walter-Bot/utils/discordUtils.js:18:10)
+    at Object.execute (/home/me3za/Walter-Bot/commands/birthday.js:125:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (/home/me3za/Walter-Bot/events/interactionCreate.js:16:4)
+[ERROR] at Mon, 06 Mar 2023 15:57:30 GMT
+(/home/me3za/Walter-Bot/events/interactionCreate.js:18:11),/home/me3za/Walter-Bot/events/interactionCreate.js
+TypeError: embed.addField is not a function
+    at paginate (/home/me3za/Walter-Bot/utils/discordUtils.js:13:10)
+    at Object.execute (/home/me3za/Walter-Bot/commands/birthday.js:125:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (/home/me3za/Walter-Bot/events/interactionCreate.js:16:4)
+[ERROR] at Mon, 06 Mar 2023 16:00:48 GMT
+(/home/me3za/Walter-Bot/events/interactionCreate.js:18:11),/home/me3za/Walter-Bot/events/interactionCreate.js
+CombinedPropertyError (3)
+  Received one or more errors
+
+  input[0]
+  | ValidationError > s.object(T)
+  |   Expected the value to be an object, but received undefined instead
+  | 
+  |   Received:
+  |   | undefined
+
+  input[1]
+  | ValidationError > s.object(T)
+  |   Expected the value to be an object, but received string instead
+  | 
+  |   Received:
+  |   | '22/12'
+
+  input[2]
+  | ValidationError > s.object(T)
+  |   Expected the value to be an object, but received boolean instead
+  | 
+  |   Received:
+  |   | false
+
+    at ArrayValidator.handle (/home/me3za/Walter-Bot/node_modules/@sapphire/shapeshift/dist/index.js:427:70)
+    at ArrayValidator.parse (/home/me3za/Walter-Bot/node_modules/@sapphire/shapeshift/dist/index.js:113:88)
+    at EmbedBuilder.addFields (/home/me3za/Walter-Bot/node_modules/@discordjs/builders/dist/index.js:191:31)
+    at paginate (/home/me3za/Walter-Bot/utils/discordUtils.js:13:10)
+    at Object.execute (/home/me3za/Walter-Bot/commands/birthday.js:125:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (/home/me3za/Walter-Bot/events/interactionCreate.js:16:4)
+[ERROR] at Mon, 06 Mar 2023 16:03:37 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/utils/discordUtils.js:13
+			embed.addFields(name : item.name, item.value, item.inline);
+			                ^^^^
+
+SyntaxError: missing ) after argument list
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at Object.<anonymous> (/home/me3za/Walter-Bot/commands/birthday.js:4:22)
+    at Module._compile (node:internal/modules/cjs/loader:1239:14)
+[ERROR] at Mon, 06 Mar 2023 16:03:46 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/utils/discordUtils.js:13
+			embed.addFields(name : item.name, value:  item.value, item.inline);
+			                ^^^^
+
+SyntaxError: missing ) after argument list
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at Object.<anonymous> (/home/me3za/Walter-Bot/commands/birthday.js:4:22)
+    at Module._compile (node:internal/modules/cjs/loader:1239:14)
+[ERROR] at Mon, 06 Mar 2023 16:03:53 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/utils/discordUtils.js:13
+			embed.addFields({name : item.name, value:  item.value, item.inline);
+			                                                           ^
+
+SyntaxError: Unexpected token '.'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at Object.<anonymous> (/home/me3za/Walter-Bot/commands/birthday.js:4:22)
+    at Module._compile (node:internal/modules/cjs/loader:1239:14)
+[ERROR] at Mon, 06 Mar 2023 16:03:57 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/utils/discordUtils.js:13
+			embed.addFields({name : item.name, value:  item.value, item.inline});
+			                                                           ^
+
+SyntaxError: Unexpected token '.'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at Object.<anonymous> (/home/me3za/Walter-Bot/commands/birthday.js:4:22)
+    at Module._compile (node:internal/modules/cjs/loader:1239:14)
+[ERROR] at Mon, 06 Mar 2023 16:04:11 GMT
+(/home/me3za/Walter-Bot/events/interactionCreate.js:18:11),/home/me3za/Walter-Bot/events/interactionCreate.js
+CombinedPropertyError (1)
+  Received one or more errors
+
+  input[0]
+  | CombinedPropertyError (1)
+  |   Received one or more errors
+  | 
+  |   input.name
+  |   | ValidationError > s.string
+  |   |   Expected a string primitive
+  |   | 
+  |   |   Received:
+  |   |   | undefined
+
+    at ArrayValidator.handle (/home/me3za/Walter-Bot/node_modules/@sapphire/shapeshift/dist/index.js:427:70)
+    at ArrayValidator.parse (/home/me3za/Walter-Bot/node_modules/@sapphire/shapeshift/dist/index.js:113:88)
+    at EmbedBuilder.addFields (/home/me3za/Walter-Bot/node_modules/@discordjs/builders/dist/index.js:191:31)
+    at paginate (/home/me3za/Walter-Bot/utils/discordUtils.js:13:10)
+    at Object.execute (/home/me3za/Walter-Bot/commands/birthday.js:125:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (/home/me3za/Walter-Bot/events/interactionCreate.js:16:4)
+[ERROR] at Mon, 06 Mar 2023 16:09:10 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/birthday.js:120
+				{{
+				 ^
+
+SyntaxError: Unexpected token '{'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Mon, 06 Mar 2023 16:09:13 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/birthday.js:120
+				{{
+				 ^
+
+SyntaxError: Unexpected token '{'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Mon, 06 Mar 2023 16:09:18 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/birthday.js:120
+				{return {
+				        ^
+
+SyntaxError: Unexpected token '{'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Mon, 06 Mar 2023 16:09:20 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/birthday.js:121
+					return {
+					       ^
+
+SyntaxError: Unexpected token '{'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Mon, 06 Mar 2023 16:09:43 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/birthday.js:120
+				const member = await interaction
+				               ^^^^^
+
+SyntaxError: await is only valid in async functions and the top level bodies of modules
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Mon, 06 Mar 2023 16:09:48 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/birthday.js:120
+				const member = await interaction.guild.memb
+				               ^^^^^
+
+SyntaxError: await is only valid in async functions and the top level bodies of modules
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Mon, 06 Mar 2023 16:09:52 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/birthday.js:120
+				const member = await interaction.guild.members.fetch()
+				               ^^^^^
+
+SyntaxError: await is only valid in async functions and the top level bodies of modules
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Mon, 06 Mar 2023 16:09:58 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/birthday.js:120
+				const member = await interaction.guild.members.fetch(bday.userId)
+				               ^^^^^
+
+SyntaxError: await is only valid in async functions and the top level bodies of modules
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Mon, 06 Mar 2023 16:10:09 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/birthday.js:120
+				const member = await interaction.guild.members.fetch(bday.userId);
+				               ^^^^^
+
+SyntaxError: await is only valid in async functions and the top level bodies of modules
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Mon, 06 Mar 2023 16:10:53 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/birthday.js:128
+			});
+			^
+
+SyntaxError: Missing catch or finally after try
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Mon, 06 Mar 2023 16:10:55 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/birthday.js:128
+			}
+			^
+
+SyntaxError: Missing catch or finally after try
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Mon, 06 Mar 2023 16:11:01 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/birthday.js:129
+			catch()
+			      ^
+
+SyntaxError: Unexpected token ')'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Mon, 06 Mar 2023 16:13:38 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/birthday.js:133
+			const fi
+			      ^^
 
 SyntaxError: Missing initializer in const declaration
     at internalCompileFunction (node:internal/vm:73:18)
@@ -47,103 +490,122 @@ SyntaxError: Missing initializer in const declaration
     at Module._load (node:internal/modules/cjs/loader:935:12)
     at Module.require (node:internal/modules/cjs/loader:1120:19)
     at require (node:internal/modules/helpers:112:18)
-    at /home/me3za/Walter-Bot/index.js:35:18
+    at /home/me3za/Walter-Bot/index.js:52:20
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-[ERROR] at Thu, 23 Feb 2023 10:31:07 GMT
+[ERROR] at Mon, 06 Mar 2023 16:15:38 GMT
 null
-coudlnt connect to db Error: Cannot find module './'
-Require stack:
-- /home/me3za/Walter-Bot/events/ready.js
-- /home/me3za/Walter-Bot/index.js
-    at Module._resolveFilename (node:internal/modules/cjs/loader:1053:15)
-    at Module._load (node:internal/modules/cjs/loader:898:27)
-    at Module.require (node:internal/modules/cjs/loader:1120:19)
-    at require (node:internal/modules/helpers:112:18)
-    at Object.<anonymous> (/home/me3za/Walter-Bot/events/ready.js:5:28)
-    at Module._compile (node:internal/modules/cjs/loader:1239:14)
+coudlnt connect to db /home/me3za/Walter-Bot/commands/birthday.js:132
+			);
+			^
+
+SyntaxError: Unexpected token ')'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
     at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
     at Module.load (node:internal/modules/cjs/loader:1096:32)
     at Module._load (node:internal/modules/cjs/loader:935:12)
-    at Module.require (node:internal/modules/cjs/loader:1120:19) {
-  code: 'MODULE_NOT_FOUND',
-  requireStack: [
-    '/home/me3za/Walter-Bot/events/ready.js',
-    '/home/me3za/Walter-Bot/index.js'
-  ]
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Mon, 06 Mar 2023 16:16:51 GMT
+(/home/me3za/Walter-Bot/events/interactionCreate.js:18:11),/home/me3za/Walter-Bot/events/interactionCreate.js
+CombinedPropertyError (1)
+  Received one or more errors
+
+  input[0]
+  | CombinedPropertyError (2)
+  |   Received one or more errors
+  | 
+  |   input.name
+  |   | ValidationError > s.string
+  |   |   Expected a string primitive
+  |   | 
+  |   |   Received:
+  |   |   | undefined
+  | 
+  |   input.value
+  |   | ValidationError > s.string
+  |   |   Expected a string primitive
+  |   | 
+  |   |   Received:
+  |   |   | undefined
+
+    at ArrayValidator.handle (/home/me3za/Walter-Bot/node_modules/@sapphire/shapeshift/dist/index.js:427:70)
+    at ArrayValidator.parse (/home/me3za/Walter-Bot/node_modules/@sapphire/shapeshift/dist/index.js:113:88)
+    at EmbedBuilder.addFields (/home/me3za/Walter-Bot/node_modules/@discordjs/builders/dist/index.js:191:31)
+    at paginate (/home/me3za/Walter-Bot/utils/discordUtils.js:13:10)
+    at Object.execute (/home/me3za/Walter-Bot/commands/birthday.js:133:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (/home/me3za/Walter-Bot/events/interactionCreate.js:16:4)
+[ERROR] at Mon, 06 Mar 2023 16:18:21 GMT
+(/home/me3za/Walter-Bot/events/interactionCreate.js:18:11),/home/me3za/Walter-Bot/events/interactionCreate.js
+CombinedPropertyError (1)
+  Received one or more errors
+
+  input[0]
+  | CombinedPropertyError (2)
+  |   Received one or more errors
+  | 
+  |   input.name
+  |   | ValidationError > s.string
+  |   |   Expected a string primitive
+  |   | 
+  |   |   Received:
+  |   |   | undefined
+  | 
+  |   input.value
+  |   | ValidationError > s.string
+  |   |   Expected a string primitive
+  |   | 
+  |   |   Received:
+  |   |   | undefined
+
+    at ArrayValidator.handle (/home/me3za/Walter-Bot/node_modules/@sapphire/shapeshift/dist/index.js:427:70)
+    at ArrayValidator.parse (/home/me3za/Walter-Bot/node_modules/@sapphire/shapeshift/dist/index.js:113:88)
+    at EmbedBuilder.addFields (/home/me3za/Walter-Bot/node_modules/@discordjs/builders/dist/index.js:191:31)
+    at paginate (/home/me3za/Walter-Bot/utils/discordUtils.js:14:10)
+    at Object.execute (/home/me3za/Walter-Bot/commands/birthday.js:133:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (/home/me3za/Walter-Bot/events/interactionCreate.js:16:4)
+[ERROR] at Mon, 06 Mar 2023 16:24:42 GMT
+(/home/me3za/Walter-Bot/events/interactionCreate.js:18:11),/home/me3za/Walter-Bot/events/interactionCreate.js
+Error [InteractionAlreadyReplied]: The reply to this interaction has already been sent or deferred.
+    at ChatInputCommandInteraction.reply (/home/me3za/Walter-Bot/node_modules/discord.js/src/structures/interfaces/InteractionResponses.js:102:46)
+    at paginate (/home/me3za/Walter-Bot/utils/discordUtils.js:52:20)
+    at Object.execute (/home/me3za/Walter-Bot/commands/birthday.js:135:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (/home/me3za/Walter-Bot/events/interactionCreate.js:16:4) {
+  code: 'InteractionAlreadyReplied'
 }
-[ERROR] at Tue, 28 Feb 2023 14:21:55 GMT
-(/home/me3za/Walter-Bot/events/voiceChatActivity.js:32:12),/home/me3za/Walter-Bot/events/voiceChatActivity.js
-CastError: Cast to Number failed for value "NaN" (type number) at path "vcTime"
-    at model.Query.exec (/home/me3za/Walter-Bot/node_modules/mongoose/lib/query.js:4891:21)
-    at Query.then (/home/me3za/Walter-Bot/node_modules/mongoose/lib/query.js:4990:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  messageFormat: undefined,
-  stringValue: '"NaN"',
-  kind: 'Number',
-  value: NaN,
-  path: 'vcTime',
-  reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
-  
-    assert.ok(!isNaN(val))
-  
-      at castNumber (/home/me3za/Walter-Bot/node_modules/mongoose/lib/cast/number.js:27:10)
-      at SchemaNumber.cast (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schema/number.js:376:12)
-      at SchemaType.applySetters (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schematype.js:1201:12)
-      at SchemaType._castForQuery (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schematype.js:1648:15)
-      at SchemaNumber.castForQuery (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schema/number.js:430:14)
-      at SchemaType.castForQueryWrapper (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schematype.js:1612:20)
-      at castUpdateVal (/home/me3za/Walter-Bot/node_modules/mongoose/lib/helpers/query/castUpdate.js:523:21)
-      at walkUpdatePath (/home/me3za/Walter-Bot/node_modules/mongoose/lib/helpers/query/castUpdate.js:361:24)
-      at castUpdate (/home/me3za/Walter-Bot/node_modules/mongoose/lib/helpers/query/castUpdate.js:92:7)
-      at model.Query._castUpdate (/home/me3za/Walter-Bot/node_modules/mongoose/lib/query.js:5104:10) {
-    generatedMessage: true,
-    code: 'ERR_ASSERTION',
-    actual: false,
-    expected: true,
-    operator: '=='
-  },
-  valueType: 'number'
+[ERROR] at Mon, 06 Mar 2023 16:26:05 GMT
+(/home/me3za/Walter-Bot/events/interactionCreate.js:18:11),/home/me3za/Walter-Bot/events/interactionCreate.js
+Error [InteractionAlreadyReplied]: The reply to this interaction has already been sent or deferred.
+    at ChatInputCommandInteraction.reply (/home/me3za/Walter-Bot/node_modules/discord.js/src/structures/interfaces/InteractionResponses.js:102:46)
+    at paginate (/home/me3za/Walter-Bot/utils/discordUtils.js:52:20)
+    at Object.execute (/home/me3za/Walter-Bot/commands/birthday.js:134:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (/home/me3za/Walter-Bot/events/interactionCreate.js:16:4) {
+  code: 'InteractionAlreadyReplied'
 }
-[ERROR] at Tue, 28 Feb 2023 14:43:49 GMT
-(/home/me3za/Walter-Bot/events/voiceChatActivity.js:32:12),/home/me3za/Walter-Bot/events/voiceChatActivity.js
-CastError: Cast to Number failed for value "NaN" (type number) at path "vcTime"
-    at model.Query.exec (/home/me3za/Walter-Bot/node_modules/mongoose/lib/query.js:4891:21)
-    at Query.then (/home/me3za/Walter-Bot/node_modules/mongoose/lib/query.js:4990:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  messageFormat: undefined,
-  stringValue: '"NaN"',
-  kind: 'Number',
-  value: NaN,
-  path: 'vcTime',
-  reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
-  
-    assert.ok(!isNaN(val))
-  
-      at castNumber (/home/me3za/Walter-Bot/node_modules/mongoose/lib/cast/number.js:27:10)
-      at SchemaNumber.cast (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schema/number.js:376:12)
-      at SchemaType.applySetters (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schematype.js:1201:12)
-      at SchemaType._castForQuery (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schematype.js:1648:15)
-      at SchemaNumber.castForQuery (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schema/number.js:430:14)
-      at SchemaType.castForQueryWrapper (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schematype.js:1612:20)
-      at castUpdateVal (/home/me3za/Walter-Bot/node_modules/mongoose/lib/helpers/query/castUpdate.js:523:21)
-      at walkUpdatePath (/home/me3za/Walter-Bot/node_modules/mongoose/lib/helpers/query/castUpdate.js:361:24)
-      at castUpdate (/home/me3za/Walter-Bot/node_modules/mongoose/lib/helpers/query/castUpdate.js:92:7)
-      at model.Query._castUpdate (/home/me3za/Walter-Bot/node_modules/mongoose/lib/query.js:5104:10) {
-    generatedMessage: true,
-    code: 'ERR_ASSERTION',
-    actual: false,
-    expected: true,
-    operator: '=='
-  },
-  valueType: 'number'
+[ERROR] at Mon, 06 Mar 2023 16:26:46 GMT
+(/home/me3za/Walter-Bot/events/interactionCreate.js:18:11),/home/me3za/Walter-Bot/events/interactionCreate.js
+Error [InteractionAlreadyReplied]: The reply to this interaction has already been sent or deferred.
+    at ChatInputCommandInteraction.reply (/home/me3za/Walter-Bot/node_modules/discord.js/src/structures/interfaces/InteractionResponses.js:102:46)
+    at paginate (/home/me3za/Walter-Bot/utils/discordUtils.js:52:20)
+    at Object.execute (/home/me3za/Walter-Bot/commands/birthday.js:134:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (/home/me3za/Walter-Bot/events/interactionCreate.js:16:4) {
+  code: 'InteractionAlreadyReplied'
 }
-[ERROR] at Tue, 28 Feb 2023 14:44:37 GMT
+[ERROR] at Mon, 06 Mar 2023 16:36:21 GMT
 null
-coudlnt connect to db /home/me3za/Walter-Bot/events/voiceChatActivity.js:15
-			console.log(33voiceChannelUsers);
-			            ^^
+coudlnt connect to db /home/me3za/Walter-Bot/commands/birthday.js:122
+							value: new Date() formatDate(bday.day, bday.month),
+							                  ^^^^^^^^^^
 
-SyntaxError: Invalid or unexpected token
+SyntaxError: Unexpected identifier 'formatDate'
     at internalCompileFunction (node:internal/vm:73:18)
     at wrapSafe (node:internal/modules/cjs/loader:1159:20)
     at Module._compile (node:internal/modules/cjs/loader:1203:27)
@@ -152,48 +614,15 @@ SyntaxError: Invalid or unexpected token
     at Module._load (node:internal/modules/cjs/loader:935:12)
     at Module.require (node:internal/modules/cjs/loader:1120:19)
     at require (node:internal/modules/helpers:112:18)
-    at /home/me3za/Walter-Bot/index.js:35:18
+    at /home/me3za/Walter-Bot/index.js:52:20
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-[ERROR] at Tue, 28 Feb 2023 14:49:06 GMT
-(/home/me3za/Walter-Bot/events/voiceChatActivity.js:34:12),/home/me3za/Walter-Bot/events/voiceChatActivity.js
-CastError: Cast to Number failed for value "NaN" (type number) at path "vcTime"
-    at model.Query.exec (/home/me3za/Walter-Bot/node_modules/mongoose/lib/query.js:4891:21)
-    at Query.then (/home/me3za/Walter-Bot/node_modules/mongoose/lib/query.js:4990:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  messageFormat: undefined,
-  stringValue: '"NaN"',
-  kind: 'Number',
-  value: NaN,
-  path: 'vcTime',
-  reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
-  
-    assert.ok(!isNaN(val))
-  
-      at castNumber (/home/me3za/Walter-Bot/node_modules/mongoose/lib/cast/number.js:27:10)
-      at SchemaNumber.cast (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schema/number.js:376:12)
-      at SchemaType.applySetters (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schematype.js:1201:12)
-      at SchemaType._castForQuery (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schematype.js:1648:15)
-      at SchemaNumber.castForQuery (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schema/number.js:430:14)
-      at SchemaType.castForQueryWrapper (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schematype.js:1612:20)
-      at castUpdateVal (/home/me3za/Walter-Bot/node_modules/mongoose/lib/helpers/query/castUpdate.js:523:21)
-      at walkUpdatePath (/home/me3za/Walter-Bot/node_modules/mongoose/lib/helpers/query/castUpdate.js:361:24)
-      at castUpdate (/home/me3za/Walter-Bot/node_modules/mongoose/lib/helpers/query/castUpdate.js:92:7)
-      at model.Query._castUpdate (/home/me3za/Walter-Bot/node_modules/mongoose/lib/query.js:5104:10) {
-    generatedMessage: true,
-    code: 'ERR_ASSERTION',
-    actual: false,
-    expected: true,
-    operator: '=='
-  },
-  valueType: 'number'
-}
-[ERROR] at Tue, 28 Feb 2023 14:50:29 GMT
+[ERROR] at Mon, 06 Mar 2023 16:36:27 GMT
 null
-coudlnt connect to db /home/me3za/Walter-Bot/events/voiceChatActivity.js:18
-			const timeInVoice = Math.floor(
-			^^^^^
+coudlnt connect to db /home/me3za/Walter-Bot/commands/birthday.js:122
+							value: new Date(newDa) formatDate(bday.day, bday.month),
+							                       ^^^^^^^^^^
 
-SyntaxError: Unexpected token 'const'
+SyntaxError: Unexpected identifier 'formatDate'
     at internalCompileFunction (node:internal/vm:73:18)
     at wrapSafe (node:internal/modules/cjs/loader:1159:20)
     at Module._compile (node:internal/modules/cjs/loader:1203:27)
@@ -202,15 +631,15 @@ SyntaxError: Unexpected token 'const'
     at Module._load (node:internal/modules/cjs/loader:935:12)
     at Module.require (node:internal/modules/cjs/loader:1120:19)
     at require (node:internal/modules/helpers:112:18)
-    at /home/me3za/Walter-Bot/index.js:35:18
+    at /home/me3za/Walter-Bot/index.js:52:20
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-[ERROR] at Tue, 28 Feb 2023 14:50:35 GMT
+[ERROR] at Mon, 06 Mar 2023 16:36:34 GMT
 null
-coudlnt connect to db /home/me3za/Walter-Bot/events/voiceChatActivity.js:17
-			if voiceChannelUsers.get
-			   ^^^^^^^^^^^^^^^^^
+coudlnt connect to db /home/me3za/Walter-Bot/commands/birthday.js:122
+							value: new Date(now.) formatDate(bday.day, bday.month),
+							                    ^
 
-SyntaxError: Unexpected identifier 'voiceChannelUsers'
+SyntaxError: Unexpected token ')'
     at internalCompileFunction (node:internal/vm:73:18)
     at wrapSafe (node:internal/modules/cjs/loader:1159:20)
     at Module._compile (node:internal/modules/cjs/loader:1203:27)
@@ -219,15 +648,15 @@ SyntaxError: Unexpected identifier 'voiceChannelUsers'
     at Module._load (node:internal/modules/cjs/loader:935:12)
     at Module.require (node:internal/modules/cjs/loader:1120:19)
     at require (node:internal/modules/helpers:112:18)
-    at /home/me3za/Walter-Bot/index.js:35:18
+    at /home/me3za/Walter-Bot/index.js:52:20
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-[ERROR] at Tue, 28 Feb 2023 14:50:43 GMT
+[ERROR] at Mon, 06 Mar 2023 16:36:35 GMT
 null
-coudlnt connect to db /home/me3za/Walter-Bot/events/voiceChatActivity.js:17
-			if oldState.id
-			   ^^^^^^^^
+coudlnt connect to db /home/me3za/Walter-Bot/commands/birthday.js:122
+							value: new Date(now) formatDate(bday.day, bday.month),
+							                     ^^^^^^^^^^
 
-SyntaxError: Unexpected identifier 'oldState'
+SyntaxError: Unexpected identifier 'formatDate'
     at internalCompileFunction (node:internal/vm:73:18)
     at wrapSafe (node:internal/modules/cjs/loader:1159:20)
     at Module._compile (node:internal/modules/cjs/loader:1203:27)
@@ -236,15 +665,15 @@ SyntaxError: Unexpected identifier 'oldState'
     at Module._load (node:internal/modules/cjs/loader:935:12)
     at Module.require (node:internal/modules/cjs/loader:1120:19)
     at require (node:internal/modules/helpers:112:18)
-    at /home/me3za/Walter-Bot/index.js:35:18
+    at /home/me3za/Walter-Bot/index.js:52:20
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-[ERROR] at Tue, 28 Feb 2023 14:50:51 GMT
+[ERROR] at Mon, 06 Mar 2023 16:36:44 GMT
 null
-coudlnt connect to db /home/me3za/Walter-Bot/events/voiceChatActivity.js:18
-			const timeInVoice = Math.floor(
-			^^^^^
+coudlnt connect to db /home/me3za/Walter-Bot/commands/birthday.js:122
+							value: new Date((new Date()) formatDate(bday.day, bday.month),
+							                           ^
 
-SyntaxError: Unexpected token 'const'
+SyntaxError: missing ) after argument list
     at internalCompileFunction (node:internal/vm:73:18)
     at wrapSafe (node:internal/modules/cjs/loader:1159:20)
     at Module._compile (node:internal/modules/cjs/loader:1203:27)
@@ -253,48 +682,15 @@ SyntaxError: Unexpected token 'const'
     at Module._load (node:internal/modules/cjs/loader:935:12)
     at Module.require (node:internal/modules/cjs/loader:1120:19)
     at require (node:internal/modules/helpers:112:18)
-    at /home/me3za/Walter-Bot/index.js:35:18
+    at /home/me3za/Walter-Bot/index.js:52:20
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-[ERROR] at Tue, 28 Feb 2023 14:53:55 GMT
-(/home/me3za/Walter-Bot/events/voiceChatActivity.js:35:12),/home/me3za/Walter-Bot/events/voiceChatActivity.js
-CastError: Cast to Number failed for value "NaN" (type number) at path "vcTime"
-    at model.Query.exec (/home/me3za/Walter-Bot/node_modules/mongoose/lib/query.js:4891:21)
-    at Query.then (/home/me3za/Walter-Bot/node_modules/mongoose/lib/query.js:4990:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  messageFormat: undefined,
-  stringValue: '"NaN"',
-  kind: 'Number',
-  value: NaN,
-  path: 'vcTime',
-  reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
-  
-    assert.ok(!isNaN(val))
-  
-      at castNumber (/home/me3za/Walter-Bot/node_modules/mongoose/lib/cast/number.js:27:10)
-      at SchemaNumber.cast (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schema/number.js:376:12)
-      at SchemaType.applySetters (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schematype.js:1201:12)
-      at SchemaType._castForQuery (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schematype.js:1648:15)
-      at SchemaNumber.castForQuery (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schema/number.js:430:14)
-      at SchemaType.castForQueryWrapper (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schematype.js:1612:20)
-      at castUpdateVal (/home/me3za/Walter-Bot/node_modules/mongoose/lib/helpers/query/castUpdate.js:523:21)
-      at walkUpdatePath (/home/me3za/Walter-Bot/node_modules/mongoose/lib/helpers/query/castUpdate.js:361:24)
-      at castUpdate (/home/me3za/Walter-Bot/node_modules/mongoose/lib/helpers/query/castUpdate.js:92:7)
-      at model.Query._castUpdate (/home/me3za/Walter-Bot/node_modules/mongoose/lib/query.js:5104:10) {
-    generatedMessage: true,
-    code: 'ERR_ASSERTION',
-    actual: false,
-    expected: true,
-    operator: '=='
-  },
-  valueType: 'number'
-}
-[ERROR] at Tue, 28 Feb 2023 14:54:47 GMT
+[ERROR] at Mon, 06 Mar 2023 16:36:51 GMT
 null
-coudlnt connect to db /home/me3za/Walter-Bot/events/voiceChatActivity.js:20
-			console.log((Date.now() - voiceChannelUsers.get(oldState.id)),,  timeInVoice)
-			                                                              ^
+coudlnt connect to db /home/me3za/Walter-Bot/commands/birthday.js:122
+							value: new Date((new Date().getFullYea) formatDate(bday.day, bday.month),
+							                                      ^
 
-SyntaxError: Unexpected token ','
+SyntaxError: missing ) after argument list
     at internalCompileFunction (node:internal/vm:73:18)
     at wrapSafe (node:internal/modules/cjs/loader:1159:20)
     at Module._compile (node:internal/modules/cjs/loader:1203:27)
@@ -303,48 +699,15 @@ SyntaxError: Unexpected token ','
     at Module._load (node:internal/modules/cjs/loader:935:12)
     at Module.require (node:internal/modules/cjs/loader:1120:19)
     at require (node:internal/modules/helpers:112:18)
-    at /home/me3za/Walter-Bot/index.js:35:18
+    at /home/me3za/Walter-Bot/index.js:52:20
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-[ERROR] at Tue, 28 Feb 2023 15:07:43 GMT
-(/home/me3za/Walter-Bot/events/voiceChatActivity.js:34:12),/home/me3za/Walter-Bot/events/voiceChatActivity.js
-CastError: Cast to Number failed for value "NaN" (type number) at path "vcTime"
-    at model.Query.exec (/home/me3za/Walter-Bot/node_modules/mongoose/lib/query.js:4891:21)
-    at Query.then (/home/me3za/Walter-Bot/node_modules/mongoose/lib/query.js:4990:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  messageFormat: undefined,
-  stringValue: '"NaN"',
-  kind: 'Number',
-  value: NaN,
-  path: 'vcTime',
-  reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
-  
-    assert.ok(!isNaN(val))
-  
-      at castNumber (/home/me3za/Walter-Bot/node_modules/mongoose/lib/cast/number.js:27:10)
-      at SchemaNumber.cast (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schema/number.js:376:12)
-      at SchemaType.applySetters (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schematype.js:1201:12)
-      at SchemaType._castForQuery (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schematype.js:1648:15)
-      at SchemaNumber.castForQuery (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schema/number.js:430:14)
-      at SchemaType.castForQueryWrapper (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schematype.js:1612:20)
-      at castUpdateVal (/home/me3za/Walter-Bot/node_modules/mongoose/lib/helpers/query/castUpdate.js:523:21)
-      at walkUpdatePath (/home/me3za/Walter-Bot/node_modules/mongoose/lib/helpers/query/castUpdate.js:361:24)
-      at castUpdate (/home/me3za/Walter-Bot/node_modules/mongoose/lib/helpers/query/castUpdate.js:92:7)
-      at model.Query._castUpdate (/home/me3za/Walter-Bot/node_modules/mongoose/lib/query.js:5104:10) {
-    generatedMessage: true,
-    code: 'ERR_ASSERTION',
-    actual: false,
-    expected: true,
-    operator: '=='
-  },
-  valueType: 'number'
-}
-[ERROR] at Tue, 28 Feb 2023 15:08:42 GMT
+[ERROR] at Mon, 06 Mar 2023 16:36:53 GMT
 null
-coudlnt connect to db /home/me3za/Walter-Bot/events/voiceChatActivity.js:23
-				await Activity.findOneAndUpdate(
-				^^^^^
+coudlnt connect to db /home/me3za/Walter-Bot/commands/birthday.js:122
+							value: new Date((new Date().getFullYear()) formatDate(bday.day, bday.month),
+							                                         ^
 
-SyntaxError: Unexpected reserved word
+SyntaxError: missing ) after argument list
     at internalCompileFunction (node:internal/vm:73:18)
     at wrapSafe (node:internal/modules/cjs/loader:1159:20)
     at Module._compile (node:internal/modules/cjs/loader:1203:27)
@@ -353,13 +716,115 @@ SyntaxError: Unexpected reserved word
     at Module._load (node:internal/modules/cjs/loader:935:12)
     at Module.require (node:internal/modules/cjs/loader:1120:19)
     at require (node:internal/modules/helpers:112:18)
-    at /home/me3za/Walter-Bot/index.js:35:18
+    at /home/me3za/Walter-Bot/index.js:52:20
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-[ERROR] at Tue, 28 Feb 2023 15:09:32 GMT
+[ERROR] at Mon, 06 Mar 2023 16:36:58 GMT
 null
-coudlnt connect to db /home/me3za/Walter-Bot/events/voiceChatActivity.js:28
-					})
-					^
+coudlnt connect to db /home/me3za/Walter-Bot/commands/birthday.js:122
+							value: new Date((new Date().getFullYear(), ) formatDate(bday.day, bday.month),
+							                                           ^
+
+SyntaxError: Unexpected token ')'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Mon, 06 Mar 2023 16:37:03 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/birthday.js:122
+							value: new Date((new Date().getFullYear(), bday.month -1 ) formatDate(bday.day, bday.month),
+							                                                         ^
+
+SyntaxError: missing ) after argument list
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Mon, 06 Mar 2023 16:37:06 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/birthday.js:122
+							value: new Date((new Date().getFullYear(), bday.month - 1,  ) formatDate(bday.day, bday.month),
+							                                                            ^
+
+SyntaxError: Unexpected token ')'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Mon, 06 Mar 2023 16:37:10 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/birthday.js:122
+							value: new Date((new Date().getFullYear(), bday.month - 1,  )
+							                                                            ^
+
+SyntaxError: Unexpected token ')'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Mon, 06 Mar 2023 16:37:16 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/birthday.js:122
+							value: new Date((new Date().getFullYear(), bday.month - 1,  bday.day)
+							                                                                    ^
+
+SyntaxError: missing ) after argument list
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Mon, 06 Mar 2023 16:37:21 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/birthday.js:122
+							value: new Date((new Date().getFullYear(), bday.month - 1,  bday.day)
+							                                                                    ^
+
+SyntaxError: missing ) after argument list
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Mon, 06 Mar 2023 16:37:25 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/birthday.js:123
+						};
+						^
 
 SyntaxError: Unexpected token '}'
     at internalCompileFunction (node:internal/vm:73:18)
@@ -370,15 +835,15 @@ SyntaxError: Unexpected token '}'
     at Module._load (node:internal/modules/cjs/loader:935:12)
     at Module.require (node:internal/modules/cjs/loader:1120:19)
     at require (node:internal/modules/helpers:112:18)
-    at /home/me3za/Walter-Bot/index.js:35:18
+    at /home/me3za/Walter-Bot/index.js:52:20
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-[ERROR] at Tue, 28 Feb 2023 15:09:48 GMT
+[ERROR] at Mon, 06 Mar 2023 16:37:33 GMT
 null
-coudlnt connect to db /home/me3za/Walter-Bot/events/voiceChatActivity.js:28
-						memberId : oldState.id
-						         ^
+coudlnt connect to db /home/me3za/Walter-Bot/commands/birthday.js:123
+						};
+						^
 
-SyntaxError: Unexpected token ':'
+SyntaxError: Unexpected token '}'
     at internalCompileFunction (node:internal/vm:73:18)
     at wrapSafe (node:internal/modules/cjs/loader:1159:20)
     at Module._compile (node:internal/modules/cjs/loader:1203:27)
@@ -387,254 +852,103 @@ SyntaxError: Unexpected token ':'
     at Module._load (node:internal/modules/cjs/loader:935:12)
     at Module.require (node:internal/modules/cjs/loader:1120:19)
     at require (node:internal/modules/helpers:112:18)
-    at /home/me3za/Walter-Bot/index.js:35:18
+    at /home/me3za/Walter-Bot/index.js:52:20
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-[ERROR] at Tue, 28 Feb 2023 15:11:05 GMT
-(/home/me3za/Walter-Bot/events/voiceChatActivity.js:35:12),/home/me3za/Walter-Bot/events/voiceChatActivity.js
-ObjectParameterError: Parameter "filter" to findOne() must be an object, got [object Object]
-    at Query.findOne (/home/me3za/Walter-Bot/node_modules/mongoose/lib/query.js:2592:16)
-    at Function.findOne (/home/me3za/Walter-Bot/node_modules/mongoose/lib/model.js:2354:13)
-    at Object.execute (/home/me3za/Walter-Bot/events/voiceChatActivity.js:23:41)
+[ERROR] at Mon, 06 Mar 2023 16:38:01 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/birthday.js:122
+							value: <new Date(
+							       ^
+
+SyntaxError: Unexpected token '<'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Mon, 06 Mar 2023 16:38:07 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/birthday.js:122
+							value: <t:new Date(
+							       ^
+
+SyntaxError: Unexpected token '<'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Mon, 06 Mar 2023 16:38:09 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/birthday.js:136
+				content: `🚫 this command doesn't exist.`,
+				          ^
+
+SyntaxError: Invalid or unexpected token
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Mon, 06 Mar 2023 16:38:17 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/birthday.js:136
+				content: `🚫 this command doesn't exist.`,
+				          ^
+
+SyntaxError: Invalid or unexpected token
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Mon, 06 Mar 2023 16:38:22 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/birthday.js:136
+				content: `🚫 this command doesn't exist.`,
+				          ^
+
+SyntaxError: Invalid or unexpected token
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Mon, 06 Mar 2023 16:53:43 GMT
+(/home/me3za/Walter-Bot/events/interactionCreate.js:18:11),/home/me3za/Walter-Bot/events/interactionCreate.js
+ReferenceError: memberBirthday is not defined
+    at Object.execute (/home/me3za/Walter-Bot/commands/birthday.js:85:4)
+    at Object.execute (/home/me3za/Walter-Bot/events/interactionCreate.js:16:18)
     at Client.<anonymous> (/home/me3za/Walter-Bot/index.js:40:46)
-    at Client.emit (node:events:513:28)
-    at VoiceStateUpdate.handle (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/actions/VoiceStateUpdate.js:38:14)
-    at module.exports [as VOICE_STATE_UPDATE] (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/websocket/handlers/VOICE_STATE_UPDATE.js:4:35)
+    at Client.emit (node:events:525:35)
+    at InteractionCreateAction.handle (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/actions/InteractionCreate.js:81:12)
+    at module.exports [as INTERACTION_CREATE] (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/websocket/handlers/INTERACTION_CREATE.js:4:36)
     at WebSocketManager.handlePacket (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/websocket/WebSocketManager.js:352:31)
     at WebSocketShard.onPacket (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/websocket/WebSocketShard.js:480:22)
     at WebSocketShard.onMessage (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/websocket/WebSocketShard.js:320:10)
-[ERROR] at Tue, 28 Feb 2023 15:11:18 GMT
-null
-coudlnt connect to db /home/me3za/Walter-Bot/events/voiceChatActivity.js:24
-					{ memberId: oldState.id },
-					^
-
-SyntaxError: Unexpected token '{'
-    at internalCompileFunction (node:internal/vm:73:18)
-    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
-    at Module._compile (node:internal/modules/cjs/loader:1203:27)
-    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
-    at Module.load (node:internal/modules/cjs/loader:1096:32)
-    at Module._load (node:internal/modules/cjs/loader:935:12)
-    at Module.require (node:internal/modules/cjs/loader:1120:19)
-    at require (node:internal/modules/helpers:112:18)
-    at /home/me3za/Walter-Bot/index.js:35:18
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-[ERROR] at Tue, 28 Feb 2023 15:11:20 GMT
-null
-coudlnt connect to db /home/me3za/Walter-Bot/events/voiceChatActivity.js:24
-					{ memberId: oldState.id },
-					^
-
-SyntaxError: Unexpected token '{'
-    at internalCompileFunction (node:internal/vm:73:18)
-    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
-    at Module._compile (node:internal/modules/cjs/loader:1203:27)
-    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
-    at Module.load (node:internal/modules/cjs/loader:1096:32)
-    at Module._load (node:internal/modules/cjs/loader:935:12)
-    at Module.require (node:internal/modules/cjs/loader:1120:19)
-    at require (node:internal/modules/helpers:112:18)
-    at /home/me3za/Walter-Bot/index.js:35:18
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-[ERROR] at Tue, 28 Feb 2023 15:11:29 GMT
-null
-coudlnt connect to db /home/me3za/Walter-Bot/events/voiceChatActivity.js:24
-					{ memberId: oldState.id ,
-					^
-
-SyntaxError: Unexpected token '{'
-    at internalCompileFunction (node:internal/vm:73:18)
-    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
-    at Module._compile (node:internal/modules/cjs/loader:1203:27)
-    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
-    at Module.load (node:internal/modules/cjs/loader:1096:32)
-    at Module._load (node:internal/modules/cjs/loader:935:12)
-    at Module.require (node:internal/modules/cjs/loader:1120:19)
-    at require (node:internal/modules/helpers:112:18)
-    at /home/me3za/Walter-Bot/index.js:35:18
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-[ERROR] at Tue, 28 Feb 2023 15:42:08 GMT
-(/home/me3za/Walter-Bot/events/voiceChatActivity.js:35:12),/home/me3za/Walter-Bot/events/voiceChatActivity.js
-Error: Activity validation failed: vcTime: Cast to Number failed for value "NaN" (type number) at path "vcTime"
-    at ValidationError.inspect (/home/me3za/Walter-Bot/node_modules/mongoose/lib/error/validation.js:50:26)
-    at formatValue (node:internal/util/inspect:806:19)
-    at inspect (node:internal/util/inspect:365:10)
-    at formatWithOptionsInternal (node:internal/util/inspect:2292:40)
-    at Object.format (node:internal/util/inspect:2149:10)
-    at Object.error (/home/me3za/Walter-Bot/utils/logger.js:17:24)
-    at Object.execute (/home/me3za/Walter-Bot/events/voiceChatActivity.js:35:12)
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  errors: {
-    vcTime: CastError: Cast to Number failed for value "NaN" (type number) at path "vcTime"
-        at SchemaNumber.cast (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schema/number.js:378:11)
-        at SchemaType.applySetters (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schematype.js:1201:12)
-        at model.$set (/home/me3za/Walter-Bot/node_modules/mongoose/lib/document.js:1410:22)
-        at model.set [as vcTime] (/home/me3za/Walter-Bot/node_modules/mongoose/lib/helpers/document/compile.js:194:19)
-        at Object.execute (/home/me3za/Walter-Bot/events/voiceChatActivity.js:31:32)
-        at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
-      stringValue: '"NaN"',
-      messageFormat: undefined,
-      kind: 'Number',
-      value: NaN,
-      path: 'vcTime',
-      reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
-      
-        assert.ok(!isNaN(val))
-      
-          at castNumber (/home/me3za/Walter-Bot/node_modules/mongoose/lib/cast/number.js:27:10)
-          at SchemaNumber.cast (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schema/number.js:376:12)
-          at SchemaType.applySetters (/home/me3za/Walter-Bot/node_modules/mongoose/lib/schematype.js:1201:12)
-          at model.$set (/home/me3za/Walter-Bot/node_modules/mongoose/lib/document.js:1410:22)
-          at model.set [as vcTime] (/home/me3za/Walter-Bot/node_modules/mongoose/lib/helpers/document/compile.js:194:19)
-          at Object.execute (/home/me3za/Walter-Bot/events/voiceChatActivity.js:31:32)
-          at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
-        generatedMessage: true,
-        code: 'ERR_ASSERTION',
-        actual: false,
-        expected: true,
-        operator: '=='
-      },
-      valueType: 'number'
-    }
-  },
-  _message: 'Activity validation failed'
-}
-[ERROR] at Tue, 28 Feb 2023 17:21:21 GMT
-(/home/me3za/Walter-Bot/events/onReady/birthdayCheck.js:67:11),/home/me3za/Walter-Bot/events/onReady/birthdayCheck.js
-TypeError: Cannot read properties of null (reading 'channelId')
-    at Object.execute (/home/me3za/Walter-Bot/events/onReady/birthdayCheck.js:24:7)
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-[ERROR] at Wed, 01 Mar 2023 01:56:04 GMT
-null
-coudlnt connect to db /home/me3za/Walter-Bot/utils/constants.js:1
-export const BIRTHDAY_ROLE_NAME = "happy birthday";
-^^^^^^
-
-SyntaxError: Unexpected token 'export'
-    at internalCompileFunction (node:internal/vm:73:18)
-    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
-    at Module._compile (node:internal/modules/cjs/loader:1203:27)
-    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
-    at Module.load (node:internal/modules/cjs/loader:1096:32)
-    at Module._load (node:internal/modules/cjs/loader:935:12)
-    at Module.require (node:internal/modules/cjs/loader:1120:19)
-    at Hook._require.Module.require (/home/me3za/Walter-Bot/node_modules/require-in-the-middle/index.js:101:39)
-    at require (node:internal/modules/helpers:112:18)
-    at Object.<anonymous> (/home/me3za/Walter-Bot/events/onReady/birthdayCheck.js:5:32)
-[ERROR] at Wed, 01 Mar 2023 12:18:04 GMT
-null
-coudlnt connect to db /home/me3za/Walter-Bot/utils/constants.js:1
-export const BIRTHDAY_ROLE_NAME = "happy birthday";
-^^^^^^
-
-SyntaxError: Unexpected token 'export'
-    at internalCompileFunction (node:internal/vm:73:18)
-    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
-    at Module._compile (node:internal/modules/cjs/loader:1203:27)
-    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
-    at Module.load (node:internal/modules/cjs/loader:1096:32)
-    at Module._load (node:internal/modules/cjs/loader:935:12)
-    at Module.require (node:internal/modules/cjs/loader:1120:19)
-    at require (node:internal/modules/helpers:112:18)
-    at Object.<anonymous> (/home/me3za/Walter-Bot/events/onReady/birthdayCheck.js:5:32)
-    at Module._compile (node:internal/modules/cjs/loader:1239:14)
-[ERROR] at Wed, 01 Mar 2023 12:20:03 GMT
-null
-coudlnt connect to db /home/me3za/Walter-Bot/utils/constants.js:1
-module.exports = { BIRTHDAY_ROLE_NAME = "happy birthday"}
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-SyntaxError: Invalid shorthand property initializer
-    at internalCompileFunction (node:internal/vm:73:18)
-    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
-    at Module._compile (node:internal/modules/cjs/loader:1203:27)
-    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
-    at Module.load (node:internal/modules/cjs/loader:1096:32)
-    at Module._load (node:internal/modules/cjs/loader:935:12)
-    at Module.require (node:internal/modules/cjs/loader:1120:19)
-    at require (node:internal/modules/helpers:112:18)
-    at Object.<anonymous> (/home/me3za/Walter-Bot/events/onReady/birthdayCheck.js:5:32)
-    at Module._compile (node:internal/modules/cjs/loader:1239:14)
-[ERROR] at Wed, 01 Mar 2023 12:22:17 GMT
-null
-coudlnt connect to db /home/me3za/Walter-Bot/utils/constants.js:1
-module.exports = const { BIRTHDAY_ROLE_NAME: "happy birthday" };
-                 ^^^^^
-
-SyntaxError: Unexpected token 'const'
-    at internalCompileFunction (node:internal/vm:73:18)
-    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
-    at Module._compile (node:internal/modules/cjs/loader:1203:27)
-    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
-    at Module.load (node:internal/modules/cjs/loader:1096:32)
-    at Module._load (node:internal/modules/cjs/loader:935:12)
-    at Module.require (node:internal/modules/cjs/loader:1120:19)
-    at require (node:internal/modules/helpers:112:18)
-    at Object.<anonymous> (/home/me3za/Walter-Bot/events/onReady/birthdayCheck.js:5:32)
-    at Module._compile (node:internal/modules/cjs/loader:1239:14)
-[ERROR] at Wed, 01 Mar 2023 12:22:41 GMT
-null
-coudlnt connect to db /home/me3za/Walter-Bot/utils/constants.js:1
-module.exports =const constants = { BIRTHDAY_ROLE_NAME: "happy birthday" };
-                ^^^^^
-
-SyntaxError: Unexpected token 'const'
-    at internalCompileFunction (node:internal/vm:73:18)
-    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
-    at Module._compile (node:internal/modules/cjs/loader:1203:27)
-    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
-    at Module.load (node:internal/modules/cjs/loader:1096:32)
-    at Module._load (node:internal/modules/cjs/loader:935:12)
-    at Module.require (node:internal/modules/cjs/loader:1120:19)
-    at require (node:internal/modules/helpers:112:18)
-    at Object.<anonymous> (/home/me3za/Walter-Bot/events/onReady/birthdayCheck.js:5:32)
-    at Module._compile (node:internal/modules/cjs/loader:1239:14)
-[ERROR] at Wed, 01 Mar 2023 12:22:44 GMT
-null
-coudlnt connect to db /home/me3za/Walter-Bot/utils/constants.js:3
-
-
-
-SyntaxError: Unexpected end of input
-    at internalCompileFunction (node:internal/vm:73:18)
-    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
-    at Module._compile (node:internal/modules/cjs/loader:1203:27)
-    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
-    at Module.load (node:internal/modules/cjs/loader:1096:32)
-    at Module._load (node:internal/modules/cjs/loader:935:12)
-    at Module.require (node:internal/modules/cjs/loader:1120:19)
-    at require (node:internal/modules/helpers:112:18)
-    at Object.<anonymous> (/home/me3za/Walter-Bot/events/onReady/birthdayCheck.js:5:32)
-    at Module._compile (node:internal/modules/cjs/loader:1239:14)
-[ERROR] at Wed, 01 Mar 2023 12:23:17 GMT
-(/home/me3za/Walter-Bot/events/onReady/birthdayCleanup.js:30:11),/home/me3za/Walter-Bot/events/onReady/birthdayCleanup.js
-DiscordAPIError[50013]: Missing Permissions
-    at SequentialHandler.runRequest (/home/me3za/Walter-Bot/node_modules/@discordjs/rest/dist/index.js:659:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at async SequentialHandler.queueRequest (/home/me3za/Walter-Bot/node_modules/@discordjs/rest/dist/index.js:458:14)
-    at async REST.request (/home/me3za/Walter-Bot/node_modules/@discordjs/rest/dist/index.js:902:22)
-    at async GuildMemberRoleManager.remove (/home/me3za/Walter-Bot/node_modules/discord.js/src/managers/GuildMemberRoleManager.js:168:7)
-    at async Object.execute (/home/me3za/Walter-Bot/events/onReady/birthdayCleanup.js:24:7) {
-  requestBody: { files: undefined, json: undefined },
-  rawError: { message: 'Missing Permissions', code: 50013 },
-  code: 50013,
-  status: 403,
-  method: 'DELETE',
-  url: 'https://discord.com/api/v10/guilds/568040131462692884/members/236150060901990400/roles/1080178480752361492'
-}
-[ERROR] at Wed, 01 Mar 2023 12:48:32 GMT
-(/home/me3za/Walter-Bot/events/onReady/birthdayCleanup.js:30:11),/home/me3za/Walter-Bot/events/onReady/birthdayCleanup.js
-DiscordAPIError[50013]: Missing Permissions
-    at SequentialHandler.runRequest (/home/me3za/Walter-Bot/node_modules/@discordjs/rest/dist/index.js:659:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at async SequentialHandler.queueRequest (/home/me3za/Walter-Bot/node_modules/@discordjs/rest/dist/index.js:458:14)
-    at async REST.request (/home/me3za/Walter-Bot/node_modules/@discordjs/rest/dist/index.js:902:22)
-    at async GuildMemberRoleManager.remove (/home/me3za/Walter-Bot/node_modules/discord.js/src/managers/GuildMemberRoleManager.js:168:7)
-    at async Object.execute (/home/me3za/Walter-Bot/events/onReady/birthdayCleanup.js:24:7) {
-  requestBody: { files: undefined, json: undefined },
-  rawError: { message: 'Missing Permissions', code: 50013 },
-  code: 50013,
-  status: 403,
-  method: 'DELETE',
-  url: 'https://discord.com/api/v10/guilds/568040131462692884/members/236150060901990400/roles/1080178480752361492'
-}
+    at WebSocket.onMessage (/home/me3za/Walter-Bot/node_modules/ws/lib/event-target.js:199:18)
