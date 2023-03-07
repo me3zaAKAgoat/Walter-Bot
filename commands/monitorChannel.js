@@ -36,8 +36,8 @@ module.exports = {
 			});
 			await channelDocument.save();
 			return interaction.reply(
-				`Successfully registered a duplicate channel <#${channelOption.id}>.`
+				`The channel <#${channelOption.id}> is now being monitored and will duplicate itself.`
 			);
-		} else return interaction.reply(`that channel is already monitored.`);
+		} else return interaction.reply(`that channel is already being monitored.`);
 	},
 };
