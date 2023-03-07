@@ -59,7 +59,7 @@ module.exports = {
 				return interaction.relpy({
 					ephemeral: true,
 					content:
-						"This interaction failed, pls make sure you are sending valid roles/channels, otherwise contact me3za",
+						"This interaction failed, pls make sure you are sending valid roles/channels",
 				});
 			}
 
