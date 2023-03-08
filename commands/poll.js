@@ -1,6 +1,8 @@
 require("dotenv").config();
+const logger = require("../utils/logger");
 const { SlashCommandBuilder } = require("discord.js");
 const { EmbedBuilder } = require("discord.js");
+const { capitalize } = require("../utils/stringUtils");
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -26,20 +28,24 @@ module.exports = {
 		),
 	execute: async (interaction) => {
 		try {
-			const pollTitle = interaction.options.getString("title");
-			const optionsString = interaction.options.getString("options");
+			const title = interaction.options.getString("title");
+			const options = interaction.options.getString("options");
 			const description = interaction.options.getString("description");
-			if (!pollTitle.length || !optionsString.length)
+
+			//validation of input
+			if (!title.length || !options.length)
 				return interaction.reply({
 					ephemeral: true,
 					content:
 						"🚫 Please make sure your title and options were correctly formatted.",
 				});
-			if (!optionsString.includes(","))
+			if (!options.includes(","))
 				return interaction.reply({
 					ephemeral: true,
 					content: "🚫 You should have at least 2 options.",
 				});
+
+			//array of emojis used to poll voter opinion
 			const reactionEmojisArr = [
 				"1️⃣",
 				"2️⃣",
@@ -52,37 +58,54 @@ module.exports = {
 				"9️⃣",
 				"0️⃣",
 			];
-			let optionsArr = optionsString.split(",").map((option) => option.trim());
-			if (optionsArr.length > 10)
+
+			//list of sanitized options
+			const optionsList = options
+				.split(",")
+				.map((option) => capitalize(option.trim()));
+
+			//one more validator
+			if (optionsList.length > 10)
 				return interaction.reply({
 					ephemeral: true,
 					content: `🚫 can't handle more than 10 options.`,
 				});
-			optionsArr = optionsArr.map(
-				(option) => option.charAt(0).toUpperCase() + option.slice(1)
-			);
-			const pollEmbed = new EmbedBuilder().setTitle(`📊	${pollTitle}`);
-			if (description) {
-				pollEmbed.setDescription(description);
-			}
-			for (const [index, option] of optionsArr.entries()) {
+
+			const pollEmbed = new EmbedBuilder()
+				.setTitle(`📊	${capitalize(title)}`)
+				.setColor((Math.random() * 0xffffff).toString(16))
+				.setAuthor({
+					name: interaction.user.tag,
+					iconURL: interaction.user.displayAvatarURL(),
+				});
+
+			//set description if there's one sisnce its optional
+			if (description) pollEmbed.setDescription(description);
+
+			//options
+			for (const [index, option] of optionsList.entries()) {
 				pollEmbed.addFields({
 					name: `\u200b`,
-					value: `${reactionEmojisArr[index]}	**${option}**`,
+					value: `${reactionEmojisArr[index]}		**${option}**`,
 				});
 			}
-			pollEmbed.setFooter({
-				text: `\u200b`,
+
+			// A sort of footer
+			pollEmbed.addFields({
+				name: `\u200b`,
+				value: `React below to let us know what you think!`,
 			});
+
+			// should keep the reply object so the bot can initliaze the reactions
 			const reply = await interaction.reply({
 				embeds: [pollEmbed],
 				fetchReply: true,
 			});
-			/* start the reactions for the users to choose from */
-			for (const [index, option] of optionsArr.entries()) {
+
+			// initliaze reactions from bot
+			for (const [index, option] of optionsList.entries()) {
 				reply.react(reactionEmojisArr[index]);
 			}
-			return;
 		} catch (err) {
 			logger.error(err);
 		}

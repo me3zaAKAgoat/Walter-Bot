@@ -1,0 +1,566 @@
+[ERROR] at Wed, 08 Mar 2023 16:40:05 GMT
+null
+DiscordAPIError[20012]: You are not authorized to perform this action on this application
+    at SequentialHandler.runRequest (/home/me3za/Walter-Bot/node_modules/@discordjs/rest/dist/index.js:659:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async SequentialHandler.queueRequest (/home/me3za/Walter-Bot/node_modules/@discordjs/rest/dist/index.js:458:14)
+    at async REST.request (/home/me3za/Walter-Bot/node_modules/@discordjs/rest/dist/index.js:902:22) {
+  requestBody: {
+    files: undefined,
+    json: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object]
+    ]
+  },
+  rawError: {
+    message: 'You are not authorized to perform this action on this application',
+    code: 20012
+  },
+  code: 20012,
+  status: 403,
+  method: 'PUT',
+  url: 'https://discord.com/api/v10/applications/1043928609703858216/commands'
+}
+[ERROR] at Wed, 08 Mar 2023 16:52:52 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/poll.js:80
+			const reply = await interaction.reply({
+			      ^^^^^
+
+SyntaxError: Unexpected identifier 'reply'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Wed, 08 Mar 2023 16:56:41 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/poll.js:75
+				name: `\u200b \u200b \u200`,
+				                     ^^^^^^
+
+SyntaxError: Invalid Unicode escape sequence
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Wed, 08 Mar 2023 17:01:19 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/poll.js:64
+			const pollEmbed = new EmbedBuilder().setTitle(`📊	${pollTitle}`).setColor(03fc07);
+			                                                   	                      ^^
+
+SyntaxError: Invalid or unexpected token
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Wed, 08 Mar 2023 17:06:57 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/poll.js:66
+				.setColor("d60976").setAuthor(interaction.user.);
+				                                               ^
+
+SyntaxError: Unexpected token ')'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Wed, 08 Mar 2023 17:07:48 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/poll.js:66
+				.setColor("d60976").setAuthor(interaction.user.tag, interaction.);
+				                                                                ^
+
+SyntaxError: Unexpected token ')'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Wed, 08 Mar 2023 17:07:50 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/poll.js:66
+				.setColor("d60976").setAuthor(interaction.user.tag, interaction.user.);
+				                                                                     ^
+
+SyntaxError: Unexpected token ')'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Wed, 08 Mar 2023 17:08:01 GMT
+(/home/me3za/Walter-Bot/events/interactionCreate.js:18:11),/home/me3za/Walter-Bot/events/interactionCreate.js
+ReferenceError: logger is not defined
+    at Object.execute (/home/me3za/Walter-Bot/commands/poll.js:92:4)
+    at Object.execute (/home/me3za/Walter-Bot/events/interactionCreate.js:16:18)
+    at Client.<anonymous> (/home/me3za/Walter-Bot/index.js:40:46)
+    at Client.emit (node:events:513:28)
+    at InteractionCreateAction.handle (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/actions/InteractionCreate.js:81:12)
+    at module.exports [as INTERACTION_CREATE] (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/websocket/handlers/INTERACTION_CREATE.js:4:36)
+    at WebSocketManager.handlePacket (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/websocket/WebSocketManager.js:352:31)
+    at WebSocketShard.onPacket (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/websocket/WebSocketShard.js:480:22)
+    at WebSocketShard.onMessage (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/websocket/WebSocketShard.js:320:10)
+    at WebSocket.onMessage (/home/me3za/Walter-Bot/node_modules/ws/lib/event-target.js:199:18)
+[ERROR] at Wed, 08 Mar 2023 17:08:28 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/poll.js:3
+const { SlashCommandBuilder } = require("discord.js");
+^^^^^
+
+SyntaxError: Unexpected token 'const'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Wed, 08 Mar 2023 17:08:36 GMT
+(/home/me3za/Walter-Bot/commands/poll.js:93:11),/home/me3za/Walter-Bot/commands/poll.js
+ValidationError > s.object(T)
+  Expected the value to be an object, but received string instead
+
+  Received:
+  | 'me3za#4854'
+
+    at ObjectValidator.handle (/home/me3za/Walter-Bot/node_modules/@sapphire/shapeshift/dist/index.js:1161:25)
+    at ObjectValidator.parse (/home/me3za/Walter-Bot/node_modules/@sapphire/shapeshift/dist/index.js:113:88)
+    at EmbedBuilder.setAuthor (/home/me3za/Walter-Bot/node_modules/@discordjs/builders/dist/index.js:216:26)
+    at Object.execute (/home/me3za/Walter-Bot/commands/poll.js:68:6)
+    at Object.execute (/home/me3za/Walter-Bot/events/interactionCreate.js:16:18)
+    at Client.<anonymous> (/home/me3za/Walter-Bot/index.js:40:46)
+    at Client.emit (node:events:513:28)
+    at InteractionCreateAction.handle (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/actions/InteractionCreate.js:81:12)
+    at module.exports [as INTERACTION_CREATE] (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/websocket/handlers/INTERACTION_CREATE.js:4:36)
+    at WebSocketManager.handlePacket (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/websocket/WebSocketManager.js:352:31)
+[ERROR] at Wed, 08 Mar 2023 17:09:39 GMT
+(/home/me3za/Walter-Bot/commands/poll.js:94:11),/home/me3za/Walter-Bot/commands/poll.js
+ValidationError > s.object(T)
+  Expected the value to be an object, but received string instead
+
+  Received:
+  | 'me3za#4854'
+
+    at ObjectValidator.handle (/home/me3za/Walter-Bot/node_modules/@sapphire/shapeshift/dist/index.js:1161:25)
+    at ObjectValidator.parse (/home/me3za/Walter-Bot/node_modules/@sapphire/shapeshift/dist/index.js:113:88)
+    at EmbedBuilder.setAuthor (/home/me3za/Walter-Bot/node_modules/@discordjs/builders/dist/index.js:216:26)
+    at Object.execute (/home/me3za/Walter-Bot/commands/poll.js:69:6)
+    at Object.execute (/home/me3za/Walter-Bot/events/interactionCreate.js:16:18)
+    at Client.<anonymous> (/home/me3za/Walter-Bot/index.js:40:46)
+    at Client.emit (node:events:513:28)
+    at InteractionCreateAction.handle (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/actions/InteractionCreate.js:81:12)
+    at module.exports [as INTERACTION_CREATE] (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/websocket/handlers/INTERACTION_CREATE.js:4:36)
+    at WebSocketManager.handlePacket (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/websocket/WebSocketManager.js:352:31)
+[ERROR] at Wed, 08 Mar 2023 17:09:50 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/poll.js:65
+			console.log(interaction.user., interaction.user.avatar);
+			                             ^
+
+SyntaxError: Unexpected token ','
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Wed, 08 Mar 2023 17:11:05 GMT
+(/home/me3za/Walter-Bot/commands/poll.js:94:11),/home/me3za/Walter-Bot/commands/poll.js
+ValidationError > s.object(T)
+  Expected the value to be an object, but received string instead
+
+  Received:
+  | 'me3za#4854'
+
+    at ObjectValidator.handle (/home/me3za/Walter-Bot/node_modules/@sapphire/shapeshift/dist/index.js:1161:25)
+    at ObjectValidator.parse (/home/me3za/Walter-Bot/node_modules/@sapphire/shapeshift/dist/index.js:113:88)
+    at EmbedBuilder.setAuthor (/home/me3za/Walter-Bot/node_modules/@discordjs/builders/dist/index.js:216:26)
+    at Object.execute (/home/me3za/Walter-Bot/commands/poll.js:69:6)
+    at Object.execute (/home/me3za/Walter-Bot/events/interactionCreate.js:16:18)
+    at Client.<anonymous> (/home/me3za/Walter-Bot/index.js:40:46)
+    at Client.emit (node:events:513:28)
+    at InteractionCreateAction.handle (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/actions/InteractionCreate.js:81:12)
+    at module.exports [as INTERACTION_CREATE] (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/websocket/handlers/INTERACTION_CREATE.js:4:36)
+    at WebSocketManager.handlePacket (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/websocket/WebSocketManager.js:352:31)
+[ERROR] at Wed, 08 Mar 2023 17:11:18 GMT
+(/home/me3za/Walter-Bot/commands/poll.js:94:11),/home/me3za/Walter-Bot/commands/poll.js
+ValidationError > s.object(T)
+  Expected the value to be an object, but received string instead
+
+  Received:
+  | 'me3za#4854'
+
+    at ObjectValidator.handle (/home/me3za/Walter-Bot/node_modules/@sapphire/shapeshift/dist/index.js:1161:25)
+    at ObjectValidator.parse (/home/me3za/Walter-Bot/node_modules/@sapphire/shapeshift/dist/index.js:113:88)
+    at EmbedBuilder.setAuthor (/home/me3za/Walter-Bot/node_modules/@discordjs/builders/dist/index.js:216:26)
+    at Object.execute (/home/me3za/Walter-Bot/commands/poll.js:69:6)
+    at Object.execute (/home/me3za/Walter-Bot/events/interactionCreate.js:16:18)
+    at Client.<anonymous> (/home/me3za/Walter-Bot/index.js:40:46)
+    at Client.emit (node:events:513:28)
+    at InteractionCreateAction.handle (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/actions/InteractionCreate.js:81:12)
+    at module.exports [as INTERACTION_CREATE] (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/websocket/handlers/INTERACTION_CREATE.js:4:36)
+    at WebSocketManager.handlePacket (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/websocket/WebSocketManager.js:352:31)
+[ERROR] at Wed, 08 Mar 2023 17:11:36 GMT
+(/home/me3za/Walter-Bot/commands/poll.js:94:11),/home/me3za/Walter-Bot/commands/poll.js
+ValidationError > s.object(T)
+  Expected the value to be an object, but received string instead
+
+  Received:
+  | 'me3za#4854'
+
+    at ObjectValidator.handle (/home/me3za/Walter-Bot/node_modules/@sapphire/shapeshift/dist/index.js:1161:25)
+    at ObjectValidator.parse (/home/me3za/Walter-Bot/node_modules/@sapphire/shapeshift/dist/index.js:113:88)
+    at EmbedBuilder.setAuthor (/home/me3za/Walter-Bot/node_modules/@discordjs/builders/dist/index.js:216:26)
+    at Object.execute (/home/me3za/Walter-Bot/commands/poll.js:69:6)
+    at Object.execute (/home/me3za/Walter-Bot/events/interactionCreate.js:16:18)
+    at Client.<anonymous> (/home/me3za/Walter-Bot/index.js:40:46)
+    at Client.emit (node:events:513:28)
+    at InteractionCreateAction.handle (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/actions/InteractionCreate.js:81:12)
+    at module.exports [as INTERACTION_CREATE] (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/websocket/handlers/INTERACTION_CREATE.js:4:36)
+    at WebSocketManager.handlePacket (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/websocket/WebSocketManager.js:352:31)
+[ERROR] at Wed, 08 Mar 2023 17:13:32 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/poll.js:69
+				.setAuthor({interaction.user.tag, interaction.user.avatar);
+				                       ^
+
+SyntaxError: Unexpected token '.'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Wed, 08 Mar 2023 17:13:35 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/poll.js:69
+				.setAuthor({interaction.user.tag, interaction.user.avatar});
+				                       ^
+
+SyntaxError: Unexpected token '.'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Wed, 08 Mar 2023 17:13:55 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/poll.js:69
+				.setAuthor({name : interaction.user.tag, interaction.user.avatar});
+				                                                    ^
+
+SyntaxError: Unexpected token '.'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Wed, 08 Mar 2023 17:14:39 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/poll.js:71
+					icon_url: interaction.user.displayAvatarURL,
+					^^^^^^^^
+
+SyntaxError: missing ) after argument list
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Wed, 08 Mar 2023 17:14:43 GMT
+(/home/me3za/Walter-Bot/commands/poll.js:94:11),/home/me3za/Walter-Bot/commands/poll.js
+ValidationError > s.object(T)
+  Expected the value to be an object, but received string instead
+
+  Received:
+  | 'me3za#4854'
+
+    at ObjectValidator.handle (/home/me3za/Walter-Bot/node_modules/@sapphire/shapeshift/dist/index.js:1161:25)
+    at ObjectValidator.parse (/home/me3za/Walter-Bot/node_modules/@sapphire/shapeshift/dist/index.js:113:88)
+    at EmbedBuilder.setAuthor (/home/me3za/Walter-Bot/node_modules/@discordjs/builders/dist/index.js:216:26)
+    at Object.execute (/home/me3za/Walter-Bot/commands/poll.js:69:6)
+    at Object.execute (/home/me3za/Walter-Bot/events/interactionCreate.js:16:18)
+    at Client.<anonymous> (/home/me3za/Walter-Bot/index.js:40:46)
+    at Client.emit (node:events:513:28)
+    at InteractionCreateAction.handle (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/actions/InteractionCreate.js:81:12)
+    at module.exports [as INTERACTION_CREATE] (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/websocket/handlers/INTERACTION_CREATE.js:4:36)
+    at WebSocketManager.handlePacket (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/websocket/WebSocketManager.js:352:31)
+[ERROR] at Wed, 08 Mar 2023 17:19:43 GMT
+(/home/me3za/Walter-Bot/commands/poll.js:94:11),/home/me3za/Walter-Bot/commands/poll.js
+TypeError: Cannot read properties of undefined (reading 'user')
+    at Object.execute (/home/me3za/Walter-Bot/commands/poll.js:69:48)
+    at Object.execute (/home/me3za/Walter-Bot/events/interactionCreate.js:16:18)
+    at Client.<anonymous> (/home/me3za/Walter-Bot/index.js:40:46)
+    at Client.emit (node:events:513:28)
+    at InteractionCreateAction.handle (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/actions/InteractionCreate.js:81:12)
+    at module.exports [as INTERACTION_CREATE] (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/websocket/handlers/INTERACTION_CREATE.js:4:36)
+    at WebSocketManager.handlePacket (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/websocket/WebSocketManager.js:352:31)
+    at WebSocketShard.onPacket (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/websocket/WebSocketShard.js:480:22)
+    at WebSocketShard.onMessage (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/websocket/WebSocketShard.js:320:10)
+    at WebSocket.onMessage (/home/me3za/Walter-Bot/node_modules/ws/lib/event-target.js:199:18)
+[ERROR] at Wed, 08 Mar 2023 17:19:57 GMT
+(/home/me3za/Walter-Bot/commands/poll.js:94:11),/home/me3za/Walter-Bot/commands/poll.js
+ValidationError > s.object(T)
+  Expected the value to be an object, but received string instead
+
+  Received:
+  | 'me3za#4854'
+
+    at ObjectValidator.handle (/home/me3za/Walter-Bot/node_modules/@sapphire/shapeshift/dist/index.js:1161:25)
+    at ObjectValidator.parse (/home/me3za/Walter-Bot/node_modules/@sapphire/shapeshift/dist/index.js:113:88)
+    at EmbedBuilder.setAuthor (/home/me3za/Walter-Bot/node_modules/@discordjs/builders/dist/index.js:216:26)
+    at Object.execute (/home/me3za/Walter-Bot/commands/poll.js:69:6)
+    at Object.execute (/home/me3za/Walter-Bot/events/interactionCreate.js:16:18)
+    at Client.<anonymous> (/home/me3za/Walter-Bot/index.js:40:46)
+    at Client.emit (node:events:513:28)
+    at InteractionCreateAction.handle (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/actions/InteractionCreate.js:81:12)
+    at module.exports [as INTERACTION_CREATE] (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/websocket/handlers/INTERACTION_CREATE.js:4:36)
+    at WebSocketManager.handlePacket (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/websocket/WebSocketManager.js:352:31)
+[ERROR] at Wed, 08 Mar 2023 17:22:41 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/poll.js:69
+				.setAuthor({ name : interaction.user.tag, interaction.user.displayAvatarURL());
+				                                                     ^
+
+SyntaxError: Unexpected token '.'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Wed, 08 Mar 2023 17:22:44 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/poll.js:69
+				.setAuthor({ name : interaction.user.tag, iconURL: interaction.user.displayAvatarURL());
+				                                                                                      ^
+
+SyntaxError: Unexpected token ')'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Wed, 08 Mar 2023 17:25:11 GMT
+(/home/me3za/Walter-Bot/commands/poll.js:97:11),/home/me3za/Walter-Bot/commands/poll.js
+TypeError [ColorConvert]: Unable to convert color to a number.
+    at resolveColor (/home/me3za/Walter-Bot/node_modules/discord.js/src/util/Util.js:486:39)
+    at EmbedBuilder.setColor (/home/me3za/Walter-Bot/node_modules/discord.js/src/structures/EmbedBuilder.js:22:36)
+    at Object.execute (/home/me3za/Walter-Bot/commands/poll.js:68:6)
+    at Object.execute (/home/me3za/Walter-Bot/events/interactionCreate.js:16:18)
+    at Client.<anonymous> (/home/me3za/Walter-Bot/index.js:40:46)
+    at Client.emit (node:events:513:28)
+    at InteractionCreateAction.handle (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/actions/InteractionCreate.js:81:12)
+    at module.exports [as INTERACTION_CREATE] (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/websocket/handlers/INTERACTION_CREATE.js:4:36)
+    at WebSocketManager.handlePacket (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/websocket/WebSocketManager.js:352:31)
+    at WebSocketShard.onPacket (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/websocket/WebSocketShard.js:480:22) {
+  code: 'ColorConvert'
+}
+[ERROR] at Wed, 08 Mar 2023 17:25:37 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/poll.js:68
+				.setColor(interaction.user.)
+				                           ^
+
+SyntaxError: Unexpected token ')'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Wed, 08 Mar 2023 17:26:30 GMT
+(/home/me3za/Walter-Bot/commands/poll.js:97:11),/home/me3za/Walter-Bot/commands/poll.js
+CombinedError (3)
+  Received one or more errors
+
+  1 ExpectedValidationError > s.literal(V)
+  |   Expected values to be equals
+  | 
+  |   Expected:
+  |   | null
+  | 
+  |   Received:
+  |   | undefined
+
+  2 ValidationError > s.number
+  |   Expected a number primitive
+  | 
+  |   Received:
+  |   | undefined
+
+  3 ValidationError > s.tuple(T)
+  |   Expected an array
+  | 
+  |   Received:
+  |   | undefined
+
+    at UnionValidator.handle (/home/me3za/Walter-Bot/node_modules/@sapphire/shapeshift/dist/index.js:1058:23)
+    at UnionValidator.parse (/home/me3za/Walter-Bot/node_modules/@sapphire/shapeshift/dist/index.js:113:88)
+    at EmbedBuilder.setColor (/home/me3za/Walter-Bot/node_modules/@discordjs/builders/dist/index.js:221:20)
+    at EmbedBuilder.setColor (/home/me3za/Walter-Bot/node_modules/discord.js/src/structures/EmbedBuilder.js:22:18)
+    at Object.execute (/home/me3za/Walter-Bot/commands/poll.js:68:6)
+    at Object.execute (/home/me3za/Walter-Bot/events/interactionCreate.js:16:18)
+    at Client.<anonymous> (/home/me3za/Walter-Bot/index.js:40:46)
+    at Client.emit (node:events:513:28)
+    at InteractionCreateAction.handle (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/actions/InteractionCreate.js:81:12)
+    at module.exports [as INTERACTION_CREATE] (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/websocket/handlers/INTERACTION_CREATE.js:4:36)
+[ERROR] at Wed, 08 Mar 2023 17:28:14 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/poll.js:72
+				});
+				 ^
+
+SyntaxError: missing ) after argument list
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Wed, 08 Mar 2023 17:41:06 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/poll.js:7
+module.exports = {
+^
+
+SyntaxError: Identifier 'module' has already been declared
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Wed, 08 Mar 2023 17:41:54 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/poll.js:57
+			let optionsList = options.split(",").map((option) => capit option.trim());
+			                                                     ^^^^^
+
+SyntaxError: missing ) after argument list
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[ERROR] at Wed, 08 Mar 2023 17:42:07 GMT
+(/home/me3za/Walter-Bot/commands/poll.js:96:11),/home/me3za/Walter-Bot/commands/poll.js
+TypeError: capitalize is not a function
+    at /home/me3za/Walter-Bot/commands/poll.js:59:22
+    at Array.map (<anonymous>)
+    at Object.execute (/home/me3za/Walter-Bot/commands/poll.js:59:6)
+    at Object.execute (/home/me3za/Walter-Bot/events/interactionCreate.js:16:18)
+    at Client.<anonymous> (/home/me3za/Walter-Bot/index.js:40:46)
+    at Client.emit (node:events:513:28)
+    at InteractionCreateAction.handle (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/actions/InteractionCreate.js:81:12)
+    at module.exports [as INTERACTION_CREATE] (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/websocket/handlers/INTERACTION_CREATE.js:4:36)
+    at WebSocketManager.handlePacket (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/websocket/WebSocketManager.js:352:31)
+    at WebSocketShard.onPacket (/home/me3za/Walter-Bot/node_modules/discord.js/src/client/websocket/WebSocketShard.js:480:22)
+[ERROR] at Wed, 08 Mar 2023 17:45:21 GMT
+null
+coudlnt connect to db /home/me3za/Walter-Bot/commands/poll.js:104
+		} catch (err) {
+		  ^^^^^
+
+SyntaxError: Unexpected token 'catch'
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1159:20)
+    at Module._compile (node:internal/modules/cjs/loader:1203:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1293:10)
+    at Module.load (node:internal/modules/cjs/loader:1096:32)
+    at Module._load (node:internal/modules/cjs/loader:935:12)
+    at Module.require (node:internal/modules/cjs/loader:1120:19)
+    at require (node:internal/modules/helpers:112:18)
+    at /home/me3za/Walter-Bot/index.js:52:20
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
