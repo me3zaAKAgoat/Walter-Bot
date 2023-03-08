@@ -72,7 +72,7 @@ module.exports = {
 				});
 
 			const pollEmbed = new EmbedBuilder()
-				.setTitle(`📊	${capitalize(title)}`)
+				.setTitle(`📊	${title}`)
 				.setColor((Math.random() * 0xffffff).toString(16))
 				.setAuthor({
 					name: interaction.user.tag,
