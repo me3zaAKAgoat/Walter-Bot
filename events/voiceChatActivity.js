@@ -12,7 +12,10 @@ module.exports = {
 			voiceChannelUsers.set(newState.id, Date.now());
 		} else if (oldState.channelId && !newState.channelId) {
 			// User has left a voice channel
-			if (oldState.id === undefined) return;
+
+			// check if somehow the entrance to channel timestamp wasnt recorded
+			if (voiceChannelUsers.get(oldState.id) === undefined) return;
+
 			const timeInVoice = Math.floor(
 				(Date.now() - voiceChannelUsers.get(oldState.id)) / (60 * 1000) // translate milliseconds to minutes
 			);
