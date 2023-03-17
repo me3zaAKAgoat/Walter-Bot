@@ -8,10 +8,12 @@ mongoose
 	.connect(process.env.MONGODB_URI)
 	.then(console.log("connected to", process.env.MONGODB_URI));
 
-// Activity.find({}).then((result) => console.log(result));
-channel
-	.deleteMany({ channel: "duplicate" })
-	.then((result) => console.log(result));
+Activity.find({ memberId: "694166520686706749" }).then((result) =>
+	console.log(result.sort((a, b) => a.vcTime - b.vcTime))
+);
+// channel
+// 	.deleteMany({ channel: "duplicate" })
+// 	.then((result) => console.log(result));
 // Activity.deleteMany({}).then((result) => console.log(result));
 
 // Activity.find({}, async (err, documents) => {
