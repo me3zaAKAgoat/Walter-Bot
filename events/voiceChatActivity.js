@@ -20,16 +20,16 @@ module.exports = {
 				(Date.now() - voiceChannelUsers.get(oldState.id)) / (60 * 1000) // translate milliseconds to minutes
 			);
 			try {
-				let activityDoc = await Activity.findOne({ memberId: oldState.id });
-				if (!activityDoc) {
-					activityDoc = new Activity({
-						vcTime: timeInVoice,
-						memberId: oldState.id,
-					});
-				} else {
-					activityDoc.vcTime += timeInVoice;
-				}
-				await activityDoc.save();
+				await Activity.findOneAndUpdate(
+					{ memberId: oldState.id },
+					{
+						$inc: { vcTime: timeInVoice },
+						$setOnInsert: {
+							memberId: oldState.id,
+						},
+					},
+					{ upsert: true }
+				);
 				voiceChannelUsers.delete(oldState.id);
 			} catch (err) {
 				logger.error(err);
