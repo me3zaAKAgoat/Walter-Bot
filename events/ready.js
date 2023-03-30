@@ -1,25 +1,25 @@
 require("dotenv").config();
 const cron = require("cron");
-const birthdayCheck = require("./onReady/birthdayCheck");
-const birthdayCleanup = require("./onReady/birthdayCleanup");
-const downtimeCorrection = require("./onReady/downtimeCorrection");
+const birthdayCheck = require("./handlers/birthdayCheck");
+const birthdayCleanup = require("./handlers/birthdayCleanup");
+const downtimeCorrection = require("./handlers/downtimeCorrection");
 
 const setupCronJobs = (client) => {
-	const scheduledBirthdayCheck = new cron.CronJob("00 00 * * *", () => {
+	const birthdayCheckCron = new cron.CronJob("00 00 * * *", () => {
 		birthdayCheck.execute(client);
 	});
 
-	const scheduledBirthdayCleanup = new cron.CronJob("00 00 * * *", () => {
+	const birthdayCleanupCron = new cron.CronJob("00 00 * * *", () => {
 		birthdayCleanup.execute(client);
 	});
 
-	const scheduledDowntimeCorrection = new cron.CronJob("00 00 */2 * *", () => {
+	const downtimeCorrectionCron = new cron.CronJob("00 00 */2 * *", () => {
 		downtimeCorrection.execute(client);
 	});
 
-	scheduledBirthdayCheck.start();
-	scheduledBirthdayCleanup.start();
-	scheduledDowntimeCorrection.start();
+	birthdayCheckCron.start();
+	birthdayCleanupCron.start();
+	downtimeCorrectionCron.start();
 };
 
 module.exports = {
