@@ -105,10 +105,14 @@ module.exports = {
 		} else if (interaction.options.getSubcommand() === "list") {
 			await interaction.deferReply();
 
-			const birthdays = await Birthday.find({
-				guildId: { $in: [interaction.guildId] },
-			});
-			birthdays.sort((a, b) => b.month * 100 + b.day - a.month * 100 - a.day);
+			const nonBotMembers = Array.from(
+				(await interaction.guild.members.fetch()).values()
+			).filter((member) => !member.user.bot);
+
+			const userIds = nonBotMembers.map((member) => member.user.id);
+			const birthdays = await Birthday.find({ userId: { $in: userIds } });
+
+			birthdays.sort((a, b) => b.month * 100 + b.day - (a.month * 100 + a.day));
 			if (birthdays.length === 0)
 				return interaction.editReply({
 					content: "🚫 No birthdays have been registered yet",
@@ -119,28 +123,23 @@ module.exports = {
 					text: "(Only the caller of this command can switch pages !!)",
 				});
 
-			const items = await Promise.all(
-				birthdays.map(async (bday) => {
-					try {
-						const member = await interaction.guild.members.fetch(bday.userId);
-						return {
-							name: member.user.username,
-							value: `<t:${
-								new Date(
-									new Date().getFullYear(),
-									bday.month - 1,
-									bday.day
-								).getTime() / 1000
-							}:d>`,
-						};
-					} catch (err) {
-						// handle the error here
-					}
-				})
-			);
-			const filteredItems = items.filter((item) => item !== undefined);
+			const items = nonBotMembers.map((member) => {
+				const birthday = birthdays.find(
+					(birthday) => birthday.userId === member.user.id
+				);
+				return {
+					name: `${member.user.username}`,
+					value: `<t:${
+						new Date(
+							new Date().getFullYear(),
+							birthday.month - 1,
+							birthday.day
+						).getTime() / 1000
+					}:d>`,
+				};
+			});
 
-			await paginate(interaction, filteredItems, 10, embedGenerator);
+			await paginate(interaction, items, 10, embedGenerator);
 		} else {
 			return interaction.reply({
 				content: `🚫 this command doesn't exist.`,

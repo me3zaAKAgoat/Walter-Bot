@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 
 const birthdaySchema = mongoose.Schema({
 	userId: String,
-	guildId: [String],
 	day: Number,
 	month: Number,
 });
