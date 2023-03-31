@@ -112,20 +112,22 @@ module.exports = {
 			const userIds = nonBotMembers.map((member) => member.user.id);
 			const birthdays = await Birthday.find({ userId: { $in: userIds } });
 
-			birthdays.sort((a, b) => b.month * 100 + b.day - (a.month * 100 + a.day));
 			if (birthdays.length === 0)
 				return interaction.editReply({
 					content: "🚫 No birthdays have been registered yet",
 				});
+
+			//sort birthdays
+			birthdays.sort((a, b) => b.month * 100 + b.day - (a.month * 100 + a.day));
 
 			const embedGenerator = (pageNum) =>
 				new EmbedBuilder().setTitle(`**Page ${pageNum + 1}**`).setFooter({
 					text: "(Only the caller of this command can switch pages !!)",
 				});
 
-			const items = nonBotMembers.map((member) => {
-				const birthday = birthdays.find(
-					(birthday) => birthday.userId === member.user.id
+			const items = birthdays.map((birthday) => {
+				const member = nonBotMembers.find(
+					(member) => member.user.id === birthday.userId
 				);
 				return {
 					name: `${member.user.username}`,
