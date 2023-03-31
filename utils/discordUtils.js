@@ -10,7 +10,6 @@ const paginate = async (interaction, items, itemsPerPage, embedGenerator) => {
 
 		while (pageItemCount < itemsPerPage && items.length > 0) {
 			const item = items.pop();
-			console.log(item);
 			embed.addFields({
 				name: item.name,
 				value: item.value,

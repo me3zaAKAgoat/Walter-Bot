@@ -66,7 +66,7 @@ module.exports = {
 			try {
 				const upsertedBirthday = await Birthday.findOneAndUpdate(
 					{ userId: user.id },
-					{ day, month },
+					{ day, month, $addToSet: { guildId: interaction.guildId } },
 					{ upsert: true, new: true }
 				);
 				return interaction.reply({
@@ -105,8 +105,10 @@ module.exports = {
 		} else if (interaction.options.getSubcommand() === "list") {
 			await interaction.deferReply();
 
-			const birthdays = await Birthday.find({});
-			birthdays.sort((a, b) => b.month * 100 + b.day - a.month * 100 + a.day);
+			const birthdays = await Birthday.find({
+				guildId: { $in: [interaction.guildId] },
+			});
+			birthdays.sort((a, b) => b.month * 100 + b.day - a.month * 100 - a.day);
 			if (birthdays.length === 0)
 				return interaction.editReply({
 					content: "🚫 No birthdays have been registered yet",
