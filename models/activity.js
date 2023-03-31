@@ -9,7 +9,8 @@ const activitySchema = mongoose.Schema({
 		type: Number, // number of messages
 		default: 0,
 	},
-	memberId: String,
+	userId: String,
+	guildId: String,
 });
 
 activitySchema.set("toJSON", {

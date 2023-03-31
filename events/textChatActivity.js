@@ -8,11 +8,12 @@ module.exports = {
 		if (message.author.bot) return;
 		try {
 			await Activity.findOneAndUpdate(
-				{ memberId: message.author.id },
+				{ userId: message.member.user.id, guildId: message.guildId },
 				{
 					$inc: { messageCount: 1 },
 					$setOnInsert: {
-						memberId: message.author.id,
+						userId: message.member.user.id,
+						guildId: message.guildId,
 					},
 				},
 				{ upsert: true }

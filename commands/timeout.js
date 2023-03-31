@@ -81,7 +81,7 @@ module.exports = {
 					}
 
 					const gifEmbed = new EmbedBuilder()
-						.setColor("0xde2316")
+						.setColor(0x843dff)
 						.setTitle(
 							`${quota} people voted so ${user.username} is now timed out for ${length} minutes`
 						)

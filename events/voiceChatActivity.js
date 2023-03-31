@@ -14,18 +14,19 @@ module.exports = {
 			// User has left a voice channel
 
 			// check if somehow the entrance to channel timestamp wasnt recorded
-			if (xvoiceChannelUsers.get(oldState.id) === undefined) return;
+			if (voiceChannelUsers.get(oldState.id) === undefined) return;
 
 			const timeInVoice = Math.floor(
 				(Date.now() - voiceChannelUsers.get(oldState.id)) / (60 * 1000) // translate milliseconds to minutes
 			);
 			try {
 				await Activity.findOneAndUpdate(
-					{ memberId: oldState.id },
+					{ userId: oldState.member.user.id, guildId: oldState.guild.id },
 					{
 						$inc: { vcTime: timeInVoice },
 						$setOnInsert: {
-							memberId: oldState.id,
+							userId: oldState.member.user.id,
+							guildId: oldState.guild.id,
 						},
 					},
 					{ upsert: true }

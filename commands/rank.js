@@ -108,7 +108,7 @@ module.exports = {
 				}
 
 				const leagueRankViewEmbed = new EmbedBuilder()
-					.setColor(0x0099ff)
+					.setColor(0x843dff)
 					.setTitle("League Of Legends")
 					.setThumbnail(
 						`http://ddragon.leagueoflegends.com/cdn/12.21.1/img/profileicon/${summoner.profileIconId}.png`
@@ -165,7 +165,7 @@ module.exports = {
 				}
 
 				const TFTRankViewEmbed = new EmbedBuilder()
-					.setColor(0x0099ff)
+					.setColor(0x843dff)
 					.setTitle("Teamfight Tactics")
 					.setThumbnail(
 						`http://ddragon.leagueoflegends.com/cdn/12.21.1/img/profileicon/${summoner.profileIconId}.png`
