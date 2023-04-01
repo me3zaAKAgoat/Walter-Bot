@@ -33,8 +33,6 @@ module.exports = {
 			}
 		}
 
-		await guild.channels.create({ name: "rip lol" });
-
 		await guild.leave();
 	},
 };
