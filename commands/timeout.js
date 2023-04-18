@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, EmbedBuilder, quote } = require("discord.js");
+const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
 const discordUtils = require("../utils/discordUtils");
 const logger = require("../utils/logger");
 
@@ -9,7 +9,7 @@ collect 3 more votes and then apply timeout
 send death note gif and then timeout
 */
 
-const USER_VOTES_NEEDED = 5;
+const USER_VOTES_NEEDED = 4;
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -47,6 +47,7 @@ module.exports = {
 			const user = interaction.options.getUser("user");
 			const length = interaction.options.getString("length");
 			const member = interaction.guild.members.cache.get(user.id);
+			let counter = 0;
 			const quota =
 				USER_VOTES_NEEDED + 1; /* + 1 is offset for the bot own reaction */
 
@@ -56,20 +57,36 @@ module.exports = {
 				return interaction.editReply({
 					content: "**🚫 This user is admin thus cant be timed out.**",
 				});
+
+			const reactionHostEmbed = new EmbedBuilder()
+				.setColor(0x843dff)
+				.setTitle(
+					`Do want user ${user.username} to be timed out for ${length} minutes?`
+				)
+				.setThumbnail(user.avatarURL())
+				.setDescription("**React** with 🤝 to help time them out!")
+				.addFields({
+					name: "vote ends in:",
+					value: `<t:${Math.round(Date.now() / 1000 + 60)}:R>`,
+				})
+				.setFooter({ text: `${quota} votes total needed` });
 			const message = await interaction.editReply({
-				content: `Do you agree that user <@${user.id}> should be timed out for ${length} minutes, ${quota} votes total needed.`,
+				// content: `Do you agree that user <@${user.id}> should be timed out for ${length} minutes, ${quota} votes total needed.`,
+				embeds: [reactionHostEmbed],
 				fetchReply: true,
 			});
 
 			message.react("🤝");
 			const filter = (reaction, user) => reaction.emoji.name === "🤝";
 
-			const collector = message.createReactionCollector(filter, {
+			const collector = message.createReactionCollector({
+				filter,
 				time: 60 * 1000,
 			});
 
 			collector.on("collect", (reaction) => {
-				if (reaction.count >= quota) {
+				counter += 1;
+				if (counter >= quota) {
 					try {
 						member.timeout(Number(length) * 60 * 1000);
 					} catch (err) {
@@ -91,6 +108,21 @@ module.exports = {
 					return interaction.editReply({
 						content: "",
 						embeds: [gifEmbed],
+					});
+				}
+			});
+
+			collector.on("end", () => {
+				if (counter < quota) {
+					const timeoutEmbed = new EmbedBuilder()
+						.setColor(0xff0000)
+						.setTitle(
+							`Timer ended before enough people voted.\n\n\nUser \`${user.username}\` will not be timed out.`
+						)
+						.setThumbnail(user.avatarURL());
+					message.reactions.removeAll();
+					interaction.editReply({
+						embeds: [timeoutEmbed],
 					});
 				}
 			});
