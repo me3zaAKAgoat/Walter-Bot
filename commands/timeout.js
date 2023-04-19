@@ -84,11 +84,26 @@ module.exports = {
 				time: 60 * 1000,
 			});
 
-			collector.on("collect", (reaction) => {
+			collector.on("collect", async (reaction) => {
 				counter += 1;
 				if (counter >= quota) {
 					try {
-						member.timeout(Number(length) * 60 * 1000);
+						await member.timeout(Number(length) * 60 * 1000);
+
+						const gifEmbed = new EmbedBuilder()
+							.setColor(0x843dff)
+							.setTitle(
+								`${quota} people voted so \`${user.username}\` is now timed out for ${length} minutes`
+							)
+							.setImage(
+								"https://media.tenor.com/1ybUFYQpNDgAAAAd/death-note-light-yagami.gif"
+							);
+						message.reactions.removeAll();
+
+						return interaction.editReply({
+							content: "",
+							embeds: [gifEmbed],
+						});
 					} catch (err) {
 						logger.error(err);
 						return interaction.editReply({
@@ -96,19 +111,6 @@ module.exports = {
 								"an issue happened, probably raise walters highest role, contact me3za",
 						});
 					}
-
-					const gifEmbed = new EmbedBuilder()
-						.setColor(0x843dff)
-						.setTitle(
-							`${quota} people voted so ${user.username} is now timed out for ${length} minutes`
-						)
-						.setImage(
-							"https://media.tenor.com/1ybUFYQpNDgAAAAd/death-note-light-yagami.gif"
-						);
-					return interaction.editReply({
-						content: "",
-						embeds: [gifEmbed],
-					});
 				}
 			});
 
