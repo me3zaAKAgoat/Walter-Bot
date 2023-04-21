@@ -74,7 +74,7 @@ module.exports = {
 						nsfwUrl = nsfwPost.data.url;
 						const nsfwEmbed = new EmbedBuilder()
 							.setTitle(`__r/${subreddit}__`)
-							.setColor(0x843dff)
+							.setColor(process.env.COLOR_THEME)
 							.setImage(nsfwUrl);
 						return interaction.editReply({ embeds: [nsfwEmbed] });
 					}

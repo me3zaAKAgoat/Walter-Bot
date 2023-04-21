@@ -51,7 +51,8 @@ module.exports = {
 			subcommand.setName("list").setDescription(`lists member birhtdays`)
 		),
 	execute: async (interaction) => {
-		if (interaction.options.getSubcommand() === "add") {
+		const subcommandName = interaction.options.getSubcommand();
+		if (subcommandName === "add") {
 			const user = interaction.options.getUser("user");
 			const day = interaction.options.getNumber("day");
 			const month = interaction.options.getNumber("month");
@@ -80,7 +81,7 @@ module.exports = {
 					"there was an issue completing this command contact me3za"
 				);
 			}
-		} else if (interaction.options.getSubcommand() === "get") {
+		} else if (subcommandName === "get") {
 			const user = interaction.options.getUser("user");
 
 			try {
@@ -102,7 +103,7 @@ module.exports = {
 					"there was an issue completing this command contact me3za"
 				);
 			}
-		} else if (interaction.options.getSubcommand() === "list") {
+		} else if (subcommandName === "list") {
 			await interaction.deferReply();
 
 			const nonBotMembers = Array.from(
@@ -121,10 +122,12 @@ module.exports = {
 			birthdays.sort((a, b) => b.month * 100 + b.day - (a.month * 100 + a.day));
 
 			const embedGenerator = (pageNum) =>
-				new EmbedBuilder().setTitle(`**Page ${pageNum + 1}**`).setFooter({
-					text: "(Only the caller of this command can switch pages !!)",
-				});
-
+				new EmbedBuilder()
+					.setTitle(`**Page ${pageNum + 1}**`)
+					.setFooter({
+						text: "(Only the caller of this command can switch pages !!)",
+					})
+					.setColor(process.env.COLOR_THEME);
 			const items = birthdays.map((birthday) => {
 				const member = nonBotMembers.find(
 					(member) => member.user.id === birthday.userId

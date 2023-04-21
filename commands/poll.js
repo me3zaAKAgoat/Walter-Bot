@@ -73,7 +73,7 @@ module.exports = {
 
 			const pollEmbed = new EmbedBuilder()
 				.setTitle(`📊	${title}`)
-				.setColor(0x843dff)
+				.setColor(process.env.COLOR_THEME)
 				.setAuthor({
 					name: interaction.user.tag,
 					iconURL: interaction.user.displayAvatarURL(),

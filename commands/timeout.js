@@ -59,7 +59,7 @@ module.exports = {
 				});
 
 			const reactionHostEmbed = new EmbedBuilder()
-				.setColor(0x843dff)
+				.setColor(process.env.COLOR_THEME)
 				.setTitle(
 					`Do want user ${user.username} to be timed out for ${length} minutes?`
 				)
@@ -91,7 +91,7 @@ module.exports = {
 						await member.timeout(Number(length) * 60 * 1000);
 
 						const gifEmbed = new EmbedBuilder()
-							.setColor(0x843dff)
+							.setColor(process.env.COLOR_THEME)
 							.setTitle(
 								`${quota} people voted so \`${user.username}\` is now timed out for ${length} minutes`
 							)

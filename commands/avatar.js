@@ -19,7 +19,8 @@ module.exports = {
 		const avatarUrl = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=512`;
 		const avatarEmbed = new EmbedBuilder()
 			.setImage(`${avatarUrl}`)
-			.setAuthor({ name: `${user.username}` });
+			.setAuthor({ name: `${user.username}` })
+			.setColor(process.env.COLOR_THEME);
 		return interaction.reply({ embeds: [avatarEmbed] });
 	},
 };

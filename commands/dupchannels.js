@@ -4,7 +4,7 @@ const Channel = require("../models/channel");
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName("monitor")
+		.setName("dup")
 		.setDescription(
 			"set a channel that will duplicate itself when a user joins it"
 		)

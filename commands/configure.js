@@ -48,8 +48,8 @@ module.exports = {
 				content: "🚫 this command is admin only.",
 				ephemeral: true,
 			});
-		const subCommand = interaction.options.getSubcommand();
-		if (subCommand === "anime") {
+		const subcommandName = interaction.options.getSubcommand();
+		if (subcommandName === "anime") {
 			const role = interaction.options.getRole("role");
 			const channel = interaction.options.getChannel("channel");
 			if (
@@ -66,45 +66,45 @@ module.exports = {
 			try {
 				// upsert role id
 				await Role.findOneAndUpdate(
-					{ guildId: interaction.guildId, role: subCommand },
+					{ guildId: interaction.guildId, role: subcommandName },
 					{ roleId: role.id },
 					{ upsert: true, new: true }
 				);
 				// upsert channel id
 				await Channel.findOneAndUpdate(
-					{ guildId: interaction.guildId, channel: subCommand },
+					{ guildId: interaction.guildId, channel: subcommandName },
 					{ channelId: channel.id },
 					{ upsert: true, new: true }
 				);
 			} catch (err) {
-				logger.error(subCommand, err);
+				logger.error(subcommandName, err);
 				return interaction.reply(
 					"there was an issue completing this command contact me3za"
 				);
 			}
 
 			return interaction.reply(
-				`Successfully registered the ${subCommand} tag <@&${role.id}> and the channel <#${channel.id}>.`
+				`Successfully registered the ${subcommandName} tag <@&${role.id}> and the channel <#${channel.id}>.`
 			);
-		} else if (subCommand === "birthday") {
+		} else if (subcommandName === "birthday") {
 			const channel = interaction.options.getChannel("channel");
 
 			try {
 				// upsert channel id
 				await Channel.findOneAndUpdate(
-					{ guildId: interaction.guildId, channel: subCommand },
+					{ guildId: interaction.guildId, channel: subcommandName },
 					{ channelId: channel.id },
 					{ upsert: true, new: true }
 				);
 			} catch (err) {
-				logger.error(subCommand, err);
+				logger.error(subcommandName, err);
 				return interaction.reply(
 					"there was an issue completing this command contact me3za"
 				);
 			}
 
 			return interaction.reply(
-				`Successfully registered the ${subCommand} announcement channel to <#${channel.id}>.`
+				`Successfully registered the ${subcommandName} announcement channel to <#${channel.id}>.`
 			);
 		}
 		return interaction.reply({

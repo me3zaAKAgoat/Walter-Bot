@@ -10,7 +10,8 @@ module.exports = {
 			.setTitle("__**Manual**__")
 			.setDescription(
 				"A manual to help you navigate through the commands and features of this bot, you can always contribute to this by sending a message to `me3za#4854`."
-			);
+			)
+			.setColor(process.env.COLOR_THEME);
 		const commandDescription = {
 			poll: {
 				command: "`/poll`",
