@@ -100,7 +100,7 @@ module.exports = {
 				})
 				.setColor(process.env.COLOR_THEME)
 				.setThumbnail(user.displayAvatarURL())
-				.setTitle(`The activity of \`${user.username}\``)
+				.setTitle(`\`${user.username}\`'s engagement on this server`)
 				.setFooter({
 					text: `recording started at ~3rd April 2023`,
 				})
