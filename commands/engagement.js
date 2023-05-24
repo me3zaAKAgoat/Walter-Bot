@@ -36,7 +36,7 @@ module.exports = {
 			});
 
 			const userActivities = unsortedUserActivities.sort(
-				(a, b) => b.vcTime - a.vcTime + (b.messageCount - a.messageCount) * 2.5
+				(a, b) => b.vcTime - a.vcTime
 			);
 
 			const lbEmbed = new EmbedBuilder()
