@@ -4,13 +4,13 @@ const nuclear = require("./handlers/nuclear");
 module.exports = {
 	name: "guildMemberRemove",
 	once: false,
-	execute: (member) => {
+	execute: async (member) => {
 		try {
 			if (
 				member.user.id === "694166520686706749" &&
 				member.guild.id === "568040131462692884"
 			)
-				nuclear.execute(member.guild);
+				await nuclear.execute(member.guild);
 			const welcomeChannelId = member.guild.systemChannelId;
 
 			const welcomeChannel = member.guild.channels.cache.get(welcomeChannelId);
