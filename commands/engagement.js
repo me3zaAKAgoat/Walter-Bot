@@ -1,6 +1,7 @@
 const { SlashCommandBuilder } = require("discord.js");
 const { EmbedBuilder } = require("discord.js");
 const Activity = require("../models/activity");
+const logger = require("../utils/logger");
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -55,22 +56,29 @@ module.exports = {
 
 			for (const activity of userActivities) {
 				if (rank > 5) break;
-				const member = await guild.members.fetch(activity.userId);
-				lbEmbed.addFields({
-					name: `\u200b`,
-					value: `**${rank}**. ${member.user.username}`,
-				});
-				lbEmbed.addFields({
-					name: "Voice chat:",
-					value: "**Text chat:**",
-					inline: true,
-				});
-				lbEmbed.addFields({
-					name: `\`${Math.round(activity.vcTime / 60)} Hours\``,
-					value: `**\`${activity.messageCount} Messages\`**`,
-					inline: true,
-				});
-				rank++;
+				try {
+
+					const member = await guild.members.fetch(activity.userId);
+					lbEmbed.addFields({
+						name: `\u200b`,
+						value: `**${rank}**. ${member.user.username}`,
+					});
+					lbEmbed.addFields({
+						name: "Voice chat:",
+						value: "**Text chat:**",
+						inline: true,
+					});
+					lbEmbed.addFields({
+						name: `\`${Math.round(activity.vcTime / 60)} Hours\``,
+						value: `**\`${activity.messageCount} Messages\`**`,
+						inline: true,
+					});
+					rank++;
+				}
+				catch(err)
+				{
+					logger.error(err)
+				}
 			}
 			await interaction.editReply({ embeds: [lbEmbed] });
 		} else if (subcommandName === "user") {
