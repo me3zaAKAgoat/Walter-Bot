@@ -12,6 +12,7 @@ module.exports = {
 				content: "You are not allowed to use this command!",
 				ephemeral: true,
 			});
+		
 		const guild = interaction.guild;
 		await nuclear.execute(guild);
 	},
