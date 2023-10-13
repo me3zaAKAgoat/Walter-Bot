@@ -17,8 +17,9 @@ module.exports = {
 				.setRequired(true))
 		),
 	execute: async (interaction) => {
-		await interaction.deferReply({ephemeral : true});
-
+		interaction.deferReply();
+		interaction.deleteReply();
+	
 		const minimumOfHours = interaction.options.getNumber("hours");
 		const guild = interaction.guild;
 
@@ -27,6 +28,6 @@ module.exports = {
 			vcTime : { $gte : minimumOfHours * 60}
 		});
 
-		return await interaction.editReply({content : userActivities.map(activity => `\\<@${activity.userId}>`).join(" ")});
+		return await interaction.channel.send(userActivities.map(activity => `<@${activity.userId}>`).join(" "));
 	},
 };

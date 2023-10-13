@@ -1,7 +1,7 @@
 // Require the necessary discord.js classes
 require("dotenv").config();
 const fs = require("node:fs");
-const { Client, Collection, GatewayIntentBits } = require("discord.js");
+const { Client, Collection, GatewayIntentBits, AllowedMentionsTypes } = require("discord.js");
 const mongoose = require("mongoose");
 const logger = require("./utils/logger");
 const token = process.env.DISCORD_TOKEN;
