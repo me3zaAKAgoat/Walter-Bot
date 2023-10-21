@@ -16,28 +16,33 @@ module.exports = {
 				.addChannelTypes(ChannelType.GuildVoice)
 		),
 	execute: async (interaction) => {
-		const channelOption = interaction.options.getChannel("channel");
-		if ([undefined, null].includes(channelOption))
-			return interaction.relpy({
-				ephemeral: true,
-				content:
-					"This interaction failed, please make sure you are sending valid roles/channels",
-			});
+		try {
+			const channelOption = interaction.options.getChannel("channel");
+			if ([undefined, null].includes(channelOption))
+				return interaction.relpy({
+					ephemeral: true,
+					content:
+						"This interaction failed, please make sure you are sending valid roles/channels",
+				});
 
-		const existingChannel = await Channel.findOne({
-			channelId: channelOption.id,
-		});
-
-		if (!existingChannel) {
-			const channelDocument = new Channel({
-				channel: "duplicate",
+			const existingChannel = await Channel.findOne({
 				channelId: channelOption.id,
-				guildId: interaction.guildId,
 			});
-			await channelDocument.save();
-			return interaction.reply(
-				`The channel <#${channelOption.id}> is now being monitored and will duplicate itself.`
-			);
-		} else return interaction.reply(`that channel is already being monitored.`);
-	},
+
+			if (!existingChannel) {
+				const channelDocument = new Channel({
+					channel: "duplicate",
+					channelId: channelOption.id,
+					guildId: interaction.guildId,
+				});
+				await channelDocument.save();
+				return interaction.reply(
+					`The channel <#${channelOption.id}> is now being monitored and will duplicate itself.`
+				);
+			} else return interaction.reply(`that channel is already being monitored.`);
+		}
+		catch (err) {
+			logger.error(err);
+		}
+},
 };
