@@ -2,6 +2,8 @@ const { SlashCommandBuilder } = require("discord.js");
 const { EmbedBuilder } = require("discord.js");
 const Activity = require("../models/activity");
 const logger = require("../utils/logger");
+const activity = require("../models/activity");
+const { paginate } = require("../utils/discordUtils");
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -40,7 +42,8 @@ module.exports = {
 				(a, b) => b.vcTime - a.vcTime
 			);
 
-			const lbEmbed = new EmbedBuilder()
+			const embedGenerator = (pageNum) =>
+				new EmbedBuilder()
 				.setTitle(`The current most active users are:`)
 				.setColor(process.env.COLOR_THEME)
 				.setAuthor({
@@ -54,33 +57,23 @@ module.exports = {
 
 			let rank = 1;
 
-			for (const activity of userActivities) {
-				if (rank > 5) break;
+			const items = [];
+			for (const activity of userActivities) 
+			{
 				try {
-
 					const member = await guild.members.fetch(activity.userId);
-					lbEmbed.addFields({
-						name: `\u200b`,
-						value: `**${rank}**. ${member.user.username}`,
-					});
-					lbEmbed.addFields({
-						name: "Voice chat:",
-						value: "**Text chat:**",
-						inline: true,
-					});
-					lbEmbed.addFields({
-						name: `\`${Math.round(activity.vcTime / 60)} Hours\``,
-						value: `**\`${activity.messageCount} Messages\`**`,
-						inline: true,
-					});
+					items.push({
+						name: `**${rank}**. ${member.user.username}`,
+						value: `\`${Math.round(activity.vcTime / 60)} Hours | ${activity.messageCount} Messages\``,
+					})
 					rank++;
 				}
-				catch(err)
-				{
+				catch(err) {
 					logger.error(err)
 				}
 			}
-			await interaction.editReply({ embeds: [lbEmbed] });
+			items.reverse();
+			await paginate(interaction, items, 5, embedGenerator);	
 		} else if (subcommandName === "user") {
 			await interaction.deferReply();
 

@@ -7,6 +7,8 @@ module.exports = {
 	name: "voiceStateUpdate",
 	once: false,
 	execute: async (oldState, newState) => {
+		if (oldState.member.user.bot || newState.member.user.bot) return;
+	
 		if (!oldState.channelId && newState.channelId) {
 			// User has joined a voice channel
 			voiceChannelUsers.set(newState.id, Date.now());
