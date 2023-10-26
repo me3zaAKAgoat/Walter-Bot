@@ -52,7 +52,7 @@ module.exports = {
 				})
 				.setThumbnail(guild.iconURL())
 				.setFooter({
-					text: `recording started at ~3rd April 2023`,
+					text: `recording started at ~3rd April 2023\n**ⓘ Only the caller of the command can switch pages.**`,
 				});
 
 			let rank = 1;
@@ -73,7 +73,7 @@ module.exports = {
 				}
 			}
 			items.reverse();
-			await paginate(interaction, items, 5, embedGenerator);	
+			await paginate(interaction, items, 10, embedGenerator);	
 		} else if (subcommandName === "user") {
 			await interaction.deferReply();
 
