@@ -52,7 +52,7 @@ module.exports = {
 				})
 				.setThumbnail(guild.iconURL())
 				.setFooter({
-					text: `recording started at ~3rd April 2023\n**ⓘ Only the caller of the command can switch pages.**`,
+					text: `recording started at ~3rd April 2023\nⓘ Only the caller of the command can switch pages.`,
 				});
 
 			let rank = 1;
