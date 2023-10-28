@@ -4,15 +4,15 @@ const Activity = require("../models/activity");
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName("tag")
-		.setDescription("tags members that have more hours in vc than you indicated.")
+		.setDescription("tag top X most active members of the server")
 		.addSubcommand((subcommand) => 
 			subcommand
 			.setName("active")
-			.setDescription("tags members that have more hours in vc than you indicated.")
+			.setDescription("tag top X most active members of the server")
 			.addNumberOption((option) => 
 				option
-				.setName('hours')
-				.setDescription("minimum of hours in vc")
+				.setName('count')
+				.setDescription("number of most active members to tag")
 				.setMinValue(0)
 				.setRequired(true))
 		),
@@ -20,14 +20,19 @@ module.exports = {
 		interaction.deferReply();
 		interaction.deleteReply();
 	
-		const minimumOfHours = interaction.options.getNumber("hours");
+		const numberOfActiveMembers = interaction.options.getNumber("count");
 		const guild = interaction.guild;
 
-		const userActivities = await Activity.find({
+		const unsortedUserActivities = await Activity.find({
 			guildId: guild.id,
-			vcTime : { $gte : minimumOfHours * 60}
 		});
 
-		return await interaction.channel.send(userActivities.map(activity => `<@${activity.userId}>`).join(" "));
+		const userActivities = unsortedUserActivities.sort(
+			(a, b) => b.vcTime - a.vcTime
+		);
+
+		const activeMembers = userActivities.slice(0, numberOfActiveMembers);
+
+		return await interaction.channel.send(activeMembers.map(activity => `<@${activity.userId}>`).join(" "));
 	},
 };
