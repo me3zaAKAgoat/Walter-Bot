@@ -9,17 +9,17 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName("engagement")
 		.setDescription(
-			"serves data about user activity and engagement in the server"
+			"serves data about user activity and engagement in the server."
 		)
 		.addSubcommand((subcommand) =>
 			subcommand
 				.setName("lb")
-				.setDescription("get a leaderboard of the most active users")
+				.setDescription("get a leaderboard of user activity in vc/tc.")
 		)
 		.addSubcommand((subcommand) =>
 			subcommand
 				.setName("user")
-				.setDescription("get data about a user")
+				.setDescription("get this server's activity data of a user.")
 				.addUserOption((option) =>
 					option
 						.setName("tag")

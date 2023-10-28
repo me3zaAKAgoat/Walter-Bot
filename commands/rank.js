@@ -9,7 +9,7 @@ const logger = require("../utils/logger");
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName("rank")
-		.setDescription("shows the elo of the specified player in the desired game")
+		.setDescription("shows the elo of the specified player in the desired game.")
 		.addSubcommand((subcommand) =>
 			subcommand
 				.setName("league")
@@ -36,7 +36,7 @@ module.exports = {
 		.addSubcommand((subcommand) =>
 			subcommand
 				.setName("tft")
-				.setDescription("show the tft rank of specified player")
+				.setDescription("show the tft rank of specified player.")
 				.addStringOption((option) =>
 					option
 						.setName("nickname")

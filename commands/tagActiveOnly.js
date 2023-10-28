@@ -4,11 +4,11 @@ const Activity = require("../models/activity");
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName("tag")
-		.setDescription("passes tags of users who are most active for you to copy and paste")
+		.setDescription("tags members that have more hours in vc than you indicated.")
 		.addSubcommand((subcommand) => 
 			subcommand
 			.setName("active")
-			.setDescription("passes tags of users who are most active for you to copy and paste")
+			.setDescription("tags members that have more hours in vc than you indicated.")
 			.addNumberOption((option) => 
 				option
 				.setName('hours')

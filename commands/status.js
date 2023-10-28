@@ -4,7 +4,7 @@ const logger = require("../utils/logger");
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName("status")
-		.setDescription("status of the bot"),
+		.setDescription("status of the bot."),
 	execute: async (interaction) => {
 		try {
 			return interaction.reply("☑️ Up and running!");

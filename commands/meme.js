@@ -52,7 +52,7 @@ const writeMeme = async (type, content, x, y) => {
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName("meme")
-		.setDescription("makes a meme out of your input")
+		.setDescription("makes a meme out of your input.")
 		.addStringOption((option) =>
 			option
 				.setName("type")

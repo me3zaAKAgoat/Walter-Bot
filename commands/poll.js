@@ -7,7 +7,7 @@ const { capitalize } = require("../utils/stringUtils");
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName("poll")
-		.setDescription("create a poll")
+		.setDescription("create a poll.")
 		.addStringOption((option) =>
 			option
 				.setName("title")

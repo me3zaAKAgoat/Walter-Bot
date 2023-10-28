@@ -371,9 +371,10 @@ const fortunes = [
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName("cookie")
-		.setDescription("Commands for handling custom movie database")
+		.setDescription("crack open your fortune cookie.")
 		.addSubcommand((subcommand) =>
-			subcommand.setName("open").setDescription("crack open your cookie")
+			subcommand.setName("open")
+			.setDescription("crack open your fortune cookie.")
 		),
 	execute: async (interaction) => {
 		if (interaction.options.getSubcommand() === "open") {

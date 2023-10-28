@@ -16,7 +16,7 @@ module.exports = {
 		.addSubcommand((subcommand) =>
 			subcommand
 				.setName("add")
-				.setDescription(`enter a member's birthdate`)
+				.setDescription(`enter a member's birthdate.`)
 				.addUserOption((option) =>
 					option
 						.setName("user")
@@ -39,7 +39,7 @@ module.exports = {
 		.addSubcommand((subcommand) =>
 			subcommand
 				.setName("get")
-				.setDescription(`get a members birthdate if it's registered`)
+				.setDescription(`get a members birthdate if it's registered.`)
 				.addUserOption((option) =>
 					option
 						.setName("user")
@@ -48,7 +48,7 @@ module.exports = {
 				)
 		)
 		.addSubcommand((subcommand) =>
-			subcommand.setName("list").setDescription(`lists member birhtdays`)
+			subcommand.setName("list").setDescription(`lists member birhtdays.`)
 		),
 	execute: async (interaction) => {
 		const subcommandName = interaction.options.getSubcommand();

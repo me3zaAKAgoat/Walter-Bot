@@ -4,11 +4,11 @@ const { EmbedBuilder } = require("discord.js");
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName("avatar")
-		.setDescription("get an expanded view of the user's avatar")
+		.setDescription("get an expanded view of the user's avatar.")
 		.addUserOption((option) =>
 			option
 				.setName("tag")
-				.setDescription("tag of the person you want to expand the avatar for")
+				.setDescription("tag of the person you want to expand the avatar for.")
 				.setRequired(false)
 		),
 	execute: async (interaction) => {

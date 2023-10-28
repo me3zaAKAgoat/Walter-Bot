@@ -159,7 +159,7 @@ const randomizeMovie = async (interaction) => {
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName("movie")
-		.setDescription("Commands for handling custom movie database")
+		.setDescription("Commands for handling custom movie database.")
 		.addSubcommand((subcommand) =>
 			subcommand
 				.setName("add")

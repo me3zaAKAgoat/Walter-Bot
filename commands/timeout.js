@@ -14,7 +14,7 @@ const USER_VOTES_NEEDED = 4;
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName("death")
-		.setDescription("timeout member Y for X amount of minutes")
+		.setDescription("timeout member Y for X amount of minutes.")
 		.addSubcommand((subcommand) =>
 			subcommand
 				.setName("note")
