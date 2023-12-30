@@ -13,13 +13,8 @@ const setupCronJobs = (client) => {
 		birthdayCleanup.execute(client);
 	});
 
-	const downtimeCorrectionCron = new cron.CronJob("00 00 */2 * *", () => {
-		downtimeCorrection.execute(client);
-	});
-
 	birthdayCheckCron.start();
 	birthdayCleanupCron.start();
-	downtimeCorrectionCron.start();
 };
 
 module.exports = {
@@ -33,5 +28,6 @@ module.exports = {
 			status: "idle",
 		});
 		setupCronJobs(client);
+		downtimeCorrection.execute(client);
 	},
 };
