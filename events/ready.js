@@ -2,7 +2,7 @@ require("dotenv").config();
 const cron = require("cron");
 const birthdayCheck = require("./handlers/birthdayCheck");
 const birthdayCleanup = require("./handlers/birthdayCleanup");
-const downtimeCorrection = require("./handlers/downtimeCorrection");
+// const downtimeCorrection = require("./handlers/downtimeCorrection");
 
 const setupCronJobs = (client) => {
 	const birthdayCheckCron = new cron.CronJob("00 00 * * *", () => {
@@ -28,6 +28,6 @@ module.exports = {
 			status: "idle",
 		});
 		setupCronJobs(client);
-		downtimeCorrection.execute(client);
+		// downtimeCorrection.execute(client);
 	},
 };
