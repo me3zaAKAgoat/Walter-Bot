@@ -63,7 +63,7 @@ module.exports = {
 				try {
 					const member = await guild.members.fetch(activity.userId);
 					items.push({
-						name: `**${rank}**. ${member.user.username} (${activity._id.getTimestamp().toLocaleDateString("fr-FR")})`,
+						name: `**${rank}**. ${member.user.username} (joined : ${activity._id.getTimestamp().toLocaleDateString("fr-FR")})`,
 						value: `\`${Math.round(activity.vcTime / 60)} Hours | ${activity.messageCount} Messages\``,
 					})
 					rank++;
