@@ -52,7 +52,7 @@ module.exports = {
 				})
 				.setThumbnail(guild.iconURL())
 				.setFooter({
-					text: `recording started at ~3rd April 2023\nⓘ Only the caller of the command can switch pages.`,
+					text: `ⓘ Only the caller of the command can switch pages.`,
 				});
 
 			let rank = 1;
@@ -63,7 +63,7 @@ module.exports = {
 				try {
 					const member = await guild.members.fetch(activity.userId);
 					items.push({
-						name: `**${rank}**. ${member.user.username}`,
+						name: `**${rank}**. ${member.user.username} (${activity._id.getTimestamp().toLocaleDateString("fr-FR")})`,
 						value: `\`${Math.round(activity.vcTime / 60)} Hours | ${activity.messageCount} Messages\``,
 					})
 					rank++;

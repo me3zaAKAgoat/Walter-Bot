@@ -9,7 +9,9 @@ mongoose
 	.then(console.log("connected to", process.env.MONGODB_URI));
 
 Activity.find({}).then((result) =>
-	console.log(result.sort((a, b) => a.vcTime - b.vcTime))
+	result.forEach(element => {
+		console.log(element._id.getTimestamp());
+	})
 );
 // channel
 // 	.deleteMany({ channel: "duplicate" })
