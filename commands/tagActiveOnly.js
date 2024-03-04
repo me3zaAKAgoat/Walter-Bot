@@ -33,6 +33,7 @@ module.exports = {
 
 		const activeMembers = userActivities.slice(0, numberOfActiveMembers);
 
-		return await interaction.channel.send(activeMembers.map(activity => `<@${activity.userId}>`).join(" "));
+		const existingMembers = activeMembers.filter((member) => interaction.guild.members.cache.get(member.userId));
+		return await interaction.channel.send(existingMembers.map(member => `<@${member.userId}>`).join(" "));
 	},
 };
