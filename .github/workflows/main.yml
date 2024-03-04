@@ -20,4 +20,4 @@ jobs:
           ssh-keyscan ${REMOTE_HOST} > ~/.ssh/known_hosts
           echo "${SSH_PRIVATE_KEY}" > ssh_key
           chmod 400 ssh_key
-          ssh -i ssh_key ${REMOTE_USER}@${REMOTE_HOST} 'cd Walter-Bot/ && git stash && eval "$(ssh-agent -s)" && git pull--ff-only origin main && ./deploy.sh'
+          ssh -i ssh_key ${REMOTE_USER}@${REMOTE_HOST} 'cd Walter-Bot/ && git stash && eval "$(ssh-agent -s)" && git pull --ff-only origin main && ./deploy.sh'
