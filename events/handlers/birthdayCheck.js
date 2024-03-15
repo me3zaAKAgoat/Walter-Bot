@@ -5,7 +5,7 @@ const logger = require("../../utils/logger");
 const { BIRTHDAY_ROLE_NAME } = require("../../utils/constants");
 
 const birthdayMessage = (userId) =>
-	`@everyone Today is <@${userId}>'s birthday 🥳, don't forget to wish them a happy birthday <a:miyanoHype:1069612575416922112>, and as always our age is merely the number of years the world has been enjoying us! :D`;
+	`@everyone Today is <@${userId}>'s birthday <:birff:1218159718439194777>, don't forget to wish them a happy birthday <:hugg:1210799125470122014>, and as always our age is merely the number of years the world has been enjoying us! :D`;
 
 module.exports = {
 	execute: async (client) => {

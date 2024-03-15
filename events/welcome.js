@@ -30,7 +30,7 @@ module.exports = {
 				await roleUtils.assignRole(member, memberRole, "member", [255, 0, 255]);
 
 				await welcomeChannel.send(
-					`Hello <@${member.id}> <a:peepoHi:1069612731189166140>\nWelcome to **${member.guild.name}**,\nFeel free to tell us a bit about yourself below this message,\nAnd enjoy your stay <a:miyanoHype:1069612575416922112>`
+					`Hello <@${member.id}> <:ezz:1218159716945887272>\nWelcome to **${member.guild.name}**,\nFeel free to tell us a bit about yourself below this message,\nAnd enjoy your stay!`
 				);
 			} catch (error) {
 				if (error instanceof DiscordAPIError) {
